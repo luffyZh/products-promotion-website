@@ -143,50 +143,56 @@ export default function MainLayout() {
       </main>
 
       {/* Global Footer */}
-      <footer className="w-full bg-slate-950 py-12 border-t border-slate-900 text-slate-400 transition-colors duration-300">
+      <footer className="w-full bg-slate-100 dark:bg-slate-950 py-12 border-t border-slate-200 dark:border-slate-900 text-slate-600 dark:text-slate-400 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center">
-                <Shield className="w-5 h-5 text-white" />
-              </div>
-              <span className="font-bold text-xl tracking-tight text-slate-100">TechCorp</span>
-            </div>
-            <p className="text-sm leading-relaxed">
+            <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <img src={`${import.meta.env.BASE_URL}cetc-haikang.png`} alt="CETC" className="w-24 object-contain" />
+            </Link>
+            <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
               致力于为各行业提供智能、高效、可靠的前沿科技产品与解决方案。
             </p>
           </div>
           <div>
-            <h4 className="text-slate-100 font-semibold mb-4">产品</h4>
+            <h4 className="text-slate-900 dark:text-slate-100 font-semibold mb-4">产品</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/products/guardx" className="hover:text-emerald-400 transition-colors">
+                <Link to="/products/guardx" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                   GuardX 电子哨兵
                 </Link>
               </li>
               <li>
-                <span className="text-slate-600 cursor-not-allowed">更多产品敬请期待</span>
+                <span className="text-slate-400 dark:text-slate-600 cursor-not-allowed">更多产品敬请期待</span>
               </li>
             </ul>
           </div>
           <div>
-            <h4 className="text-slate-100 font-semibold mb-4">关于我们</h4>
+            <h4 className="text-slate-900 dark:text-slate-100 font-semibold mb-4">关于我们</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-emerald-400 transition-colors">公司简介</a></li>
-              <li><a href="#" className="hover:text-emerald-400 transition-colors">新闻动态</a></li>
-              <li><a href="#" className="hover:text-emerald-400 transition-colors">加入我们</a></li>
+              <li><a href="#" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">公司简介</a></li>
+              <li><a href="#" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">新闻动态</a></li>
+              <li><a href="#" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">加入我们</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-slate-100 font-semibold mb-4">联系方式</h4>
-            <ul className="space-y-2 text-sm">
-              <li>服务热线：400-123-4567</li>
-              <li>商务合作：business@techcorp.com</li>
-              <li>地址：科技创新园区 A 栋</li>
-            </ul>
+            <h4 className="text-slate-900 dark:text-slate-100 font-semibold mb-4">联系销售</h4>
+            <div className="flex flex-col gap-4">
+              <div className="flex items-start gap-4">
+                <div className="w-24 h-24 bg-white dark:bg-slate-800 rounded-lg p-2 border border-slate-200 dark:border-slate-700 shadow-sm shrink-0">
+                  <QrCode className="w-full h-full text-slate-300 dark:text-slate-600" />
+                </div>
+                <div className="space-y-2 py-1">
+                  <p className="text-sm font-medium text-slate-700 dark:text-slate-300">扫码添加销售微信</p>
+                  <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-500">
+                    <Phone className="w-4 h-4" />
+                    <a href="tel:13051891212" className="text-sm font-bold">130 5189 1212</a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-slate-900 text-sm text-center">
+        <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-slate-200 dark:border-slate-900 text-sm text-center text-slate-500">
           <p>© {new Date().getFullYear()} TechCorp. All rights reserved.</p>
         </div>
       </footer>

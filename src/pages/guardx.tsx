@@ -63,9 +63,7 @@ export default function ProductLandingPage() {
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white" style={{ lineHeight: '1.5' }}>
               有动才报 <span className="bg-gradient-to-r from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-500 bg-clip-text text-transparent">长时值守</span><br />
-              <span className="bg-gradient-to-r from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-500 bg-clip-text text-transparent">
-              智能识别 
-              </span> 触发取证
+              智能识别 <span className="bg-gradient-to-r from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-500 bg-clip-text text-transparent">态势感知</span>
             </h1>
             <p className="text-lg max-w-xl leading-relaxed text-slate-600 dark:text-slate-400">
               面向边境、周界、要地防卫与临时布控场景。通过“事件视觉感知 + 端侧AI识别 + 低功耗取证”三位一体，实现长期无人值守下的精准目标探测、告警与高清证据获取。
@@ -148,7 +146,7 @@ export default function ProductLandingPage() {
       <section id="features" className="w-full py-20 border-t border-slate-200 dark:border-slate-900 bg-white dark:bg-slate-950 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">四大核心技术亮点</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">核心技术亮点</h2>
             <p className="text-slate-600 dark:text-slate-400">
               突破传统监控限制，专为极端野外与无电无网环境设计
             </p>
@@ -199,76 +197,6 @@ export default function ProductLandingPage() {
         </div>
       </section>
 
-      {/* 3. 痛点问题与解决方案对比 (Painpoints vs Solutions) */}
-      <section id="painpoints" className="w-full py-20 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">为什么选择电子哨兵？</h2>
-            <p className="text-slate-600 dark:text-slate-400">
-              直面野外、临时布控场景下的三大核心痛点，给出更优解
-            </p>
-          </div>
-
-          <div className="space-y-8">
-            <div className="grid md:grid-cols-2 gap-6 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/20 shadow-sm transition-colors duration-300">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-500 font-semibold text-lg">
-                  <AlertTriangle className="w-5 h-5" /> 痛点一：传统摄像设备续航短
-                </div>
-                <p className="text-base text-slate-600 dark:text-slate-400">
-                  野外无电环境部署传统摄像头，需要拖带沉重的太阳能电池板或频繁更换电池，维护成本极高，极易因断电导致监控中断。
-                </p>
-              </div>
-              <div className="space-y-4 md:border-l md:pl-8 border-slate-200 dark:border-slate-800">
-                <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-500 font-semibold text-lg">
-                  <CheckCircle2 className="w-5 h-5" /> 电子哨兵解决方式：毫瓦（mW）级极低功耗
-                </div>
-                <p className="text-base text-slate-700 dark:text-slate-300">
-                  采用事件驱动唤醒机制，无事件时整机处于极低功耗休眠状态。配合小体积电池即可实现长达数月的野外潜伏值守。
-                </p>
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/20 shadow-sm transition-colors duration-300">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-500 font-semibold text-lg">
-                  <AlertTriangle className="w-5 h-5" /> 痛点二：无效视频多，传输与研判成本高
-                </div>
-                <p className="text-base text-slate-600 dark:text-slate-400">
-                  传统设备持续录像，回传大量风吹草动、光影变化的无效视频。不仅浪费宝贵的4G流量，也给后台人工研判带来极大的工作量。
-                </p>
-              </div>
-              <div className="space-y-4 md:border-l md:pl-8 border-slate-200 dark:border-slate-800">
-                <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-500 font-semibold text-lg">
-                  <CheckCircle2 className="w-5 h-5" /> 电子哨兵解决方式：端侧 AI 过滤与精准推送
-                </div>
-                <p className="text-base text-slate-700 dark:text-slate-300">
-                  本地端侧爽识别，DVS 初筛感知动目标是否是预期目标，唤醒 RGB 拍照 AI 智能识别，只有当检测到人、车、无人机等真实威胁目标时才进行告警，确保回传的每一帧都是关键证据。
-                </p>
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/20 shadow-sm transition-colors duration-300">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-500 font-semibold text-lg">
-                  <AlertTriangle className="w-5 h-5" /> 痛点三：野外和临时场景部署难
-                </div>
-                <p className="text-base text-slate-600 dark:text-slate-400">
-                  传统监控设备体积大、重量重，安装需要立杆、布线。在边境山林、临时安保等场景下，无法做到快速、隐蔽、灵活的部署。
-                </p>
-              </div>
-              <div className="space-y-4 md:border-l md:pl-8 border-slate-200 dark:border-slate-800">
-                <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-500 font-semibold text-lg">
-                  <CheckCircle2 className="w-5 h-5" /> 电子哨兵解决方式：极简隐蔽便携部署
-                </div>
-                <p className="text-base text-slate-700 dark:text-slate-300">
-                  哨兵模组体积仅如积木般大小（≤ 80mm * 80mm * 80mm），支持无损快速安装。可轻松融入石头、枯木等自然环境进行生态级伪装，实现真正的“隐形防线”。
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* 4. 隐蔽伪装与设备形态 (Camouflage & Forms) - Xmind Style */}
       <section id="camouflage" className="w-full py-24 border-y border-slate-200 dark:border-slate-900 bg-white dark:bg-slate-950 transition-colors duration-300 overflow-hidden">
@@ -446,7 +374,7 @@ export default function ProductLandingPage() {
       <section id="scenarios" className="w-full py-20 border-t border-slate-200 dark:border-slate-900 bg-white dark:bg-slate-950 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">四大典型应用场景</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">典型应用场景</h2>
             <p className="text-slate-600 dark:text-slate-400">
               针对不同行业安防痛点，提供灵活、高效、低维护成本的布防方案
             </p>
@@ -504,7 +432,78 @@ export default function ProductLandingPage() {
         </div>
       </section>
 
-      {/* 7. 产品优势对比 (Comparison) */}
+      {/* 5. 痛点问题与解决方案对比 (Painpoints vs Solutions) */}
+      <section id="painpoints" className="w-full py-20 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">为什么选择电子哨兵？</h2>
+            <p className="text-slate-600 dark:text-slate-400">
+              直面野外、临时布控场景下的三大核心痛点，给出更优解
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            <div className="grid md:grid-cols-2 gap-6 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/20 shadow-sm transition-colors duration-300">
+              <div className="space-y-4">
+                <div className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-500 font-semibold text-lg">
+                  <AlertTriangle className="w-5 h-5" /> 痛点一：传统摄像设备续航短
+                </div>
+                <p className="text-base text-slate-600 dark:text-slate-400">
+                  野外无电环境部署传统摄像头，需要拖带沉重的太阳能电池板或频繁更换电池，维护成本极高，极易因断电导致监控中断。
+                </p>
+              </div>
+              <div className="space-y-4 md:border-l md:pl-8 border-slate-200 dark:border-slate-800">
+                <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-500 font-semibold text-lg">
+                  <CheckCircle2 className="w-5 h-5" /> 电子哨兵解决方式：毫瓦（mW）级极低功耗
+                </div>
+                <p className="text-base text-slate-700 dark:text-slate-300">
+                  采用事件驱动唤醒机制，无事件时整机处于极低功耗休眠状态。配合小体积电池即可实现长达数月的野外潜伏值守。
+                </p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/20 shadow-sm transition-colors duration-300">
+              <div className="space-y-4">
+                <div className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-500 font-semibold text-lg">
+                  <AlertTriangle className="w-5 h-5" /> 痛点二：无效视频多，传输与研判成本高
+                </div>
+                <p className="text-base text-slate-600 dark:text-slate-400">
+                  传统设备持续录像，回传大量风吹草动、光影变化的无效视频。不仅浪费宝贵的4G流量，也给后台人工研判带来极大的工作量。
+                </p>
+              </div>
+              <div className="space-y-4 md:border-l md:pl-8 border-slate-200 dark:border-slate-800">
+                <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-500 font-semibold text-lg">
+                  <CheckCircle2 className="w-5 h-5" /> 电子哨兵解决方式：端侧 AI 过滤与精准推送
+                </div>
+                <p className="text-base text-slate-700 dark:text-slate-300">
+                  本地端侧爽识别，DVS 初筛感知动目标是否是预期目标，唤醒 RGB 拍照 AI 智能识别，只有当检测到人、车、无人机等真实威胁目标时才进行告警，确保回传的每一帧都是关键证据。
+                </p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/20 shadow-sm transition-colors duration-300">
+              <div className="space-y-4">
+                <div className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-500 font-semibold text-lg">
+                  <AlertTriangle className="w-5 h-5" /> 痛点三：野外和临时场景部署难
+                </div>
+                <p className="text-base text-slate-600 dark:text-slate-400">
+                  传统监控设备体积大、重量重，安装需要立杆、布线。在边境山林、临时安保等场景下，无法做到快速、隐蔽、灵活的部署。
+                </p>
+              </div>
+              <div className="space-y-4 md:border-l md:pl-8 border-slate-200 dark:border-slate-800">
+                <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-500 font-semibold text-lg">
+                  <CheckCircle2 className="w-5 h-5" /> 电子哨兵解决方式：极简隐蔽便携部署
+                </div>
+                <p className="text-base text-slate-700 dark:text-slate-300">
+                  哨兵模组体积仅如积木般大小（≤ 80mm * 80mm * 80mm），支持无损快速安装。可轻松融入石头、枯木等自然环境进行生态级伪装，实现真正的“隐形防线”。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. 产品优势对比 (Comparison) */}
       <section id="comparison" className="w-full py-20 bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16 space-y-4">
@@ -514,87 +513,110 @@ export default function ProductLandingPage() {
 
           <div className="flex flex-col md:flex-row justify-center items-stretch relative mt-12">
             {/* 左侧文字标签 */}
-            <div className="hidden md:flex flex-col justify-between py-16 pr-8 text-right space-y-8 w-48 shrink-0">
+            <div className="hidden md:flex flex-col py-8 pr-8 text-right w-48 shrink-0 mt-[128px]">
               <div className="h-12 flex items-center justify-end font-semibold text-slate-500">感知方式</div>
+              <div className="h-8"></div>
               <div className="h-12 flex items-center justify-end font-semibold text-slate-500">功耗与续航</div>
+              <div className="h-8"></div>
               <div className="h-12 flex items-center justify-end font-semibold text-slate-500">无效数据</div>
+              <div className="h-8"></div>
               <div className="h-12 flex items-center justify-end font-semibold text-slate-500">取证能力</div>
+              <div className="h-8"></div>
               <div className="h-12 flex items-center justify-end font-semibold text-slate-500">部署难度</div>
+              <div className="h-8"></div>
               <div className="h-12 flex items-center justify-end font-semibold text-slate-500">维护频率</div>
             </div>
 
             {/* GuardX 高亮对比列 */}
-            <div className="relative z-10 w-full md:w-80 bg-[#4F84E6] rounded-3xl shadow-[0_20px_50px_rgba(79,132,230,0.4)] text-white transform md:-translate-y-4 flex flex-col overflow-hidden">
-              <div className="h-32 flex flex-col items-center justify-center">
+            <div className="relative z-20 w-full md:w-80 bg-gradient-to-b from-emerald-500 to-emerald-600 rounded-3xl shadow-[0_20px_50px_rgba(16,185,129,0.4)] text-white transform md:scale-105 flex flex-col overflow-hidden">
+              <div className="h-32 shrink-0 flex flex-col items-center justify-center relative">
                 <div className="bg-white/20 px-6 py-2 rounded-full text-base font-bold tracking-wider mb-2">GUARDX 电子哨兵</div>
                 <div className="w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center text-slate-900 font-bold text-xs absolute right-4 top-4 shadow-lg shadow-yellow-400/50">1</div>
               </div>
-              <div className="flex flex-col py-8 px-6 space-y-8 text-center flex-1">
+              <div className="flex flex-col py-8 px-6 text-center flex-1">
                 <div className="h-12 flex flex-col items-center justify-center relative">
-                  <span className="md:hidden text-[#B0C8F5] text-xs mb-1">感知方式</span>
+                  <span className="md:hidden text-emerald-100 text-xs mb-1">感知方式</span>
                   <span className="font-bold text-lg">事件驱动 (有动才报)</span>
                 </div>
-                <div className="w-full h-px bg-white/20 mx-auto"></div>
-                <div className="h-12 flex flex-col items-center justify-center relative">
-                  <span className="md:hidden text-[#B0C8F5] text-xs mb-1">功耗与续航</span>
-                  <span className="font-bold text-lg">微瓦级待机 / ≥60天</span>
-                  <div className="w-5 h-5 rounded-full bg-yellow-400 flex items-center justify-center text-slate-900 font-bold text-[10px] absolute -right-2 top-0 shadow-sm shadow-yellow-400/50">2</div>
+                <div className="h-8 flex items-center justify-center">
+                  <div className="w-full h-px bg-white/20 mx-auto"></div>
                 </div>
-                <div className="w-full h-px bg-white/20 mx-auto"></div>
                 <div className="h-12 flex flex-col items-center justify-center relative">
-                  <span className="md:hidden text-[#B0C8F5] text-xs mb-1">无效数据</span>
-                  <span className="font-bold text-lg">端侧AI过滤 (近乎无)</span>
-                  <div className="w-5 h-5 rounded-full bg-yellow-400 flex items-center justify-center text-slate-900 font-bold text-[10px] absolute -right-2 top-0 shadow-sm shadow-yellow-400/50">3</div>
+                  <span className="md:hidden text-emerald-100 text-xs mb-1">功耗与续航</span>
+                  <span className="font-bold text-lg">毫瓦（mW）级功耗 / ≥60天</span>
                 </div>
-                <div className="w-full h-px bg-white/20 mx-auto"></div>
+                <div className="h-8 flex items-center justify-center">
+                  <div className="w-full h-px bg-white/20 mx-auto"></div>
+                </div>
+                <div className="h-12 flex flex-col items-center justify-center relative">
+                  <span className="md:hidden text-emerald-100 text-xs mb-1">无效数据</span>
+                  <span className="font-bold text-lg">端侧双识别 / 准确率 ≥ 90%</span>
+                </div>
+                <div className="h-8 flex items-center justify-center">
+                  <div className="w-full h-px bg-white/20 mx-auto"></div>
+                </div>
                 <div className="h-12 flex flex-col items-center justify-center">
-                  <span className="md:hidden text-[#B0C8F5] text-xs mb-1">取证能力</span>
+                  <span className="md:hidden text-emerald-100 text-xs mb-1">取证能力</span>
                   <span className="font-bold text-lg">高清彩色抓拍</span>
                 </div>
-                <div className="w-full h-px bg-white/20 mx-auto"></div>
+                <div className="h-8 flex items-center justify-center">
+                  <div className="w-full h-px bg-white/20 mx-auto"></div>
+                </div>
                 <div className="h-12 flex flex-col items-center justify-center">
-                  <span className="md:hidden text-[#B0C8F5] text-xs mb-1">部署难度</span>
+                  <span className="md:hidden text-emerald-100 text-xs mb-1">部署难度</span>
                   <span className="font-bold text-lg">生态伪装，免布线</span>
                 </div>
-                <div className="w-full h-px bg-white/20 mx-auto"></div>
+                <div className="h-8 flex items-center justify-center">
+                  <div className="w-full h-px bg-white/20 mx-auto"></div>
+                </div>
                 <div className="h-12 flex flex-col items-center justify-center">
-                  <span className="md:hidden text-[#B0C8F5] text-xs mb-1">维护频率</span>
+                  <span className="md:hidden text-emerald-100 text-xs mb-1">维护频率</span>
                   <span className="font-bold text-lg">极低 (数月一次)</span>
                 </div>
               </div>
             </div>
 
             {/* 传统设备列 */}
-            <div className="relative w-full md:w-80 bg-white dark:bg-slate-800 rounded-2xl md:rounded-l-none md:rounded-r-2xl border border-slate-200 dark:border-slate-700 shadow-lg mt-8 md:mt-0 flex flex-col overflow-hidden">
-              <div className="h-32 flex flex-col items-center justify-center bg-slate-100 dark:bg-slate-900/50">
+            <div className="relative z-10 w-full md:w-80 bg-white dark:bg-slate-800 rounded-3xl md:-ml-6 border border-slate-200 dark:border-slate-700 shadow-md mt-8 md:mt-0 flex flex-col overflow-hidden">
+              <div className="h-32 shrink-0 flex flex-col items-center justify-center bg-slate-100 dark:bg-slate-900/50 md:pl-6">
                 <div className="bg-slate-700 dark:bg-slate-600 text-white px-6 py-2 rounded-full text-base font-bold tracking-wider">传统安防摄像头</div>
               </div>
-              <div className="flex flex-col py-8 px-6 space-y-8 text-center text-slate-800 dark:text-slate-200 flex-1">
+              <div className="flex flex-col py-8 px-6 text-center text-slate-800 dark:text-slate-200 flex-1 md:pl-12">
                 <div className="h-12 flex flex-col items-center justify-center">
                   <span className="md:hidden text-slate-400 text-xs mb-1">感知方式</span>
                   <span className="font-semibold text-base">持续录像 / 高频唤醒</span>
                 </div>
-                <div className="w-full h-px bg-slate-200 dark:bg-slate-700 mx-auto"></div>
+                <div className="h-8 flex items-center justify-center">
+                  <div className="w-full h-px bg-slate-200 dark:bg-slate-700 mx-auto"></div>
+                </div>
                 <div className="h-12 flex flex-col items-center justify-center">
                   <span className="md:hidden text-slate-400 text-xs mb-1">功耗与续航</span>
                   <span className="font-semibold text-base">耗电大，需配太阳能板</span>
                 </div>
-                <div className="w-full h-px bg-slate-200 dark:bg-slate-700 mx-auto"></div>
+                <div className="h-8 flex items-center justify-center">
+                  <div className="w-full h-px bg-slate-200 dark:bg-slate-700 mx-auto"></div>
+                </div>
                 <div className="h-12 flex flex-col items-center justify-center">
                   <span className="md:hidden text-slate-400 text-xs mb-1">无效数据</span>
                   <span className="font-semibold text-base">海量 (风吹草动皆录)</span>
                 </div>
-                <div className="w-full h-px bg-slate-200 dark:bg-slate-700 mx-auto"></div>
+                <div className="h-8 flex items-center justify-center">
+                  <div className="w-full h-px bg-slate-200 dark:bg-slate-700 mx-auto"></div>
+                </div>
                 <div className="h-12 flex flex-col items-center justify-center">
                   <span className="md:hidden text-slate-400 text-xs mb-1">取证能力</span>
                   <span className="font-semibold text-base">找关键帧费时费力</span>
                 </div>
-                <div className="w-full h-px bg-slate-200 dark:bg-slate-700 mx-auto"></div>
+                <div className="h-8 flex items-center justify-center">
+                  <div className="w-full h-px bg-slate-200 dark:bg-slate-700 mx-auto"></div>
+                </div>
                 <div className="h-12 flex flex-col items-center justify-center">
                   <span className="md:hidden text-slate-400 text-xs mb-1">部署难度</span>
                   <span className="font-semibold text-base">需立杆，目标明显</span>
                 </div>
-                <div className="w-full h-px bg-slate-200 dark:bg-slate-700 mx-auto"></div>
+                <div className="h-8 flex items-center justify-center">
+                  <div className="w-full h-px bg-slate-200 dark:bg-slate-700 mx-auto"></div>
+                </div>
                 <div className="h-12 flex flex-col items-center justify-center">
                   <span className="md:hidden text-slate-400 text-xs mb-1">维护频率</span>
                   <span className="font-semibold text-base">高 (频繁换电池)</span>
