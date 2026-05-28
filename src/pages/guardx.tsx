@@ -12,7 +12,8 @@ import {
   ChevronLeft,
   Camera, 
   Monitor, 
-  Package
+  Package,
+  X
 } from 'lucide-react';
 
 // 本地素材导入
@@ -34,6 +35,7 @@ const heroImages = [heroImg1, heroImg2, heroImg3, heroImg4, heroImg5];
 
 export default function ProductLandingPage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -69,9 +71,12 @@ export default function ProductLandingPage() {
               面向边境、周界、要地防卫与临时布控场景。通过“事件视觉感知 + 端侧AI识别 + 低功耗取证”三位一体，实现长期无人值守下的精准目标探测、告警与高清证据获取。
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
-              <a href="#dashboard" className="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-lg font-semibold transition-all shadow-lg flex items-center gap-2">
-                查看演示大屏 <ChevronRight className="w-4 h-4" />
-              </a>
+              <button 
+                onClick={() => setIsVideoModalOpen(true)}
+                className="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-lg font-semibold transition-all shadow-lg flex items-center gap-2"
+              >
+                查看视频 <ChevronRight className="w-4 h-4" />
+              </button>
               <a href="#camouflage" className="px-6 py-3 rounded-lg font-semibold border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 transition-all">
                 了解隐蔽部署
               </a>
@@ -656,6 +661,36 @@ export default function ProductLandingPage() {
           </div>
         </div>
       </section>
+
+      {/* Video Modal */}
+      {isVideoModalOpen && (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm transition-opacity">
+          <div 
+            className="absolute inset-0" 
+            onClick={() => setIsVideoModalOpen(false)}
+            aria-label="关闭视频"
+          />
+          <div className="relative w-full max-w-5xl bg-black rounded-2xl overflow-hidden shadow-2xl z-10 border border-white/10">
+            <button 
+              onClick={() => setIsVideoModalOpen(false)}
+              className="absolute top-4 right-4 w-10 h-10 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center backdrop-blur transition-colors z-20"
+              aria-label="关闭视频"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <div className="aspect-video w-full bg-black flex items-center justify-center">
+              <video 
+                src="/guard-x.mp4" 
+                className="w-full h-full object-contain outline-none"
+                autoPlay 
+                controls 
+                playsInline
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
