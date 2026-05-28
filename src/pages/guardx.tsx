@@ -34,8 +34,8 @@ import moduleImg from '../assets/guard-x/module.png';
 import stoneImg from '../assets/guard-x/bone.png'; // 根据文件夹中的实际命名为 bone.png
 import woodImg from '../assets/guard-x/tree.png';
 import dashboardImg from '../assets/guard-x/web-screen.png';
-import nightImg from '../assets/guard-x/guardx-night.jpeg';
-import dayImg from '../assets/guard-x/GuardX-02.jpg'; 
+import guardxNightImg from '../assets/guard-x/guardx-night.jpeg';
+import otherNightImg from '../assets/guard-x/other-product-night.jpeg';
 import guardxImg from '../assets/guard-x/guardx.png';
 import traditionalImg from '../assets/guard-x/traditional.png';
 
@@ -72,7 +72,7 @@ export default function ProductLandingPage() {
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white" style={{ lineHeight: '1.5' }}>
               有动才报 <span className="bg-gradient-to-r from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-500 bg-clip-text text-transparent">长时值守</span><br />
-              智能识别 <span className="bg-gradient-to-r from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-500 bg-clip-text text-transparent">态势感知</span>
+              <span className="bg-gradient-to-r from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-500 bg-clip-text text-transparent">智能识别 </span> 态势感知
             </h1>
             <p className="text-lg max-w-xl leading-relaxed text-slate-600 dark:text-slate-400">
               面向边境、周界、要地防卫与临时布控场景。通过“事件视觉感知 + 端侧AI识别 + 低功耗取证”三位一体，实现长期无人值守下的精准目标探测、告警与高清证据获取。
@@ -312,74 +312,137 @@ export default function ProductLandingPage() {
         </div>
       </section>
 
-      {/* 5. 智慧大屏与实拍效果 (Dashboard & Real Shots) */}
-      <section id="dashboard" className="w-full py-20 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+      {/* 5. 智慧大屏态势感知 (Dashboard) */}
+      <section id="dashboard" className="w-full py-24 bg-slate-50 dark:bg-slate-950 transition-colors duration-300 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">GuardX 智慧大屏态势感知</h2>
+          <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 space-y-4">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">智慧大屏态势感知</h2>
             <p className="text-slate-600 dark:text-slate-400">
               后端大屏实时联动，哨兵部署位置、运行状态、告警轨迹一目了然
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7">
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 shadow-lg transition-colors">
-                <img src={dashboardImg} alt="GuardX 智慧大屏" className="w-full h-auto" />
-                <div className="absolute top-3 right-3 bg-red-500 text-white text-xs px-2.5 py-1 rounded font-semibold animate-pulse">
+          {/* Desktop Layout */}
+          <div className="hidden lg:grid grid-cols-12 gap-6 items-center">
+            {/* Left Features */}
+            <div className="col-span-3 space-y-32 text-right relative">
+              <div className="relative pr-8">
+                <div className="absolute top-1/2 right-0 w-8 h-px bg-emerald-500/50 transform -translate-y-1/2"></div>
+                <div className="w-2 h-2 rounded-full bg-emerald-500 absolute top-1/2 -right-1 transform -translate-y-1/2"></div>
+                <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">GIS地图态势融合</h4>
+                <p className="text-sm text-slate-500 leading-relaxed">大屏直观展示各哨兵地理位置，动态绘制入侵目标轨迹。</p>
+              </div>
+              <div className="relative pr-8">
+                <div className="absolute top-1/2 right-0 w-8 h-px bg-emerald-500/50 transform -translate-y-1/2"></div>
+                <div className="w-2 h-2 rounded-full bg-emerald-500 absolute top-1/2 -right-1 transform -translate-y-1/2"></div>
+                <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">左侧告警面板</h4>
+                <p className="text-sm text-slate-500 leading-relaxed">实时回传目标截图，秒级推送高清抓拍证据。</p>
+              </div>
+            </div>
+
+            {/* Center Image */}
+            <div className="col-span-6 relative z-10">
+              <div className="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl relative group">
+                <img src={dashboardImg} alt="GuardX 智慧大屏" className="w-full h-auto transform group-hover:scale-[1.02] transition-transform duration-700" />
+                <div className="absolute top-4 right-4 bg-red-500/90 backdrop-blur text-white text-xs px-3 py-1.5 rounded-md font-bold flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
                   实时联动中
                 </div>
               </div>
             </div>
-            <div className="lg:col-span-5 space-y-6">
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">全天候目标捕获与取证</h3>
-              <p className="text-slate-600 dark:text-slate-400">
-                前端哨兵模组具备极强的光线适应能力，配合端侧算法，无论烈日当空还是极暗深夜，均能精准框选并识别目标。
-              </p>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <div className="relative rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800">
-                    <img src={dayImg} alt="白天实拍" className="w-full h-auto aspect-video object-cover" />
-                    <span className="absolute bottom-2 left-2 bg-slate-900/80 dark:bg-slate-950/80 text-white text-[10px] px-1.5 py-0.5 rounded">白天抓拍</span>
-                  </div>
-                  <p className="text-xs text-slate-500 text-center">高清目标细节与色彩还原</p>
-                </div>
-                <div className="space-y-2">
-                  <div className="relative rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800">
-                    <img src={nightImg} alt="夜晚实拍" className="w-full h-auto aspect-video object-cover" />
-                    <span className="absolute bottom-2 left-2 bg-slate-900/80 dark:bg-slate-950/80 text-white text-[10px] px-1.5 py-0.5 rounded">夜晚抓拍</span>
-                  </div>
-                  <p className="text-xs text-slate-500 text-center">极暗光线下依然精准框选目标</p>
-                </div>
+            {/* Right Features */}
+            <div className="col-span-3 space-y-32 text-left relative">
+              <div className="relative pl-8">
+                <div className="absolute top-1/2 left-0 w-8 h-px bg-emerald-500/50 transform -translate-y-1/2"></div>
+                <div className="w-2 h-2 rounded-full bg-emerald-500 absolute top-1/2 -left-1 transform -translate-y-1/2"></div>
+                <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">右侧告警趋势</h4>
+                <p className="text-sm text-slate-500 leading-relaxed">多维数据看板，直观呈现告警趋势与目标分类统计。</p>
               </div>
+              <div className="relative pl-8">
+                <div className="absolute top-1/2 left-0 w-8 h-px bg-emerald-500/50 transform -translate-y-1/2"></div>
+                <div className="w-2 h-2 rounded-full bg-emerald-500 absolute top-1/2 -left-1 transform -translate-y-1/2"></div>
+                <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">设备健康度监控</h4>
+                <p className="text-sm text-slate-500 leading-relaxed">实时回传剩余电量、信号强度、在线状态，异常自动告警。</p>
+              </div>
+            </div>
+          </div>
 
-              <div className="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-3">
-                <div className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center mt-0.5">
-                    <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-semibold text-slate-900 dark:text-white">GIS地图态势融合</h4>
-                    <p className="text-xs text-slate-500">大屏直观展示各哨兵地理位置，动态绘制入侵目标轨迹。</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center mt-0.5">
-                    <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-semibold text-slate-900 dark:text-white">设备健康度监控</h4>
-                    <p className="text-xs text-slate-500">实时回传剩余电量、信号强度、在线状态，异常自动告警。</p>
-                  </div>
-                </div>
+          {/* Mobile Layout */}
+          <div className="lg:hidden flex flex-col items-center space-y-8">
+            <div className="w-full rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl relative">
+              <img src={dashboardImg} alt="GuardX 智慧大屏" className="w-full h-auto" />
+              <div className="absolute top-3 right-3 bg-red-500/90 backdrop-blur text-white text-xs px-3 py-1.5 rounded-md font-bold flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                实时联动中
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-4 w-full">
+              <div className="bg-white dark:bg-slate-900/50 p-5 rounded-xl border border-slate-200 dark:border-slate-800">
+                <h4 className="text-base font-bold text-slate-900 dark:text-white mb-1 text-emerald-600 dark:text-emerald-500">GIS地图态势融合</h4>
+                <p className="text-xs text-slate-600 dark:text-slate-400">大屏直观展示各哨兵地理位置，动态绘制入侵目标轨迹。</p>
+              </div>
+              <div className="bg-white dark:bg-slate-900/50 p-5 rounded-xl border border-slate-200 dark:border-slate-800">
+                <h4 className="text-base font-bold text-slate-900 dark:text-white mb-1 text-emerald-600 dark:text-emerald-500">左侧告警面板</h4>
+                <p className="text-xs text-slate-600 dark:text-slate-400">实时回传目标截图，秒级推送高清抓拍证据。</p>
+              </div>
+              <div className="bg-white dark:bg-slate-900/50 p-5 rounded-xl border border-slate-200 dark:border-slate-800">
+                <h4 className="text-base font-bold text-slate-900 dark:text-white mb-1 text-emerald-600 dark:text-emerald-500">右侧告警趋势</h4>
+                <p className="text-xs text-slate-600 dark:text-slate-400">多维数据看板，直观呈现告警趋势与目标分类统计。</p>
+              </div>
+              <div className="bg-white dark:bg-slate-900/50 p-5 rounded-xl border border-slate-200 dark:border-slate-800">
+                <h4 className="text-base font-bold text-slate-900 dark:text-white mb-1 text-emerald-600 dark:text-emerald-500">设备健康度监控</h4>
+                <p className="text-xs text-slate-600 dark:text-slate-400">实时回传剩余电量、信号强度、在线状态，异常自动告警。</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 6. 应用场景 (Scenarios) */}
+      {/* 6. 夜视对比 (Night Vision) */}
+      <section id="night-vision" className="w-full py-24 bg-black transition-colors duration-300 overflow-hidden relative">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <h2 className="text-3xl font-bold tracking-tight text-white">智能出彩，夜间也出色</h2>
+            <p className="text-slate-400 text-lg">
+              AI-ISP 全彩夜视，≧ 1Lux 极暗光线下依然精准框选目标
+            </p>
+          </div>
+
+          <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden border border-slate-800 shadow-2xl aspect-[4/3] md:aspect-[21/9] group">
+            {/* Left Image: GuardX */}
+            <div className="absolute inset-0 z-10 transition-all duration-500 ease-in-out" style={{ clipPath: 'polygon(0 0, 55% 0, 45% 100%, 0 100%)' }}>
+              <img src={guardxNightImg} alt="全彩夜视" className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000" />
+              <div className="absolute bottom-6 left-6 md:left-12 bg-black/60 backdrop-blur px-6 py-2 rounded-full text-white font-bold border border-white/10 shadow-lg z-20">
+                <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">全彩夜视</span>
+              </div>
+            </div>
+
+            {/* Right Image: Traditional */}
+            <div className="absolute inset-0 z-0">
+              <img src={otherNightImg} alt="普通红外夜视" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000" />
+              <div className="absolute bottom-6 right-6 md:right-12 bg-black/60 backdrop-blur px-6 py-2 rounded-full text-white font-bold border border-white/10 shadow-lg z-20">
+                <span className="text-slate-300">普通红外夜视</span>
+              </div>
+            </div>
+
+            {/* Diagonal Divider Line */}
+            <div className="absolute top-[-10%] bottom-[-10%] left-[45%] w-[10%] z-20 pointer-events-none">
+              <svg className="w-full h-full drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]" preserveAspectRatio="none" viewBox="0 0 100 100">
+                <line x1="100" y1="0" x2="0" y2="100" stroke="rgba(255,255,255,0.8)" strokeWidth="0.5" vectorEffect="non-scaling-stroke" />
+              </svg>
+            </div>
+
+            {/* VS Badge */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black text-white w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center font-black italic text-lg md:text-2xl border-[3px] border-slate-800 shadow-[0_0_30px_rgba(0,0,0,0.8)] z-30">
+              VS
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. 应用场景 (Scenarios) */}
       <section id="scenarios" className="w-full py-20 border-t border-slate-200 dark:border-slate-900 bg-white dark:bg-slate-950 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
