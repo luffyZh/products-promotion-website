@@ -57,15 +57,15 @@ export default function ProductLandingPage() {
       <header className="relative w-full py-20 lg:py-32 overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-              <Cpu className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              <Cpu className="w-4 h-4" />
               超低功耗智能侦察终端
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-none text-slate-900 dark:text-white">
-              有动才报 <br />
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white" style={{ lineHeight: '1.5' }}>
+              有动才报 <span className="bg-gradient-to-r from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-500 bg-clip-text text-transparent">长时值守</span><br />
               <span className="bg-gradient-to-r from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-500 bg-clip-text text-transparent">
-                长时值守 智能取证
-              </span>
+              智能识别 
+              </span> 触发取证
             </h1>
             <p className="text-lg max-w-xl leading-relaxed text-slate-600 dark:text-slate-400">
               面向边境、周界、要地防卫与临时布控场景。通过“事件视觉感知 + 端侧AI识别 + 低功耗取证”三位一体，实现长期无人值守下的精准目标探测、告警与高清证据获取。
@@ -680,7 +680,7 @@ export default function ProductLandingPage() {
             </button>
             <div className="aspect-video w-full bg-black flex items-center justify-center">
               <video 
-                src="/guard-x.mp4" 
+                src={`${import.meta.env.BASE_URL}guard-x.mp4`} 
                 className="w-full h-full object-contain outline-none"
                 autoPlay 
                 controls 

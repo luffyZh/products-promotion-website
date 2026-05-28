@@ -36,7 +36,7 @@ export default function MainLayout() {
       <header className="sticky top-0 z-[100] w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <img src="/cetc-haikang.png" alt="CETC" className="w-24" />
+            <img src={`${import.meta.env.BASE_URL}cetc-haikang.png`} alt="CETC" className="w-24" />
           </Link>
 
           {/* Desktop Navigation */}
