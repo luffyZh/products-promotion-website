@@ -35,6 +35,7 @@ const heroImages = [heroImg1, heroImg2, heroImg3, heroImg4, heroImg5];
 export default function ProductLandingPage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -269,54 +270,106 @@ export default function ProductLandingPage() {
         </div>
       </section>
 
-      {/* 4. 隐蔽伪装与设备形态 (Camouflage & Forms) */}
-      <section id="camouflage" className="w-full py-20 border-y border-slate-200 dark:border-slate-900 bg-white dark:bg-slate-950 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+      {/* 4. 隐蔽伪装与设备形态 (Camouflage & Forms) - Xmind Style */}
+      <section id="camouflage" className="w-full py-24 border-y border-slate-200 dark:border-slate-900 bg-white dark:bg-slate-950 transition-colors duration-300 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">生态级隐蔽伪装</h2>
-            <p className="text-slate-600 dark:text-slate-400">
-              哨兵模组极致小巧，可完美融入野外自然环境，让防线于无形中建立
+            <p className="text-slate-600 dark:text-slate-400 text-lg">
+              基于极其小巧的核心模组，可根据场景需求扩展出千变万化的伪装形态
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            <div className="rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col bg-slate-50 dark:bg-slate-900/30 transition-colors">
-              <div className="p-4 flex-1 flex items-center justify-center bg-slate-100 dark:bg-slate-950/40">
-                <img src={moduleImg} alt="哨兵核心模组" className="max-h-64 object-contain rounded-lg hover:scale-105 transition-transform" />
-              </div>
-              <div className="p-6 space-y-2">
-                <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-500 uppercase tracking-wider">核心硬件</span>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white">哨兵微型模组</h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
-                  高度集成的微型电路板，搭载超低功耗图像传感器与端侧AI算力芯片，尺寸仅与普通积木相当。
-                </p>
+          <div className="relative flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24">
+            
+            {/* 左侧：核心模组 */}
+            <div className="relative z-10 w-full md:w-1/3 max-w-sm">
+              <div className="rounded-2xl border-2 border-emerald-500/30 bg-emerald-50/50 dark:bg-emerald-900/10 p-6 shadow-2xl shadow-emerald-500/10 relative backdrop-blur-sm">
+                <div className="absolute -top-3 -right-3">
+                  <span className="relative flex h-6 w-6">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-6 w-6 bg-emerald-500 items-center justify-center">
+                      <Cpu className="w-3 h-3 text-white" />
+                    </span>
+                  </span>
+                </div>
+                <div className="aspect-[4/3] flex items-center justify-center mb-6">
+                  <img src={moduleImg} alt="哨兵核心模组" className="w-full h-full object-contain hover:scale-110 transition-transform duration-500" />
+                </div>
+                <div className="text-center space-y-2">
+                  <span className="inline-block px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 text-xs font-bold rounded-full mb-2">核心大脑</span>
+                  <h3 className="text-2xl font-black text-slate-900 dark:text-white">微型智能模组</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                    高度集成的微型电路板，搭载超低功耗图像传感器与端侧AI算力芯片，尺寸仅与普通积木相当。
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col bg-slate-50 dark:bg-slate-900/30 transition-colors">
-              <div className="p-4 flex-1 flex items-center justify-center bg-slate-100 dark:bg-slate-950/40">
-                <img src={stoneImg} alt="石头伪装" className="max-h-64 object-contain rounded-lg hover:scale-105 transition-transform" />
-              </div>
-              <div className="p-6 space-y-2">
-                <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-500 uppercase tracking-wider">野外伪装形态 A</span>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white">仿生岩石哨兵</h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
-                  模组嵌入高仿真岩石外壳中，双镜头孔径极小。置于山地、荒漠或边境线一侧，肉眼极难察觉。
-                </p>
-              </div>
+            {/* 连接线 (仅 PC 端显示) */}
+            <div className="hidden md:block absolute left-1/3 right-1/3 top-1/2 -translate-y-1/2 z-0">
+              <svg width="100%" height="300" className="absolute top-1/2 -translate-y-1/2" style={{ overflow: 'visible' }}>
+                <path d="M 0 150 C 50 150, 50 0, 100 0" fill="none" stroke="currentColor" className="text-emerald-500/30 dark:text-emerald-500/20" strokeWidth="3" strokeDasharray="6 6" />
+                <path d="M 0 150 C 50 150, 50 300, 100 300" fill="none" stroke="currentColor" className="text-emerald-500/30 dark:text-emerald-500/20" strokeWidth="3" strokeDasharray="6 6" />
+                {/* 动画流动点 */}
+                <circle r="4" fill="#10b981" className="animate-[dash_3s_linear_infinite]">
+                  <animateMotion dur="3s" repeatCount="indefinite" path="M 0 150 C 50 150, 50 0, 100 0" />
+                </circle>
+                <circle r="4" fill="#10b981" className="animate-[dash_3s_linear_infinite]">
+                  <animateMotion dur="3s" repeatCount="indefinite" path="M 0 150 C 50 150, 50 300, 100 300" />
+                </circle>
+              </svg>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col bg-slate-50 dark:bg-slate-900/30 transition-colors">
-              <div className="p-4 flex-1 flex items-center justify-center bg-slate-100 dark:bg-slate-950/40">
-                <img src={woodImg} alt="树枝伪装" className="max-h-64 object-contain rounded-lg hover:scale-105 transition-transform" />
+            {/* 右侧：扩展形态分支 */}
+            <div className="relative z-10 w-full md:w-1/2 flex flex-col gap-12">
+              
+              {/* 分支 1 */}
+              <div className="relative flex items-center gap-6 group">
+                <div className="hidden md:flex w-8 h-px bg-emerald-500/30"></div>
+                <div className="flex-1 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/40 p-2 flex flex-col sm:flex-row items-center gap-6 hover:border-emerald-500/50 transition-colors shadow-sm hover:shadow-xl hover:-translate-y-1 duration-300">
+                  <div 
+                    className="w-48 h-48 shrink-0 bg-slate-50 dark:bg-slate-800/50 rounded-xl flex items-center justify-center p-2 cursor-pointer relative overflow-hidden group/img"
+                    onClick={() => setPreviewImage(stoneImg)}
+                  >
+                    <img src={stoneImg} alt="仿生岩石哨兵" className="w-full h-full object-contain group-hover/img:scale-110 transition-transform duration-500" />
+                    <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/10 flex items-center justify-center transition-colors">
+                      <Eye className="text-white opacity-0 group-hover/img:opacity-100 w-8 h-8 drop-shadow-md transition-opacity" />
+                    </div>
+                  </div>
+                  <div className="space-y-2 text-center sm:text-left">
+                    <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-500">形态扩展 01</span>
+                    <h4 className="text-lg font-bold text-slate-900 dark:text-white">仿生岩石哨兵</h4>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">
+                      模组嵌入高仿真岩石外壳，双镜头孔径极小。置于山地、荒漠或边境线一侧，肉眼极难察觉。
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="p-6 space-y-2">
-                <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-500 uppercase tracking-wider">野外伪装形态 B</span>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white">枯木仿生哨兵</h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
-                  完美融入枯木、树干纹理。适合林区、灌木丛、果园等植被茂密区域的长期潜伏与防范。
-                </p>
+
+              {/* 分支 2 */}
+              <div className="relative flex items-center gap-6 group">
+                <div className="hidden md:flex w-8 h-px bg-emerald-500/30"></div>
+                <div className="flex-1 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/40 p-2 flex flex-col sm:flex-row items-center gap-6 hover:border-emerald-500/50 transition-colors shadow-sm hover:shadow-xl hover:-translate-y-1 duration-300">
+                  <div 
+                    className="w-48 h-48 shrink-0 bg-slate-50 dark:bg-slate-800/50 rounded-xl flex items-center justify-center p-2 cursor-pointer relative overflow-hidden group/img"
+                    onClick={() => setPreviewImage(woodImg)}
+                  >
+                    <img src={woodImg} alt="枯木仿生哨兵" className="w-full h-full object-contain group-hover/img:scale-110 transition-transform duration-500 drop-shadow-md" />
+                    <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/10 flex items-center justify-center transition-colors">
+                      <Eye className="text-white opacity-0 group-hover/img:opacity-100 w-8 h-8 drop-shadow-md transition-opacity" />
+                    </div>
+                  </div>
+                  <div className="space-y-2 text-center sm:text-left">
+                    <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-500">形态扩展 02</span>
+                    <h4 className="text-lg font-bold text-slate-900 dark:text-white">枯木仿生哨兵</h4>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">
+                      完美融入枯木、树干纹理。适合林区、灌木丛、果园等植被茂密区域的长期潜伏与防范。
+                    </p>
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -691,6 +744,31 @@ export default function ProductLandingPage() {
                 playsInline
               />
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Image Preview Modal */}
+      {previewImage && (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-md transition-opacity">
+          <div 
+            className="absolute inset-0" 
+            onClick={() => setPreviewImage(null)}
+            aria-label="关闭预览"
+          />
+          <div className="relative w-full max-w-4xl h-full max-h-[80vh] flex items-center justify-center z-10">
+            <button 
+              onClick={() => setPreviewImage(null)}
+              className="absolute -top-4 -right-4 md:top-0 md:-right-12 w-10 h-10 bg-white/10 hover:bg-white/20 text-white rounded-full flex items-center justify-center backdrop-blur transition-colors z-20"
+              aria-label="关闭预览"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <img 
+              src={previewImage} 
+              alt="大图预览" 
+              className="max-w-full max-h-full object-contain drop-shadow-2xl"
+            />
           </div>
         </div>
       )}

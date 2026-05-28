@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .animate-\[dash_3s_linear_infinite\] {
+    animation: dash 3s linear infinite;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 24;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
 @layer base {
   html, body, #root {
     @apply min-h-screen w-full m-0 p-0;
