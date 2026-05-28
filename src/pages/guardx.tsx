@@ -158,9 +158,9 @@ export default function ProductLandingPage() {
               <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6">
                 <Eye className="w-6 h-6 text-emerald-600 dark:text-emerald-500" />
               </div>
-              <h3 className="text-lg font-bold mb-2 text-slate-900 dark:text-white">事件驱动感知</h3>
-              <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                有动才报。采用先进的事件相机技术，仅在视野内有物体移动时触发，彻底告警无效视频。
+              <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">事件驱动感知</h3>
+              <p className="text-md leading-relaxed text-slate-600 dark:text-slate-400">
+                有动才报。采用先进的 <span className="bg-gradient-to-r font-bold from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-500 bg-clip-text text-transparent">DVS 事件相机</span>技术，仅在视野内有物体移动时触发，有效过滤无效信息。
               </p>
             </div>
 
@@ -168,9 +168,9 @@ export default function ProductLandingPage() {
               <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6">
                 <BatteryCharging className="w-6 h-6 text-emerald-600 dark:text-emerald-500" />
               </div>
-              <h3 className="text-lg font-bold mb-2 text-slate-900 dark:text-white">超低功耗值守</h3>
-              <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                微瓦级待机。支持长时间无人值守，单次部署续航可达数月甚至数年，无惧野外断电。
+              <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">超低功耗值守</h3>
+              <p className="text-md leading-relaxed text-slate-600 dark:text-slate-400">
+                 <span className="bg-gradient-to-r font-bold from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-500 bg-clip-text text-transparent">μW 级待机、mW 级运行</span>。支持长时间无人值守，单次部署续航可达数月，无惧野外断电。
               </p>
             </div>
 
@@ -178,9 +178,9 @@ export default function ProductLandingPage() {
               <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6">
                 <Cpu className="w-6 h-6 text-emerald-600 dark:text-emerald-500" />
               </div>
-              <h3 className="text-lg font-bold mb-2 text-slate-900 dark:text-white">端侧AI识别</h3>
-              <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                边缘智能。内置高效AI芯片，支持人、车、无人机目标本地探测，过滤风吹草动误报。
+              <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">端侧 AI 识别</h3>
+              <p className="text-md leading-relaxed text-slate-600 dark:text-slate-400">
+                边缘智能。内置 AI 芯片，支持<span className="bg-gradient-to-r font-bold from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-500 bg-clip-text text-transparent">人、车、无人机</span>等目标的本地探测，过滤风吹草动误报。
               </p>
             </div>
 
@@ -188,9 +188,9 @@ export default function ProductLandingPage() {
               <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6">
                 <Layers className="w-6 h-6 text-emerald-600 dark:text-emerald-500" />
               </div>
-              <h3 className="text-lg font-bold mb-2 text-slate-900 dark:text-white">双模协同取证</h3>
-              <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                兼顾续航与证据。低功耗传感器持续守候，一旦锁定目标，瞬间唤醒高清相机抓拍取证。
+              <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">双模协同取证</h3>
+              <p className="text-md leading-relaxed text-slate-600 dark:text-slate-400">
+                <span className="bg-gradient-to-r font-bold from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-500 bg-clip-text text-transparent">兼顾续航与证据</span>。 低功耗 DVS 传感器持续守候，初筛目标，瞬间唤醒高清 RGB 相机抓拍取证，确保监控效率与证据质量。
               </p>
             </div>
 
@@ -211,18 +211,18 @@ export default function ProductLandingPage() {
           <div className="space-y-8">
             <div className="grid md:grid-cols-2 gap-6 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/20 shadow-sm transition-colors duration-300">
               <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-500 font-semibold text-sm">
-                  <AlertTriangle className="w-4 h-4" /> 痛点一：传统摄像设备续航短
+                <div className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-500 font-semibold text-lg">
+                  <AlertTriangle className="w-5 h-5" /> 痛点一：传统摄像设备续航短
                 </div>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
+                <p className="text-base text-slate-600 dark:text-slate-400">
                   野外无电环境部署传统摄像头，需要拖带沉重的太阳能电池板或频繁更换电池，维护成本极高，极易因断电导致监控中断。
                 </p>
               </div>
               <div className="space-y-4 md:border-l md:pl-8 border-slate-200 dark:border-slate-800">
-                <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-500 font-semibold text-sm">
-                  <CheckCircle2 className="w-4 h-4" /> 电子哨兵解决方式：毫瓦级极低功耗
+                <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-500 font-semibold text-lg">
+                  <CheckCircle2 className="w-5 h-5" /> 电子哨兵解决方式：毫瓦（mW）级极低功耗
                 </div>
-                <p className="text-sm text-slate-700 dark:text-slate-300">
+                <p className="text-base text-slate-700 dark:text-slate-300">
                   采用事件驱动唤醒机制，无事件时整机处于极低功耗休眠状态。配合小体积电池即可实现长达数月的野外潜伏值守。
                 </p>
               </div>
@@ -230,38 +230,38 @@ export default function ProductLandingPage() {
 
             <div className="grid md:grid-cols-2 gap-6 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/20 shadow-sm transition-colors duration-300">
               <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-500 font-semibold text-sm">
-                  <AlertTriangle className="w-4 h-4" /> 痛点二：无效视频多，传输与研判成本高
+                <div className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-500 font-semibold text-lg">
+                  <AlertTriangle className="w-5 h-5" /> 痛点二：无效视频多，传输与研判成本高
                 </div>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
+                <p className="text-base text-slate-600 dark:text-slate-400">
                   传统设备持续录像，回传大量风吹草动、光影变化的无效视频。不仅浪费宝贵的4G流量，也给后台人工研判带来极大的工作量。
                 </p>
               </div>
               <div className="space-y-4 md:border-l md:pl-8 border-slate-200 dark:border-slate-800">
-                <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-500 font-semibold text-sm">
-                  <CheckCircle2 className="w-4 h-4" /> 电子哨兵解决方式：端侧AI过滤与精准推送
+                <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-500 font-semibold text-lg">
+                  <CheckCircle2 className="w-5 h-5" /> 电子哨兵解决方式：端侧 AI 过滤与精准推送
                 </div>
-                <p className="text-sm text-slate-700 dark:text-slate-300">
-                  本地端侧实时进行AI目标识别，只有当检测到人、车、无人机等真实威胁目标时才唤醒传输，确保回传的每一帧都是关键证据。
+                <p className="text-base text-slate-700 dark:text-slate-300">
+                  本地端侧爽识别，DVS 初筛感知动目标是否是预期目标，唤醒 RGB 拍照 AI 智能识别，只有当检测到人、车、无人机等真实威胁目标时才进行告警，确保回传的每一帧都是关键证据。
                 </p>
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/20 shadow-sm transition-colors duration-300">
               <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-500 font-semibold text-sm">
-                  <AlertTriangle className="w-4 h-4" /> 痛点三：野外和临时场景部署难
+                <div className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-500 font-semibold text-lg">
+                  <AlertTriangle className="w-5 h-5" /> 痛点三：野外和临时场景部署难
                 </div>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
+                <p className="text-base text-slate-600 dark:text-slate-400">
                   传统监控设备体积大、重量重，安装需要立杆、布线。在边境山林、临时安保等场景下，无法做到快速、隐蔽、灵活的部署。
                 </p>
               </div>
               <div className="space-y-4 md:border-l md:pl-8 border-slate-200 dark:border-slate-800">
-                <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-500 font-semibold text-sm">
-                  <CheckCircle2 className="w-4 h-4" /> 电子哨兵解决方式：极简隐蔽便携部署
+                <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-500 font-semibold text-lg">
+                  <CheckCircle2 className="w-5 h-5" /> 电子哨兵解决方式：极简隐蔽便携部署
                 </div>
-                <p className="text-sm text-slate-700 dark:text-slate-300">
-                  哨兵模组体积仅如积木般大小，支持无损快速安装。可轻松融入石头、枯木等自然环境进行生态级伪装，实现真正的“隐形防线”。
+                <p className="text-base text-slate-700 dark:text-slate-300">
+                  哨兵模组体积仅如积木般大小（≤ 80mm * 80mm * 80mm），支持无损快速安装。可轻松融入石头、枯木等自然环境进行生态级伪装，实现真正的“隐形防线”。
                 </p>
               </div>
             </div>
