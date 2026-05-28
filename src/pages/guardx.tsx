@@ -38,6 +38,10 @@ import guardxNightImg from '../assets/guard-x/guardx-night.jpeg';
 import otherNightImg from '../assets/guard-x/other-product-night.jpeg';
 import guardxImg from '../assets/guard-x/guardx.png';
 import traditionalImg from '../assets/guard-x/traditional.png';
+import guardxRealImg from '../assets/guard-x/guardx-real.png';
+import guardBookImg from '../assets/guard-x/guard-book.png';
+import luosiImg from '../assets/guard-x/luosi.png';
+import eleLineImg from '../assets/guard-x/ele-line.png';
 
 const heroImages = [heroImg1, heroImg2, heroImg3, heroImg4, heroImg5];
 
@@ -731,97 +735,120 @@ export default function ProductLandingPage() {
       </section>
 
       {/* 8. 配套清单 (Packing List) */}
-      <section id="packing-list" className="w-full py-20 bg-white dark:bg-slate-950 transition-colors duration-300">
-        <div className="max-w-5xl mx-auto px-6">
+      <section id="packing-list" className="w-full py-24 bg-white dark:bg-slate-950 transition-colors duration-300">
+        <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">装箱清单</h2>
             <p className="text-slate-600 dark:text-slate-400">软硬一体，开箱即用的完整作战包</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch mb-12">
-            {/* 装备箱 */}
-            <div className="flex flex-col items-center p-8 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-200 dark:border-slate-800 transition-colors">
-              <div className="h-48 flex items-center justify-center w-full mb-6">
-                <img src={boxImg} alt="电子哨兵装备箱" className="max-h-full object-contain hover:scale-105 transition-transform" />
+          <div className="flex flex-col md:flex-row gap-12 items-center md:items-start justify-center mb-16">
+            {/* Left side: Main device */}
+            <div className="flex flex-col items-center">
+              <div className="w-64 h-64 flex items-center justify-center mb-4">
+                <img src={guardxRealImg} alt="GUARDX 设备" className="max-w-full max-h-full object-contain drop-shadow-xl" />
               </div>
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white">设备 × 1</h3>
-              <p className="text-sm text-slate-500 mt-2 text-center">内含主机、配套伪装套件、安装螺丝及用户指南</p>
+              <p className="text-xl font-medium text-slate-700 dark:text-slate-300">设备 × 10</p>
             </div>
 
-            {/* Web平板 */}
-            <div className="flex flex-col items-center p-8 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-200 dark:border-slate-800 transition-colors">
-              <div className="h-48 flex items-center justify-center w-full mb-6">
-                <img src={dashboardImg} alt="显控大屏" className="max-h-full object-contain hover:scale-105 transition-transform drop-shadow-md" />
+            {/* Right side: Accessories grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-12 mt-8 md:mt-0">
+              {/* Box */}
+              <div className="flex flex-col items-center gap-3">
+                <div className="h-20 flex items-end justify-center">
+                  <img src={boxImg} alt="装备箱" className="max-h-full object-contain" />
+                </div>
+                <p className="text-sm font-medium text-slate-600 dark:text-slate-400">装备箱 × 1</p>
               </div>
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white">显控大屏 / Web终端 × 1</h3>
-              <p className="text-sm text-slate-500 mt-2 text-center">支持后台研判，GIS态势融合与告警轨迹分析</p>
-            </div>
 
-            {/* 移动端 APP Mockup */}
-            <div className="flex flex-col items-center p-8 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-200 dark:border-slate-800 transition-colors lg:col-span-1 md:col-span-2">
-              <div className="h-48 flex flex-col justify-end w-full mb-6 overflow-hidden relative items-center">
-                {/* 手机上半身留空，仅展示系统通知设置 UI 底部 */}
-                <div className="w-56 h-44 rounded-t-3xl border-x-[6px] border-t-[6px] border-slate-800 bg-slate-100 overflow-hidden flex flex-col relative shadow-xl transform translate-y-2">
-                  <div className="h-6 bg-slate-100 w-full flex justify-between items-center px-4 text-[10px] font-medium text-black">
-                    <span>13:36</span>
-                    <div className="flex gap-1 items-center">
-                      <div className="font-bold tracking-tighter">4G</div>
-                      <div className="w-3 h-2.5 border border-black rounded-[2px] relative p-px">
-                        <div className="w-full h-full bg-black rounded-[1px]"></div>
-                        <div className="absolute -right-[2px] top-1 w-[1px] h-1 bg-black"></div>
-                      </div>
+              {/* Power line */}
+              <div className="flex flex-col items-center gap-3">
+                <div className="h-20 flex items-end justify-center">
+                  <img src={eleLineImg} alt="电源线" className="max-h-full object-contain" />
+                </div>
+                <p className="text-sm font-medium text-slate-600 dark:text-slate-400">电源线 × 1</p>
+              </div>
+
+              {/* Screws */}
+              <div className="flex flex-col items-center gap-3">
+                <div className="h-20 flex items-end justify-center">
+                  <img src={luosiImg} alt="螺丝配件" className="max-h-full object-contain" />
+                </div>
+                <p className="text-sm font-medium text-slate-600 dark:text-slate-400">螺丝配件 × 1</p>
+              </div>
+
+              {/* User Guide */}
+              <div className="flex flex-col items-center gap-3">
+                <div className="h-20 flex items-end justify-center">
+                  <img src={guardBookImg} alt="用户指南" className="max-h-full object-contain shadow-sm" />
+                </div>
+                <p className="text-sm font-medium text-slate-600 dark:text-slate-400">用户指南 × 1</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom section: Mobile notification setting mockup inside wide banner */}
+          <div className="w-full bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden relative">
+            <div className="z-10 text-center md:text-left flex-1 md:pl-8">
+              <p className="text-lg text-slate-700 dark:text-slate-300 font-medium flex items-center justify-center md:justify-start gap-2">
+                <span className="text-rose-500 font-bold">*</span> 应用外消息推送功能需要开启手机系统通知权限
+              </p>
+            </div>
+            
+            {/* 移动端 APP Mockup (Partially hidden) */}
+            <div className="w-64 h-48 shrink-0 relative z-10 translate-y-12">
+              <div className="w-full h-full rounded-t-3xl border-x-[6px] border-t-[6px] border-slate-800 bg-slate-100 overflow-hidden flex flex-col shadow-xl">
+                <div className="h-6 bg-slate-100 w-full flex justify-between items-center px-4 text-[10px] font-medium text-black">
+                  <span>13:36</span>
+                  <div className="flex gap-1 items-center">
+                    <div className="font-bold tracking-tighter">4G</div>
+                    <div className="w-3 h-2.5 border border-black rounded-[2px] relative p-px">
+                      <div className="w-full h-full bg-black rounded-[1px]"></div>
+                      <div className="absolute -right-[2px] top-1 w-[1px] h-1 bg-black"></div>
                     </div>
                   </div>
-                  <div className="h-10 flex items-center px-2 gap-1 border-b border-slate-200 bg-slate-100">
-                    <ChevronRight className="w-4 h-4 rotate-180 text-blue-500" />
-                    <span className="text-xs text-blue-500 font-medium">通知</span>
-                    <span className="text-[11px] font-bold text-slate-800 flex-1 text-center pr-10">GuardX 视频</span>
-                  </div>
-                  <div className="flex-1 p-3 bg-slate-50">
-                    <div className="bg-white px-3 py-2.5 rounded-lg border border-slate-200 flex justify-between items-center mb-3">
-                      <span className="text-xs font-medium text-slate-800">允许通知</span>
-                      <div className="w-10 h-6 bg-emerald-500 rounded-full relative shadow-inner">
-                        <div className="absolute right-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow-sm"></div>
-                      </div>
+                </div>
+                <div className="h-10 flex items-center px-2 gap-1 border-b border-slate-200 bg-slate-100">
+                  <ChevronRight className="w-4 h-4 rotate-180 text-blue-500" />
+                  <span className="text-xs text-blue-500 font-medium">通知</span>
+                  <span className="text-[11px] font-bold text-slate-800 flex-1 text-center pr-10">GuardX 视频</span>
+                </div>
+                <div className="flex-1 p-3 bg-slate-50">
+                  <div className="bg-white px-3 py-2.5 rounded-lg border border-slate-200 flex justify-between items-center mb-3 shadow-sm">
+                    <span className="text-xs font-medium text-slate-800">允许通知</span>
+                    <div className="w-10 h-6 bg-emerald-500 rounded-full relative shadow-inner">
+                      <div className="absolute right-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow-sm"></div>
                     </div>
-                    <div className="px-1">
-                      <span className="text-[10px] text-slate-500 uppercase">提醒</span>
-                      <div className="flex justify-between mt-3 px-2">
-                        <div className="flex flex-col items-center gap-1.5">
-                          <div className="w-8 h-12 bg-white rounded border border-slate-300 flex justify-center pt-2 relative">
-                            <div className="w-4 h-1 bg-slate-200 rounded-full"></div>
-                            <div className="absolute -bottom-2 w-3 h-3 bg-blue-500 rounded-full text-white flex items-center justify-center text-[8px] font-bold">✓</div>
-                          </div>
-                          <span className="text-[8px] text-slate-600 mt-1">锁定屏幕</span>
+                  </div>
+                  <div className="px-1">
+                    <span className="text-[10px] text-slate-500 uppercase font-semibold">提醒</span>
+                    <div className="flex justify-between mt-3 px-2">
+                      <div className="flex flex-col items-center gap-1.5">
+                        <div className="w-8 h-12 bg-white rounded border border-slate-300 flex justify-center pt-2 relative shadow-sm">
+                          <div className="w-4 h-1 bg-slate-200 rounded-full"></div>
+                          <div className="absolute -bottom-2 w-3 h-3 bg-blue-500 rounded-full text-white flex items-center justify-center text-[8px] font-bold">✓</div>
                         </div>
-                        <div className="flex flex-col items-center gap-1.5">
-                          <div className="w-8 h-12 bg-white rounded border border-slate-300 flex justify-center pt-2 relative">
-                            <div className="w-6 h-4 bg-slate-200 rounded"></div>
-                            <div className="absolute -bottom-2 w-3 h-3 bg-blue-500 rounded-full text-white flex items-center justify-center text-[8px] font-bold">✓</div>
-                          </div>
-                          <span className="text-[8px] text-slate-600 mt-1">通知中心</span>
+                        <span className="text-[8px] text-slate-600 mt-1 font-medium">锁定屏幕</span>
+                      </div>
+                      <div className="flex flex-col items-center gap-1.5">
+                        <div className="w-8 h-12 bg-white rounded border border-slate-300 flex justify-center pt-2 relative shadow-sm">
+                          <div className="w-6 h-4 bg-slate-200 rounded"></div>
+                          <div className="absolute -bottom-2 w-3 h-3 bg-blue-500 rounded-full text-white flex items-center justify-center text-[8px] font-bold">✓</div>
                         </div>
-                        <div className="flex flex-col items-center gap-1.5">
-                          <div className="w-8 h-12 bg-white rounded border border-slate-300 flex justify-center pt-1 relative">
-                            <div className="w-6 h-2 bg-slate-200 rounded-full"></div>
-                            <div className="absolute -bottom-2 w-3 h-3 bg-blue-500 rounded-full text-white flex items-center justify-center text-[8px] font-bold">✓</div>
-                          </div>
-                          <span className="text-[8px] text-slate-600 mt-1">横幅</span>
+                        <span className="text-[8px] text-slate-600 mt-1 font-medium">通知中心</span>
+                      </div>
+                      <div className="flex flex-col items-center gap-1.5">
+                        <div className="w-8 h-12 bg-white rounded border border-slate-300 flex justify-center pt-1 relative shadow-sm">
+                          <div className="w-6 h-2 bg-slate-200 rounded-full"></div>
+                          <div className="absolute -bottom-2 w-3 h-3 bg-blue-500 rounded-full text-white flex items-center justify-center text-[8px] font-bold">✓</div>
                         </div>
+                        <span className="text-[8px] text-slate-600 mt-1 font-medium">横幅</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white">移动端 APP × 1</h3>
-              <p className="text-sm text-slate-500 mt-2 text-center">实时接收消息推送，掌上掌控防区动态</p>
             </div>
-          </div>
-          
-          <div className="bg-slate-50 dark:bg-slate-900/80 rounded-xl p-4 text-center border border-slate-200 dark:border-slate-800">
-            <p className="text-sm text-slate-600 dark:text-slate-400 font-medium">
-              * 应用外消息推送功能需要开启手机系统通知权限
-            </p>
           </div>
         </div>
       </section>
