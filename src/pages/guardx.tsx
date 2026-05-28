@@ -12,7 +12,14 @@ import {
   ChevronLeft,
   Camera, 
   Monitor,
-  X
+  X,
+  Target,
+  Zap,
+  Database,
+  CheckSquare,
+  Rocket,
+  Activity,
+  Check
 } from 'lucide-react';
 
 // 本地素材导入
@@ -29,6 +36,8 @@ import woodImg from '../assets/guard-x/tree.png';
 import dashboardImg from '../assets/guard-x/web-screen.png';
 import nightImg from '../assets/guard-x/guardx-night.jpeg';
 import dayImg from '../assets/guard-x/GuardX-02.jpg'; 
+import guardxImg from '../assets/guard-x/guardx.png';
+import traditionalImg from '../assets/guard-x/traditional.png';
 
 const heroImages = [heroImg1, heroImg2, heroImg3, heroImg4, heroImg5];
 
@@ -511,115 +520,146 @@ export default function ProductLandingPage() {
             <p className="text-slate-600 dark:text-slate-400">突破传统监控限制，更智能、更隐蔽、更省心</p>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-center items-stretch relative mt-12">
-            {/* 左侧文字标签 */}
-            <div className="hidden md:flex flex-col py-8 pr-8 text-right w-48 shrink-0 mt-[128px]">
-              <div className="h-12 flex items-center justify-end font-semibold text-slate-500">感知方式</div>
-              <div className="h-8"></div>
-              <div className="h-12 flex items-center justify-end font-semibold text-slate-500">功耗与续航</div>
-              <div className="h-8"></div>
-              <div className="h-12 flex items-center justify-end font-semibold text-slate-500">无效数据</div>
-              <div className="h-8"></div>
-              <div className="h-12 flex items-center justify-end font-semibold text-slate-500">取证能力</div>
-              <div className="h-8"></div>
-              <div className="h-12 flex items-center justify-end font-semibold text-slate-500">部署难度</div>
-              <div className="h-8"></div>
-              <div className="h-12 flex items-center justify-end font-semibold text-slate-500">维护频率</div>
-            </div>
+          <div className="relative mx-auto max-w-4xl pt-16 md:pt-24 mt-4">
+            {/* Main Card */}
+            <div className="bg-white dark:bg-slate-900/40 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm relative z-0">
+              
+              {/* Highlighed Column Box (Absolute) */}
+              <div className="absolute -top-6 md:-top-8 -bottom-4 left-[24%] w-[38%] bg-gradient-to-b from-emerald-500 to-emerald-700 rounded-3xl shadow-2xl shadow-emerald-500/30 z-10 border border-emerald-400/20"></div>
 
-            {/* GuardX 高亮对比列 */}
-            <div className="relative z-20 w-full md:w-80 bg-gradient-to-b from-emerald-500 to-emerald-600 rounded-3xl shadow-[0_20px_50px_rgba(16,185,129,0.4)] text-white transform md:scale-105 flex flex-col overflow-hidden">
-              <div className="h-32 shrink-0 flex flex-col items-center justify-center relative">
-                <div className="bg-white/20 px-6 py-2 rounded-full text-base font-bold tracking-wider mb-2">GUARDX 电子哨兵</div>
-                <div className="w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center text-slate-900 font-bold text-xs absolute right-4 top-4 shadow-lg shadow-yellow-400/50">1</div>
-              </div>
-              <div className="flex flex-col py-8 px-6 text-center flex-1">
-                <div className="h-12 flex flex-col items-center justify-center relative">
-                  <span className="md:hidden text-emerald-100 text-xs mb-1">感知方式</span>
-                  <span className="font-bold text-lg">事件驱动 (有动才报)</span>
+              {/* Table Content */}
+              <div className="relative z-20">
+                
+                {/* Header Row */}
+                <div className="flex">
+                  {/* Col 1 */}
+                  <div className="w-[24%] shrink-0"></div>
+                  {/* Col 2 GUARDX */}
+                  <div className="w-[38%] flex flex-col sm:flex-row items-center justify-center pt-6 md:pt-8 pb-6 px-2 gap-2 md:gap-4">
+                    <div className="h-10 md:h-14 flex items-center justify-center">
+                      <img src={guardxImg} alt="GUARDX" className="max-h-full object-contain drop-shadow-xl" />
+                    </div>
+                    <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                      <div className="font-black text-white text-md md:text-xl tracking-wider leading-tight">GUARDX</div>
+                      <div className="text-emerald-100 font-bold text-sm md:text-sm mt-0.5 md:mt-1 bg-white/20 px-2 md:px-3 py-0.5 md:py-1 rounded-full">电子哨兵</div>
+                    </div>
+                  </div>
+                  {/* Col 3 Traditional */}
+                  <div className="w-[38%] flex flex-col sm:flex-row items-center justify-center pt-6 md:pt-8 pb-6 px-2 gap-2 md:gap-4">
+                    <div className="h-10 md:h-14 flex items-center justify-center">
+                      <img src={traditionalImg} alt="传统安防摄像头" className="max-h-full object-contain opacity-90 drop-shadow-md mix-blend-multiply dark:mix-blend-normal" />
+                    </div>
+                    <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                      <div className="font-bold text-slate-700 dark:text-slate-300 text-xl md:text-xl">传统安防摄像头</div>
+                    </div>
+                  </div>
                 </div>
-                <div className="h-8 flex items-center justify-center">
-                  <div className="w-full h-px bg-white/20 mx-auto"></div>
-                </div>
-                <div className="h-12 flex flex-col items-center justify-center relative">
-                  <span className="md:hidden text-emerald-100 text-xs mb-1">功耗与续航</span>
-                  <span className="font-bold text-lg">毫瓦（mW）级功耗 / ≥60天</span>
-                </div>
-                <div className="h-8 flex items-center justify-center">
-                  <div className="w-full h-px bg-white/20 mx-auto"></div>
-                </div>
-                <div className="h-12 flex flex-col items-center justify-center relative">
-                  <span className="md:hidden text-emerald-100 text-xs mb-1">无效数据</span>
-                  <span className="font-bold text-lg">端侧双识别 / 准确率 ≥ 90%</span>
-                </div>
-                <div className="h-8 flex items-center justify-center">
-                  <div className="w-full h-px bg-white/20 mx-auto"></div>
-                </div>
-                <div className="h-12 flex flex-col items-center justify-center">
-                  <span className="md:hidden text-emerald-100 text-xs mb-1">取证能力</span>
-                  <span className="font-bold text-lg">高清彩色抓拍</span>
-                </div>
-                <div className="h-8 flex items-center justify-center">
-                  <div className="w-full h-px bg-white/20 mx-auto"></div>
-                </div>
-                <div className="h-12 flex flex-col items-center justify-center">
-                  <span className="md:hidden text-emerald-100 text-xs mb-1">部署难度</span>
-                  <span className="font-bold text-lg">生态伪装，免布线</span>
-                </div>
-                <div className="h-8 flex items-center justify-center">
-                  <div className="w-full h-px bg-white/20 mx-auto"></div>
-                </div>
-                <div className="h-12 flex flex-col items-center justify-center">
-                  <span className="md:hidden text-emerald-100 text-xs mb-1">维护频率</span>
-                  <span className="font-bold text-lg">极低 (数月一次)</span>
-                </div>
-              </div>
-            </div>
 
-            {/* 传统设备列 */}
-            <div className="relative z-10 w-full md:w-80 bg-white dark:bg-slate-800 rounded-3xl md:-ml-6 border border-slate-200 dark:border-slate-700 shadow-md mt-8 md:mt-0 flex flex-col overflow-hidden">
-              <div className="h-32 shrink-0 flex flex-col items-center justify-center bg-slate-100 dark:bg-slate-900/50 md:pl-6">
-                <div className="bg-slate-700 dark:bg-slate-600 text-white px-6 py-2 rounded-full text-base font-bold tracking-wider">传统安防摄像头</div>
-              </div>
-              <div className="flex flex-col py-8 px-6 text-center text-slate-800 dark:text-slate-200 flex-1 md:pl-12">
-                <div className="h-12 flex flex-col items-center justify-center">
-                  <span className="md:hidden text-slate-400 text-xs mb-1">感知方式</span>
-                  <span className="font-semibold text-base">持续录像 / 高频唤醒</span>
-                </div>
-                <div className="h-8 flex items-center justify-center">
-                  <div className="w-full h-px bg-slate-200 dark:bg-slate-700 mx-auto"></div>
-                </div>
-                <div className="h-12 flex flex-col items-center justify-center">
-                  <span className="md:hidden text-slate-400 text-xs mb-1">功耗与续航</span>
-                  <span className="font-semibold text-base">耗电大，需配太阳能板</span>
-                </div>
-                <div className="h-8 flex items-center justify-center">
-                  <div className="w-full h-px bg-slate-200 dark:bg-slate-700 mx-auto"></div>
-                </div>
-                <div className="h-12 flex flex-col items-center justify-center">
-                  <span className="md:hidden text-slate-400 text-xs mb-1">无效数据</span>
-                  <span className="font-semibold text-base">海量 (风吹草动皆录)</span>
-                </div>
-                <div className="h-8 flex items-center justify-center">
-                  <div className="w-full h-px bg-slate-200 dark:bg-slate-700 mx-auto"></div>
-                </div>
-                <div className="h-12 flex flex-col items-center justify-center">
-                  <span className="md:hidden text-slate-400 text-xs mb-1">取证能力</span>
-                  <span className="font-semibold text-base">找关键帧费时费力</span>
-                </div>
-                <div className="h-8 flex items-center justify-center">
-                  <div className="w-full h-px bg-slate-200 dark:bg-slate-700 mx-auto"></div>
-                </div>
-                <div className="h-12 flex flex-col items-center justify-center">
-                  <span className="md:hidden text-slate-400 text-xs mb-1">部署难度</span>
-                  <span className="font-semibold text-base">需立杆，目标明显</span>
-                </div>
-                <div className="h-8 flex items-center justify-center">
-                  <div className="w-full h-px bg-slate-200 dark:bg-slate-700 mx-auto"></div>
-                </div>
-                <div className="h-12 flex flex-col items-center justify-center">
-                  <span className="md:hidden text-slate-400 text-xs mb-1">维护频率</span>
-                  <span className="font-semibold text-base">高 (频繁换电池)</span>
+                {/* Data Rows */}
+                <div className="flex flex-col pb-6">
+                  
+                  {/* Row 1 */}
+                  <div className="flex items-stretch min-h-[60px] md:min-h-[72px] group relative z-20">
+                    <div className="w-[24%] shrink-0 flex items-center justify-end md:justify-start gap-2 md:gap-3 px-4 md:px-8 border-b border-slate-100 dark:border-slate-800/50 text-slate-500 dark:text-slate-400">
+                      <Target className="w-4 h-4 md:w-5 md:h-5 text-emerald-600 dark:text-emerald-500" />
+                      <span className="font-semibold text-xs md:text-sm">感知方式</span>
+                    </div>
+                    <div className="w-[38%] flex items-center justify-start px-4 md:px-8 border-b border-emerald-400/20">
+                      <div className="flex items-center gap-2 md:gap-3">
+                        <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-yellow-400 text-white text-sm md:text-xs font-black flex items-center justify-center shrink-0">1</div>
+                        <span className="text-white font-medium text-xs md:text-base leading-tight">事件驱动 (有动才报)</span>
+                      </div>
+                    </div>
+                    <div className="w-[38%] flex items-center justify-center px-2 md:px-6 text-slate-600 dark:text-slate-400 text-xs md:text-sm font-medium text-center border-b border-slate-100 dark:border-slate-800/50">
+                      持续录像 / 高频唤醒
+                    </div>
+                  </div>
+
+                  {/* Row 2 */}
+                  <div className="flex items-stretch min-h-[60px] md:min-h-[72px] group relative z-20">
+                    <div className="w-[24%] shrink-0 flex items-center justify-end md:justify-start gap-2 md:gap-3 px-4 md:px-8 border-b border-slate-100 dark:border-slate-800/50 text-slate-500 dark:text-slate-400">
+                      <Zap className="w-4 h-4 md:w-5 md:h-5 text-emerald-600 dark:text-emerald-500" />
+                      <span className="font-semibold text-xs md:text-sm">功耗与续航</span>
+                    </div>
+                    <div className="w-[38%] flex items-center justify-start px-4 md:px-8 border-b border-emerald-400/20">
+                      <div className="flex items-center gap-2 md:gap-3">
+                        <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-yellow-400 text-white text-sm md:text-xs font-black flex items-center justify-center shrink-0">2</div>
+                        <span className="text-white font-medium text-xs md:text-base leading-tight">毫瓦级待机 / ≥ 60天</span>
+                      </div>
+                    </div>
+                    <div className="w-[38%] flex items-center justify-center px-2 md:px-6 text-slate-600 dark:text-slate-400 text-xs md:text-sm font-medium text-center border-b border-slate-100 dark:border-slate-800/50">
+                      耗电大，需配太阳能板
+                    </div>
+                  </div>
+
+                  {/* Row 3 */}
+                  <div className="flex items-stretch min-h-[60px] md:min-h-[72px] group relative z-20">
+                    <div className="w-[24%] shrink-0 flex items-center justify-end md:justify-start gap-2 md:gap-3 px-4 md:px-8 border-b border-slate-100 dark:border-slate-800/50 text-slate-500 dark:text-slate-400">
+                      <Database className="w-4 h-4 md:w-5 md:h-5 text-emerald-600 dark:text-emerald-500" />
+                      <span className="font-semibold text-xs md:text-sm">无效数据</span>
+                    </div>
+                    <div className="w-[38%] flex items-center justify-start px-4 md:px-8 border-b border-emerald-400/20">
+                      <div className="flex items-center gap-2 md:gap-3">
+                        <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-yellow-400 text-white text-sm md:text-xs font-black flex items-center justify-center shrink-0">3</div>
+                        <span className="text-white font-medium text-xs md:text-base leading-tight">端侧 AI 过滤 (近乎无)</span>
+                      </div>
+                    </div>
+                    <div className="w-[38%] flex items-center justify-center px-2 md:px-6 text-slate-600 dark:text-slate-400 text-xs md:text-sm font-medium text-center border-b border-slate-100 dark:border-slate-800/50">
+                      海量 (风吹草动皆录)
+                    </div>
+                  </div>
+
+                  {/* Row 4 */}
+                  <div className="flex items-stretch min-h-[60px] md:min-h-[72px] group relative z-20">
+                    <div className="w-[24%] shrink-0 flex items-center justify-end md:justify-start gap-2 md:gap-3 px-4 md:px-8 border-b border-slate-100 dark:border-slate-800/50 text-slate-500 dark:text-slate-400">
+                      <CheckSquare className="w-4 h-4 md:w-5 md:h-5 text-emerald-600 dark:text-emerald-500" />
+                      <span className="font-semibold text-xs md:text-sm">取证能力</span>
+                    </div>
+                    <div className="w-[38%] flex items-center justify-start px-4 md:px-8 border-b border-emerald-400/20">
+                      <div className="flex items-center gap-2 md:gap-3">
+                        <div className="w-5 h-5 md:w-6 md:h-6 flex items-center justify-center shrink-0"><Check className="w-4 h-4 md:w-5 md:h-5 text-emerald-300" /></div>
+                        <span className="text-white font-medium text-xs md:text-base leading-tight">高清彩色抓拍，告警即取证</span>
+                      </div>
+                    </div>
+                    <div className="w-[38%] flex items-center justify-center px-2 md:px-6 text-slate-600 dark:text-slate-400 text-xs md:text-sm font-medium text-center border-b border-slate-100 dark:border-slate-800/50">
+                      找关键帧费时费力
+                    </div>
+                  </div>
+
+                  {/* Row 5 */}
+                  <div className="flex items-stretch min-h-[60px] md:min-h-[72px] group relative z-20">
+                    <div className="w-[24%] shrink-0 flex items-center justify-end md:justify-start gap-2 md:gap-3 px-4 md:px-8 border-b border-slate-100 dark:border-slate-800/50 text-slate-500 dark:text-slate-400">
+                      <Rocket className="w-4 h-4 md:w-5 md:h-5 text-emerald-600 dark:text-emerald-500" />
+                      <span className="font-semibold text-xs md:text-sm">部署难度</span>
+                    </div>
+                    <div className="w-[38%] flex items-center justify-start px-4 md:px-8 border-b border-emerald-400/20">
+                      <div className="flex items-center gap-2 md:gap-3">
+                        <div className="w-5 h-5 md:w-6 md:h-6 flex items-center justify-center shrink-0"><Check className="w-4 h-4 md:w-5 md:h-5 text-emerald-300" /></div>
+                        <span className="text-white font-medium text-xs md:text-base leading-tight">生态伪装，免布线</span>
+                      </div>
+                    </div>
+                    <div className="w-[38%] flex items-center justify-center px-2 md:px-6 text-slate-600 dark:text-slate-400 text-xs md:text-sm font-medium text-center border-b border-slate-100 dark:border-slate-800/50">
+                      需立杆布线，目标明显
+                    </div>
+                  </div>
+
+                  {/* Row 6 */}
+                  <div className="flex items-stretch min-h-[60px] md:min-h-[72px] group relative z-20">
+                    <div className="w-[24%] shrink-0 flex items-center justify-end md:justify-start gap-2 md:gap-3 px-4 md:px-8 text-slate-500 dark:text-slate-400">
+                      <Activity className="w-4 h-4 md:w-5 md:h-5 text-emerald-600 dark:text-emerald-500" />
+                      <span className="font-semibold text-xs md:text-sm">维护频率</span>
+                    </div>
+                    <div className="w-[38%] flex items-center justify-start px-4 md:px-8">
+                      <div className="flex items-center gap-2 md:gap-3">
+                        <div className="w-5 h-5 md:w-6 md:h-6 flex items-center justify-center shrink-0"><Check className="w-4 h-4 md:w-5 md:h-5 text-emerald-300" /></div>
+                        <span className="text-white font-medium text-xs md:text-base leading-tight">极低 (数月一次)</span>
+                      </div>
+                    </div>
+                    <div className="w-[38%] flex items-center justify-center px-2 md:px-6 text-slate-600 dark:text-slate-400 text-xs md:text-sm font-medium text-center">
+                      高 (频繁换电池)
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>

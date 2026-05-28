@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useState } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { Shield, Menu, X, Sun, Moon, Phone, QrCode } from 'lucide-react';
+import { Menu, X, Sun, Moon, Phone, QrCode } from 'lucide-react';
 
 export default function MainLayout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,7 +37,7 @@ export default function MainLayout() {
       <header className="sticky top-0 z-[100] w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <img src={`${import.meta.env.BASE_URL}cetc-haikang.png`} alt="CETC" className="w-24" />
+            <img src={`${import.meta.env.BASE_URL}cetc-nanhu.jpg`} alt="CETC" className="w-32" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -146,9 +147,10 @@ export default function MainLayout() {
       <footer className="w-full bg-slate-100 dark:bg-slate-950 py-12 border-t border-slate-200 dark:border-slate-900 text-slate-600 dark:text-slate-400 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <div className="flex gap-2 items-center">
               <img src={`${import.meta.env.BASE_URL}cetc-haikang.png`} alt="CETC" className="w-24 object-contain" />
-            </Link>
+              <img src={`${import.meta.env.BASE_URL}cetc-nanhu.jpg`} alt="CETC" className="w-24 object-contain" />
+            </div>
             <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
               致力于为各行业提供智能、高效、可靠的前沿科技产品与解决方案。
             </p>
