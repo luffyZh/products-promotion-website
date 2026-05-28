@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   Shield, 
   Cpu, 
@@ -11,8 +11,7 @@ import {
   ChevronRight, 
   ChevronLeft,
   Camera, 
-  Monitor, 
-  Package,
+  Monitor,
   X
 } from 'lucide-react';
 
@@ -77,9 +76,14 @@ export default function ProductLandingPage() {
               >
                 查看视频 <ChevronRight className="w-4 h-4" />
               </button>
-              <a href="#camouflage" className="px-6 py-3 rounded-lg font-semibold border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 transition-all">
+              <button 
+                onClick={() => {
+                  document.getElementById('camouflage')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="px-6 py-3 rounded-lg font-semibold border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 transition-all"
+              >
                 了解隐蔽部署
-              </a>
+              </button>
             </div>
           </div>
           <div className="lg:col-span-5 relative group">
