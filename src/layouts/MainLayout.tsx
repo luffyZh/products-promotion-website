@@ -195,7 +195,7 @@ export default function MainLayout() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-slate-200 dark:border-slate-900 text-sm text-center text-slate-500">
-          <p>© {new Date().getFullYear()} TechCorp. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} CETC NanHu. All rights reserved.</p>
         </div>
       </footer>
     </div>

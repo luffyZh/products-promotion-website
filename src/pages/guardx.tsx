@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import html2canvas from 'html2canvas';
 import { 
   Shield, 
   Cpu, 
@@ -51,6 +52,97 @@ export default function ProductLandingPage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const [isDownloading, setIsDownloading] = useState(false);
+  const pdfRef = useRef<HTMLDivElement>(null);
+
+  const handleDownloadImage = async () => {
+    if (!pdfRef.current || isDownloading) return;
+    setIsDownloading(true);
+    
+    try {
+      const canvas = await html2canvas(pdfRef.current, {
+        scale: 3, // 提升分辨率
+        useCORS: true,
+        backgroundColor: document.documentElement.classList.contains('dark') ? '#020617' : '#ffffff',
+        windowWidth: 1280,
+        width: 1280,
+        onclone: (clonedDoc) => {
+          // 1. 隐藏需要忽略的元素，避免在图片中占位
+          const ignoreElements = clonedDoc.querySelectorAll('[data-html2canvas-ignore="true"]');
+          ignoreElements.forEach((el) => {
+            (el as HTMLElement).style.display = 'none';
+          });
+
+          // 2. 修复 html2canvas 无法正确渲染 background-clip: text 渐变色的问题
+          const gradientTexts = clonedDoc.querySelectorAll('.bg-clip-text');
+          gradientTexts.forEach((el) => {
+            const htmlEl = el as HTMLElement;
+            htmlEl.style.background = 'none';
+            htmlEl.style.webkitTextFillColor = 'initial';
+            htmlEl.style.color = '#059669'; // 统一降级为 emerald-600 纯色
+          });
+
+          // 3. 强制应用桌面端样式 (解决 html2canvas 视口宽度导致的移动端排版错乱问题)
+          const allElements = clonedDoc.querySelectorAll('*');
+          allElements.forEach(el => {
+            const htmlEl = el as HTMLElement;
+            const classes = Array.from(htmlEl.classList);
+            const mdClasses = classes.filter(c => c.startsWith('md:'));
+            if (mdClasses.length > 0) {
+              mdClasses.forEach(mdClass => {
+                const baseClass = mdClass.substring(3);
+                htmlEl.classList.add(baseClass);
+                
+                // 移除对应的移动端互斥类名
+                if (baseClass === 'flex-row') htmlEl.classList.remove('flex-col');
+                if (baseClass === 'block') htmlEl.classList.remove('hidden');
+                if (baseClass === 'flex') htmlEl.classList.remove('hidden');
+                if (baseClass === 'justify-start') htmlEl.classList.remove('justify-end');
+                if (baseClass === 'text-left') htmlEl.classList.remove('text-center');
+                if (baseClass === 'min-h-[72px]') htmlEl.classList.remove('min-h-[60px]');
+              });
+            }
+          });
+
+          // 4. 修复夜间全彩对比的 clip-path 失效问题
+          const nightVisionContainer = clonedDoc.querySelector('#night-vision .relative.max-w-5xl');
+          if (nightVisionContainer) {
+            const leftDiv = nightVisionContainer.children[0] as HTMLElement;
+            const rightDiv = nightVisionContainer.children[1] as HTMLElement;
+            const divider = nightVisionContainer.children[2] as HTMLElement;
+            
+            if (leftDiv && rightDiv) {
+              leftDiv.style.clipPath = 'none';
+              leftDiv.style.width = '50%';
+              leftDiv.style.borderRight = '2px solid rgba(255,255,255,0.3)';
+              const leftImg = leftDiv.querySelector('img');
+              if (leftImg) leftImg.style.objectPosition = 'left center';
+              
+              rightDiv.style.width = '50%';
+              rightDiv.style.left = '50%';
+              const rightImg = rightDiv.querySelector('img');
+              if (rightImg) rightImg.style.objectPosition = 'right center';
+            }
+            if (divider) divider.style.display = 'none';
+          }
+        }
+      });
+
+      const imgData = canvas.toDataURL('image/jpeg', 1.0);
+      
+      const link = document.createElement('a');
+      link.href = imgData;
+      link.download = '电子哨兵产品宣传长图.jpg';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error('Image generation failed:', error);
+      alert('下载失败，请重试');
+    } finally {
+      setIsDownloading(false);
+    }
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -67,13 +159,13 @@ export default function ProductLandingPage() {
     setCurrentImageIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
   };
   return (
-    <div className="w-full">
+    <div className="w-full" ref={pdfRef}>
       {/* 1. 首屏 (Hero Section) */}
       <header className="relative w-full py-20 lg:py-32 overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-              <Cpu className="w-4 h-4" />
+            <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              <Cpu className="w-4 h-4 mr-2" />
               超低功耗智能侦察终端
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white" style={{ lineHeight: '1.5' }}>
@@ -85,12 +177,14 @@ export default function ProductLandingPage() {
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <button 
+                data-html2canvas-ignore="true"
                 onClick={() => setIsVideoModalOpen(true)}
                 className="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-lg font-semibold transition-all shadow-lg flex items-center gap-2"
               >
                 查看视频 <ChevronRight className="w-4 h-4" />
               </button>
               <button 
+                data-html2canvas-ignore="true"
                 onClick={() => {
                   document.getElementById('camouflage')?.scrollIntoView({ behavior: 'smooth' });
                 }}
@@ -815,7 +909,7 @@ export default function ProductLandingPage() {
           <div className="relative max-w-5xl mx-auto mt-32">
             <div className="w-full bg-slate-100 dark:bg-slate-900/50 rounded-3xl h-24 border border-slate-200 dark:border-slate-800 flex items-center justify-center md:justify-start md:pl-16 shadow-inner">
               <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 font-medium flex items-center gap-2">
-                <span className="text-rose-500 font-bold">*</span> 应用外消息推送功能需要开启手机系统通知权限
+                <span className="text-rose-500 font-bold">*</span> 消息推送功能需要开启手机系统通知权限
               </p>
             </div>
             
@@ -885,9 +979,14 @@ export default function ProductLandingPage() {
             联系我们的产品专家，获取量身定制的行业部署方案与设备报价清单。
           </p>
           <div className="flex justify-center gap-4">
-            <button className="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-3 rounded-lg font-semibold transition-all shadow-md">
+            <button 
+              data-html2canvas-ignore="true"
+              onClick={handleDownloadImage}
+              className="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-3 rounded-lg font-semibold transition-all shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={isDownloading}
+            >
               <Book className="w-6 h-6" />
-              下载产品手册
+              {isDownloading ? '正在生成长图...' : '下载产品长图'}
             </button>
           </div>
         </div>
