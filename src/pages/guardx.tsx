@@ -19,7 +19,8 @@ import {
   CheckSquare,
   Rocket,
   Activity,
-  Check
+  Check,
+  Book
 } from 'lucide-react';
 
 // 本地素材导入
@@ -30,6 +31,7 @@ import heroImg4 from '../assets/guard-x/GuardX-04.jpg';
 import heroImg5 from '../assets/guard-x/GuardX-05.jpg';
 
 import boxImg from '../assets/guard-x/guardx-box.png';
+import padImg from '../assets/guard-x/pad.png';
 import moduleImg from '../assets/guard-x/module.png';
 import stoneImg from '../assets/guard-x/bone.png'; // 根据文件夹中的实际命名为 bone.png
 import woodImg from '../assets/guard-x/tree.png';
@@ -327,9 +329,9 @@ export default function ProductLandingPage() {
           </div>
 
           {/* Desktop Layout */}
-          <div className="hidden lg:grid grid-cols-12 gap-6 items-center">
+          <div className="hidden lg:grid grid-cols-12 gap-8 items-center max-w-[1400px] mx-auto">
             {/* Left Features */}
-            <div className="col-span-3 space-y-32 text-right relative">
+            <div className="col-span-2 space-y-40 text-right relative">
               <div className="relative pr-8">
                 <div className="absolute top-1/2 right-0 w-8 h-px bg-emerald-500/50 transform -translate-y-1/2"></div>
                 <div className="w-2 h-2 rounded-full bg-emerald-500 absolute top-1/2 -right-1 transform -translate-y-1/2"></div>
@@ -345,7 +347,7 @@ export default function ProductLandingPage() {
             </div>
 
             {/* Center Image */}
-            <div className="col-span-6 relative z-10">
+            <div className="col-span-8 relative z-10">
               <div className="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl relative group">
                 <img src={dashboardImg} alt="GuardX 智慧大屏" className="w-full h-auto transform group-hover:scale-[1.02] transition-transform duration-700" />
                 <div className="absolute top-4 right-4 bg-red-500/90 backdrop-blur text-white text-xs px-3 py-1.5 rounded-md font-bold flex items-center gap-2">
@@ -356,7 +358,7 @@ export default function ProductLandingPage() {
             </div>
 
             {/* Right Features */}
-            <div className="col-span-3 space-y-32 text-left relative">
+            <div className="col-span-2 space-y-40 text-left relative">
               <div className="relative pl-8">
                 <div className="absolute top-1/2 left-0 w-8 h-px bg-emerald-500/50 transform -translate-y-1/2"></div>
                 <div className="w-2 h-2 rounded-full bg-emerald-500 absolute top-1/2 -left-1 transform -translate-y-1/2"></div>
@@ -418,6 +420,10 @@ export default function ProductLandingPage() {
             {/* Left Image: GuardX */}
             <div className="absolute inset-0 z-10 transition-all duration-500 ease-in-out" style={{ clipPath: 'polygon(0 0, 55% 0, 45% 100%, 0 100%)' }}>
               <img src={guardxNightImg} alt="全彩夜视" className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000" />
+              {/* Left Timestamp */}
+              <div className="absolute top-4 left-4 md:top-6 md:left-8 font-mono text-emerald-400 font-bold tracking-wider text-sm md:text-base z-20 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                2024-05-27 20:16:32
+              </div>
               <div className="absolute bottom-6 left-6 md:left-12 bg-black/60 backdrop-blur px-6 py-2 rounded-full text-white font-bold border border-white/10 shadow-lg z-20">
                 <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">全彩夜视</span>
               </div>
@@ -426,6 +432,10 @@ export default function ProductLandingPage() {
             {/* Right Image: Traditional */}
             <div className="absolute inset-0 z-0">
               <img src={otherNightImg} alt="普通红外夜视" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000" />
+              {/* Right Timestamp */}
+              <div className="absolute top-4 right-4 md:top-6 md:right-8 font-mono text-slate-300 font-bold tracking-wider text-sm md:text-base z-20 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                2024-05-27 20:16:32
+              </div>
               <div className="absolute bottom-6 right-6 md:right-12 bg-black/60 backdrop-blur px-6 py-2 rounded-full text-white font-bold border border-white/10 shadow-lg z-20">
                 <span className="text-slate-300">普通红外夜视</span>
               </div>
@@ -742,61 +752,75 @@ export default function ProductLandingPage() {
             <p className="text-slate-600 dark:text-slate-400">软硬一体，开箱即用的完整作战包</p>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-12 items-center md:items-start justify-center mb-16">
+          <div className="flex flex-col md:flex-row gap-12 md:gap-24 items-center justify-center mb-24">
             {/* Left side: Main device */}
             <div className="flex flex-col items-center">
-              <div className="w-64 h-64 flex items-center justify-center mb-4">
-                <img src={guardxRealImg} alt="GUARDX 设备" className="max-w-full max-h-full object-contain drop-shadow-xl" />
+              <div className="w-64 h-64 md:w-80 md:h-80 flex items-center justify-center mb-4">
+                <img src={guardxRealImg} alt="GUARDX 设备" className="max-w-full max-h-full object-contain drop-shadow-2xl" />
               </div>
-              <p className="text-xl font-medium text-slate-700 dark:text-slate-300">设备 × 10</p>
+              <p className="text-xl font-bold text-slate-700 dark:text-slate-300">设备 × 10</p>
             </div>
 
             {/* Right side: Accessories grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-12 mt-8 md:mt-0">
-              {/* Box */}
-              <div className="flex flex-col items-center gap-3">
-                <div className="h-20 flex items-end justify-center">
-                  <img src={boxImg} alt="装备箱" className="max-h-full object-contain" />
+            <div className="flex flex-col gap-10 sm:gap-16 mt-8 md:mt-0">
+              {/* Top Row: 3 items */}
+              <div className="grid grid-cols-3 gap-6 sm:gap-12">
+                {/* Box */}
+                <div className="flex flex-col items-center gap-4">
+                  <div className="h-28 w-28 flex items-end justify-center">
+                    <img src={boxImg} alt="装备箱" className="max-h-full max-w-full object-contain drop-shadow-md" />
+                  </div>
+                  <p className="text-base font-medium text-slate-600 dark:text-slate-400">装备箱 × 1</p>
                 </div>
-                <p className="text-sm font-medium text-slate-600 dark:text-slate-400">装备箱 × 1</p>
+                
+                {/* Pad */}
+                <div className="flex flex-col items-center gap-4">
+                  <div className="h-28 w-28 flex items-end justify-center">
+                    <img src={padImg} alt="显控平板" className="max-h-full max-w-full object-contain drop-shadow-md" />
+                  </div>
+                  <p className="text-base font-medium text-slate-600 dark:text-slate-400">显控平板 × 1</p>
+                </div>
+
+                {/* Power line */}
+                <div className="flex flex-col items-center gap-4">
+                  <div className="h-28 w-28 flex items-end justify-center">
+                    <img src={eleLineImg} alt="电源线" className="max-h-full max-w-full object-contain drop-shadow-md" />
+                  </div>
+                  <p className="text-base font-medium text-slate-600 dark:text-slate-400">电源线 × 1</p>
+                </div>
               </div>
 
-              {/* Power line */}
-              <div className="flex flex-col items-center gap-3">
-                <div className="h-20 flex items-end justify-center">
-                  <img src={eleLineImg} alt="电源线" className="max-h-full object-contain" />
+              {/* Bottom Row: 2 items centered */}
+              <div className="flex justify-center gap-16 sm:gap-24">
+                {/* Screws */}
+                <div className="flex flex-col items-center gap-4">
+                  <div className="h-28 w-28 flex items-end justify-center">
+                    <img src={luosiImg} alt="螺丝配件" className="max-h-full max-w-full object-contain drop-shadow-md" />
+                  </div>
+                  <p className="text-base font-medium text-slate-600 dark:text-slate-400">螺丝配件 × 1</p>
                 </div>
-                <p className="text-sm font-medium text-slate-600 dark:text-slate-400">电源线 × 1</p>
-              </div>
 
-              {/* Screws */}
-              <div className="flex flex-col items-center gap-3">
-                <div className="h-20 flex items-end justify-center">
-                  <img src={luosiImg} alt="螺丝配件" className="max-h-full object-contain" />
+                {/* User Guide */}
+                <div className="flex flex-col items-center gap-4">
+                  <div className="h-28 w-28 flex items-end justify-center">
+                    <img src={guardBookImg} alt="用户指南" className="max-h-full max-w-full object-contain shadow-sm" />
+                  </div>
+                  <p className="text-base font-medium text-slate-600 dark:text-slate-400">用户指南 × 1</p>
                 </div>
-                <p className="text-sm font-medium text-slate-600 dark:text-slate-400">螺丝配件 × 1</p>
-              </div>
-
-              {/* User Guide */}
-              <div className="flex flex-col items-center gap-3">
-                <div className="h-20 flex items-end justify-center">
-                  <img src={guardBookImg} alt="用户指南" className="max-h-full object-contain shadow-sm" />
-                </div>
-                <p className="text-sm font-medium text-slate-600 dark:text-slate-400">用户指南 × 1</p>
               </div>
             </div>
           </div>
 
           {/* Bottom section: Mobile notification setting mockup inside wide banner */}
-          <div className="w-full bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden relative">
-            <div className="z-10 text-center md:text-left flex-1 md:pl-8">
-              <p className="text-lg text-slate-700 dark:text-slate-300 font-medium flex items-center justify-center md:justify-start gap-2">
+          <div className="relative max-w-5xl mx-auto mt-32">
+            <div className="w-full bg-slate-100 dark:bg-slate-900/50 rounded-3xl h-24 border border-slate-200 dark:border-slate-800 flex items-center justify-center md:justify-start md:pl-16 shadow-inner">
+              <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 font-medium flex items-center gap-2">
                 <span className="text-rose-500 font-bold">*</span> 应用外消息推送功能需要开启手机系统通知权限
               </p>
             </div>
             
-            {/* 移动端 APP Mockup (Partially hidden) */}
-            <div className="w-64 h-48 shrink-0 relative z-10 translate-y-12">
+            {/* 移动端 APP Mockup (Overlapping) */}
+            <div className="absolute -bottom-24 right-1/2 translate-x-1/2 md:translate-x-0 md:right-16 w-64 h-64 z-10 hidden sm:block">
               <div className="w-full h-full rounded-t-3xl border-x-[6px] border-t-[6px] border-slate-800 bg-slate-100 overflow-hidden flex flex-col shadow-xl">
                 <div className="h-6 bg-slate-100 w-full flex justify-between items-center px-4 text-[10px] font-medium text-black">
                   <span>13:36</span>
@@ -811,7 +835,7 @@ export default function ProductLandingPage() {
                 <div className="h-10 flex items-center px-2 gap-1 border-b border-slate-200 bg-slate-100">
                   <ChevronRight className="w-4 h-4 rotate-180 text-blue-500" />
                   <span className="text-xs text-blue-500 font-medium">通知</span>
-                  <span className="text-[11px] font-bold text-slate-800 flex-1 text-center pr-10">GuardX 视频</span>
+                  <span className="text-[11px] font-bold text-slate-800 flex-1 text-center pr-10">GuardX 电子哨兵</span>
                 </div>
                 <div className="flex-1 p-3 bg-slate-50">
                   <div className="bg-white px-3 py-2.5 rounded-lg border border-slate-200 flex justify-between items-center mb-3 shadow-sm">
@@ -861,10 +885,8 @@ export default function ProductLandingPage() {
             联系我们的产品专家，获取量身定制的行业部署方案与设备报价清单。
           </p>
           <div className="flex justify-center gap-4">
-            <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-3 rounded-lg font-semibold transition-all shadow-md">
-              联系我们
-            </button>
-            <button className="px-8 py-3 rounded-lg font-semibold border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300 transition-all">
+            <button className="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-3 rounded-lg font-semibold transition-all shadow-md">
+              <Book className="w-6 h-6" />
               下载产品手册
             </button>
           </div>
