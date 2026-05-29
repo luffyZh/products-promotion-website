@@ -34,7 +34,7 @@ export default function MainLayout() {
   return (
     <div className="min-h-screen w-full flex flex-col font-sans bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
       {/* Global Header */}
-      <header className="sticky top-0 z-[100] w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+      <header className="print:hidden sticky top-0 z-[100] w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <img src={`${import.meta.env.BASE_URL}cetc-nanhu.png`} alt="CETC" className="w-32" />
@@ -144,7 +144,7 @@ export default function MainLayout() {
       </main>
 
       {/* Global Footer */}
-      <footer className="w-full bg-slate-100 dark:bg-slate-950 py-12 border-t border-slate-200 dark:border-slate-900 text-slate-600 dark:text-slate-400 transition-colors duration-300">
+      <footer className="print:hidden w-full bg-slate-100 dark:bg-slate-950 py-12 border-t border-slate-200 dark:border-slate-900 text-slate-600 dark:text-slate-400 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <div className="flex gap-4 items-center">

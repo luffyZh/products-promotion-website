@@ -5,8 +5,46 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CETC | 中国电子科技南湖研究院</title>
+    <style>
+      /* 修复浏览器原生打印时文字渐变色丢失的问题 */
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      
+      .bg-clip-text {
+        -webkit-text-fill-color: initial !important;
+        background: none !important;
+        color: #059669 !important; /* 强制降级为纯绿色 */
+      }
+      
+      /* 修复打印模式下的背景渐变色丢失问题 */
+      .bg-gradient-to-b, .bg-gradient-to-r, .bg-gradient-to-t, .bg-gradient-to-l {
+        background-image: none !important;
+      }
+      
+      /* 针对产品优势对比中的背景框进行强制染色 */
+      .print\:bg-emerald-600 {
+        background-color: #059669 !important;
+      }
+
+      /* 打印时隐藏不必要的交互按钮 */
+      [data-html2canvas-ignore="true"] {
+        display: none !important;
+      }
+
+        /* 打印时去除页面的基础边距，充分利用纸张 */
+        body {
+          margin: 0;
+          padding: 0;
+        }
+      }
+    </style>
   </head>
   <body>
+    <!-- 微信爬虫抓取图片的 fallback：我们将由 React 动态插入第一张图片到这里 -->
+    <div id="wechat-share-fallback" style="width:0;height:0;overflow:hidden;position:absolute;top:0;left:0;"></div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -55,6 +55,26 @@ export default function ProductLandingPage() {
   const [isDownloading, setIsDownloading] = useState(false);
   const pdfRef = useRef<HTMLDivElement>(null);
 
+  // 动态修改页面标题，适配微信等浏览器的标题展示
+  useEffect(() => {
+    // 动态设置标题
+    document.title = 'GuardX 电子哨兵 | CETC';
+    
+    // 动态设置微信分享的 Fallback 图片
+    const fallbackDiv = document.getElementById('wechat-share-fallback');
+    if (fallbackDiv) {
+      fallbackDiv.innerHTML = `<img src="${import.meta.env.BASE_URL}guardx-share.jpg" alt="GuardX 电子哨兵" />`;
+    }
+
+    // 组件卸载时恢复默认状态
+    return () => {
+      document.title = 'CETC | 中国电子科技南湖研究院';
+      if (fallbackDiv) {
+        fallbackDiv.innerHTML = '';
+      }
+    };
+  }, []);
+
   const handleDownloadImage = async () => {
     if (!pdfRef.current || isDownloading) return;
     setIsDownloading(true);
@@ -161,9 +181,9 @@ export default function ProductLandingPage() {
   return (
     <div className="w-full" ref={pdfRef}>
       {/* 1. 首屏 (Hero Section) */}
-      <header className="relative w-full py-20 lg:py-32 overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 space-y-6">
+      <header className="relative w-full py-20 lg:py-32 print:py-16 overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 print:gap-8 items-center">
+          <div className="lg:col-span-7 space-y-6 print:space-y-4">
             <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
               <Cpu className="w-4 h-4 mr-2" />
               超低功耗智能侦察终端
@@ -175,7 +195,7 @@ export default function ProductLandingPage() {
             <p className="text-lg max-w-xl leading-relaxed text-slate-600 dark:text-slate-400">
               面向边境、周界、要地防卫与临时布控场景。通过“事件视觉感知 + 端侧AI识别 + 低功耗取证”三位一体，实现长期无人值守下的精准目标探测、告警与高清证据获取。
             </p>
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-wrap gap-4 pt-4 print:hidden">
               <button 
                 data-html2canvas-ignore="true"
                 onClick={() => setIsVideoModalOpen(true)}
@@ -203,28 +223,28 @@ export default function ProductLandingPage() {
                   alt={`GuardX 电子哨兵主机展示 ${index + 1}`} 
                   className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
                     index === currentImageIndex ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                  }`}
+                  } ${index === 0 ? 'print:!opacity-100 print:!z-10' : 'print:!opacity-0 print:!hidden'}`}
                 />
               ))}
               
               {/* 左右切换按钮 */}
               <button 
                 onClick={prevImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/50 dark:bg-black/50 backdrop-blur hover:bg-white dark:hover:bg-black text-slate-800 dark:text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/50 dark:bg-black/50 backdrop-blur hover:bg-white dark:hover:bg-black text-slate-800 dark:text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 print:hidden"
                 aria-label="上一张"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
               <button 
                 onClick={nextImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/50 dark:bg-black/50 backdrop-blur hover:bg-white dark:hover:bg-black text-slate-800 dark:text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/50 dark:bg-black/50 backdrop-blur hover:bg-white dark:hover:bg-black text-slate-800 dark:text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 print:hidden"
                 aria-label="下一张"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
 
               {/* 底部指示器 */}
-              <div className="absolute bottom-24 left-0 right-0 flex justify-center gap-2 z-10">
+              <div className="absolute bottom-24 left-0 right-0 flex justify-center gap-2 z-10 print:hidden">
                 {heroImages.map((_, index) => (
                   <button
                     key={index}
@@ -239,7 +259,7 @@ export default function ProductLandingPage() {
                 ))}
               </div>
 
-              <div className="absolute bottom-4 left-4 right-4 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border border-slate-200 dark:border-slate-800 p-4 rounded-xl flex items-center justify-between z-10">
+              <div className="absolute bottom-4 left-4 right-4 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border border-slate-200 dark:border-slate-800 p-4 rounded-xl flex items-center justify-between z-10 print:hidden">
                 <div>
                   <h4 className="text-slate-900 dark:text-white font-bold text-sm">GuardX 电子哨兵</h4>
                   <p className="text-slate-500 dark:text-slate-400 text-xs">全天候智能侦察，防线隐于无形</p>
@@ -252,52 +272,52 @@ export default function ProductLandingPage() {
       </header>
 
       {/* 2. 核心亮点 (Features) */}
-      <section id="features" className="w-full py-20 border-t border-slate-200 dark:border-slate-900 bg-white dark:bg-slate-950 transition-colors duration-300">
+      <section id="features" className="w-full py-20 print:py-12 border-t border-slate-200 dark:border-slate-900 bg-white dark:bg-slate-950 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div className="text-center max-w-3xl mx-auto mb-16 print:mb-8 space-y-4">
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">核心技术亮点</h2>
             <p className="text-slate-600 dark:text-slate-400">
               突破传统监控限制，专为极端野外与无电无网环境设计
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 print:!grid-cols-2 gap-8 print:gap-4">
             
-            <div className="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all">
-              <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6">
-                <Eye className="w-6 h-6 text-emerald-600 dark:text-emerald-500" />
+            <div className="p-6 print:p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all">
+              <div className="w-12 h-12 print:w-8 print:h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6 print:mb-2">
+                <Eye className="w-6 h-6 print:w-4 print:h-4 text-emerald-600 dark:text-emerald-500" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">事件驱动感知</h3>
-              <p className="text-md leading-relaxed text-slate-600 dark:text-slate-400">
+              <h3 className="text-xl print:text-lg font-bold mb-2 print:mb-1 text-slate-900 dark:text-white">事件驱动感知</h3>
+              <p className="text-md print:text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                 有动才报。采用先进的 <span className="bg-gradient-to-r font-bold from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-500 bg-clip-text text-transparent">DVS 事件相机</span>技术，仅在视野内有物体移动时触发，有效过滤无效信息。
               </p>
             </div>
 
-            <div className="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all">
-              <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6">
-                <BatteryCharging className="w-6 h-6 text-emerald-600 dark:text-emerald-500" />
+            <div className="p-6 print:p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all">
+              <div className="w-12 h-12 print:w-8 print:h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6 print:mb-2">
+                <BatteryCharging className="w-6 h-6 print:w-4 print:h-4 text-emerald-600 dark:text-emerald-500" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">超低功耗值守</h3>
-              <p className="text-md leading-relaxed text-slate-600 dark:text-slate-400">
+              <h3 className="text-xl print:text-lg font-bold mb-2 print:mb-1 text-slate-900 dark:text-white">超低功耗值守</h3>
+              <p className="text-md print:text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                  <span className="bg-gradient-to-r font-bold from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-500 bg-clip-text text-transparent">μW 级待机、mW 级运行</span>。支持长时间无人值守，单次部署续航可达数月，无惧野外断电。
               </p>
             </div>
 
-            <div className="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all">
-              <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6">
-                <Cpu className="w-6 h-6 text-emerald-600 dark:text-emerald-500" />
+            <div className="p-6 print:p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all">
+              <div className="w-12 h-12 print:w-8 print:h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6 print:mb-2">
+                <Cpu className="w-6 h-6 print:w-4 print:h-4 text-emerald-600 dark:text-emerald-500" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">端侧 AI 识别</h3>
-              <p className="text-md leading-relaxed text-slate-600 dark:text-slate-400">
+              <h3 className="text-xl print:text-lg font-bold mb-2 print:mb-1 text-slate-900 dark:text-white">端侧 AI 识别</h3>
+              <p className="text-md print:text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                 边缘智能。内置 AI 芯片，支持<span className="bg-gradient-to-r font-bold from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-500 bg-clip-text text-transparent">人、车、无人机</span>等目标的本地探测，过滤风吹草动误报。
               </p>
             </div>
 
-            <div className="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all">
-              <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6">
-                <Layers className="w-6 h-6 text-emerald-600 dark:text-emerald-500" />
+            <div className="p-6 print:p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all">
+              <div className="w-12 h-12 print:w-8 print:h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6 print:mb-2">
+                <Layers className="w-6 h-6 print:w-4 print:h-4 text-emerald-600 dark:text-emerald-500" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">双模协同取证</h3>
-              <p className="text-md leading-relaxed text-slate-600 dark:text-slate-400">
+              <h3 className="text-xl print:text-lg font-bold mb-2 print:mb-1 text-slate-900 dark:text-white">双模协同取证</h3>
+              <p className="text-md print:text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                 <span className="bg-gradient-to-r font-bold from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-500 bg-clip-text text-transparent">兼顾续航与证据</span>。 低功耗 DVS 传感器持续守候，初筛目标，瞬间唤醒高清 RGB 相机抓拍取证，确保监控效率与证据质量。
               </p>
             </div>
@@ -308,16 +328,16 @@ export default function ProductLandingPage() {
 
 
       {/* 4. 隐蔽伪装与设备形态 (Camouflage & Forms) - Xmind Style */}
-      <section id="camouflage" className="w-full py-24 border-y border-slate-200 dark:border-slate-900 bg-white dark:bg-slate-950 transition-colors duration-300 overflow-hidden">
+      <section id="camouflage" className="w-full py-24 print:py-6 print:border-y-0 border-y border-slate-200 dark:border-slate-900 bg-white dark:bg-slate-950 transition-colors duration-300 overflow-hidden print:break-before-page">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
+          <div className="text-center max-w-3xl mx-auto mb-20 print:mb-6 space-y-4">
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">生态级隐蔽伪装</h2>
             <p className="text-slate-600 dark:text-slate-400 text-lg">
               基于极其小巧的核心模组，可根据场景需求扩展出千变万化的伪装形态
             </p>
           </div>
 
-          <div className="relative flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24">
+          <div className="relative flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 print:gap-4">
             
             {/* 左侧：核心模组 */}
             <div className="relative z-10 w-full md:w-1/3 max-w-sm">
@@ -344,7 +364,7 @@ export default function ProductLandingPage() {
             </div>
 
             {/* 连接线 (仅 PC 端显示) */}
-            <div className="hidden md:block absolute left-1/3 right-1/3 top-1/2 -translate-y-1/2 z-0">
+            <div className="hidden md:block absolute left-1/3 right-1/3 top-1/2 -translate-y-1/2 z-0 print:hidden">
               <svg width="100%" height="300" className="absolute top-1/2 -translate-y-1/2" style={{ overflow: 'visible' }}>
                 <path d="M 0 150 C 50 150, 50 0, 100 0" fill="none" stroke="currentColor" className="text-emerald-500/30 dark:text-emerald-500/20" strokeWidth="3" strokeDasharray="6 6" />
                 <path d="M 0 150 C 50 150, 50 300, 100 300" fill="none" stroke="currentColor" className="text-emerald-500/30 dark:text-emerald-500/20" strokeWidth="3" strokeDasharray="6 6" />
@@ -359,7 +379,7 @@ export default function ProductLandingPage() {
             </div>
 
             {/* 右侧：扩展形态分支 */}
-            <div className="relative z-10 w-full md:w-1/2 flex flex-col gap-12">
+            <div className="relative z-10 w-full md:w-1/2 flex flex-col gap-12 print:gap-4">
               
               {/* 分支 1 */}
               <div className="relative flex items-center gap-6 group">
@@ -413,9 +433,9 @@ export default function ProductLandingPage() {
       </section>
 
       {/* 5. 智慧大屏态势感知 (Dashboard) */}
-      <section id="dashboard" className="w-full py-24 bg-slate-50 dark:bg-slate-950 transition-colors duration-300 overflow-hidden">
+      <section id="dashboard" className="w-full py-24 print:py-6 print:border-t-0 bg-slate-50 dark:bg-slate-950 transition-colors duration-300 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 space-y-4">
+          <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24 print:mb-6 space-y-4">
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">智慧大屏态势感知</h2>
             <p className="text-slate-600 dark:text-slate-400">
               后端大屏实时联动，哨兵部署位置、运行状态、告警轨迹一目了然
@@ -423,28 +443,28 @@ export default function ProductLandingPage() {
           </div>
 
           {/* Desktop Layout */}
-          <div className="hidden lg:grid grid-cols-12 gap-8 items-center max-w-[1400px] mx-auto">
+          <div className="hidden lg:grid grid-cols-12 gap-8 items-center max-w-[1400px] mx-auto print:flex print:flex-col print:gap-2">
             {/* Left Features */}
-            <div className="col-span-2 space-y-40 text-right relative">
-              <div className="relative pr-8">
-                <div className="absolute top-1/2 right-0 w-8 h-px bg-emerald-500/50 transform -translate-y-1/2"></div>
-                <div className="w-2 h-2 rounded-full bg-emerald-500 absolute top-1/2 -right-1 transform -translate-y-1/2"></div>
+            <div className="col-span-3 space-y-40 print:space-y-2 text-right relative print:flex print:justify-around print:w-full print:text-center print:mt-2">
+              <div className="relative pr-8 print:pr-0 print:flex-1">
+                <div className="absolute top-1/2 right-0 w-8 h-px bg-emerald-500/50 transform -translate-y-1/2 print:hidden"></div>
+                <div className="w-2 h-2 rounded-full bg-emerald-500 absolute top-1/2 -right-1 transform -translate-y-1/2 print:hidden"></div>
                 <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">GIS地图态势融合</h4>
                 <p className="text-sm text-slate-500 leading-relaxed">大屏直观展示各哨兵地理位置，动态绘制入侵目标轨迹。</p>
               </div>
-              <div className="relative pr-8">
-                <div className="absolute top-1/2 right-0 w-8 h-px bg-emerald-500/50 transform -translate-y-1/2"></div>
-                <div className="w-2 h-2 rounded-full bg-emerald-500 absolute top-1/2 -right-1 transform -translate-y-1/2"></div>
+              <div className="relative pr-8 print:pr-0 print:flex-1">
+                <div className="absolute top-1/2 right-0 w-8 h-px bg-emerald-500/50 transform -translate-y-1/2 print:hidden"></div>
+                <div className="w-2 h-2 rounded-full bg-emerald-500 absolute top-1/2 -right-1 transform -translate-y-1/2 print:hidden"></div>
                 <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">左侧告警面板</h4>
                 <p className="text-sm text-slate-500 leading-relaxed">实时回传目标截图，秒级推送高清抓拍证据。</p>
               </div>
             </div>
 
             {/* Center Image */}
-            <div className="col-span-8 relative z-10">
+            <div className="col-span-6 relative z-10 print:w-full">
               <div className="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl relative group">
                 <img src={dashboardImg} alt="GuardX 智慧大屏" className="w-full h-auto transform group-hover:scale-[1.02] transition-transform duration-700" />
-                <div className="absolute top-4 right-4 bg-red-500/90 backdrop-blur text-white text-xs px-3 py-1.5 rounded-md font-bold flex items-center gap-2">
+                <div className="absolute top-4 right-4 bg-red-500/90 backdrop-blur text-white text-xs px-3 py-1.5 rounded-md font-bold flex items-center gap-2 print:hidden">
                   <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
                   实时联动中
                 </div>
@@ -452,16 +472,16 @@ export default function ProductLandingPage() {
             </div>
 
             {/* Right Features */}
-            <div className="col-span-2 space-y-40 text-left relative">
-              <div className="relative pl-8">
-                <div className="absolute top-1/2 left-0 w-8 h-px bg-emerald-500/50 transform -translate-y-1/2"></div>
-                <div className="w-2 h-2 rounded-full bg-emerald-500 absolute top-1/2 -left-1 transform -translate-y-1/2"></div>
+            <div className="col-span-3 space-y-40 print:space-y-2 text-left relative print:flex print:justify-around print:w-full print:text-center print:mt-2">
+              <div className="relative pl-8 print:pl-0 print:flex-1">
+                <div className="absolute top-1/2 left-0 w-8 h-px bg-emerald-500/50 transform -translate-y-1/2 print:hidden"></div>
+                <div className="w-2 h-2 rounded-full bg-emerald-500 absolute top-1/2 -left-1 transform -translate-y-1/2 print:hidden"></div>
                 <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">右侧告警趋势</h4>
                 <p className="text-sm text-slate-500 leading-relaxed">多维数据看板，直观呈现告警趋势与目标分类统计。</p>
               </div>
-              <div className="relative pl-8">
-                <div className="absolute top-1/2 left-0 w-8 h-px bg-emerald-500/50 transform -translate-y-1/2"></div>
-                <div className="w-2 h-2 rounded-full bg-emerald-500 absolute top-1/2 -left-1 transform -translate-y-1/2"></div>
+              <div className="relative pl-8 print:pl-0 print:flex-1">
+                <div className="absolute top-1/2 left-0 w-8 h-px bg-emerald-500/50 transform -translate-y-1/2 print:hidden"></div>
+                <div className="w-2 h-2 rounded-full bg-emerald-500 absolute top-1/2 -left-1 transform -translate-y-1/2 print:hidden"></div>
                 <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">设备健康度监控</h4>
                 <p className="text-sm text-slate-500 leading-relaxed">实时回传剩余电量、信号强度、在线状态，异常自动告警。</p>
               </div>
@@ -501,11 +521,11 @@ export default function ProductLandingPage() {
       </section>
 
       {/* 6. 夜视对比 (Night Vision) */}
-      <section id="night-vision" className="w-full py-24 bg-black transition-colors duration-300 overflow-hidden relative">
+      <section id="night-vision" className="w-full py-24 print:py-12 bg-black print:bg-white transition-colors duration-300 overflow-hidden relative print:break-before-page">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <h2 className="text-3xl font-bold tracking-tight text-white">智能出彩，夜间也出色</h2>
-            <p className="text-slate-400 text-lg">
+            <h2 className="text-3xl font-bold tracking-tight text-white print:text-slate-900">智能出彩，夜间也出色</h2>
+            <p className="text-slate-400 print:text-slate-600 text-lg">
               AI-ISP 全彩夜视，≧ 1Lux 极暗光线下依然精准框选目标
             </p>
           </div>
@@ -613,68 +633,68 @@ export default function ProductLandingPage() {
       </section>
 
       {/* 5. 痛点问题与解决方案对比 (Painpoints vs Solutions) */}
-      <section id="painpoints" className="w-full py-20 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+      <section id="painpoints" className="w-full py-20 print:py-6 bg-slate-50 dark:bg-slate-950 transition-colors duration-300 print:break-before-page">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">为什么选择电子哨兵？</h2>
-            <p className="text-slate-600 dark:text-slate-400">
+          <div className="text-center max-w-3xl mx-auto mb-16 print:mb-6 space-y-4 print:space-y-2">
+            <h2 className="text-3xl print:text-2xl font-bold tracking-tight text-slate-900 dark:text-white">为什么选择电子哨兵？</h2>
+            <p className="text-slate-600 print:text-sm dark:text-slate-400">
               直面野外、临时布控场景下的三大核心痛点，给出更优解
             </p>
           </div>
 
-          <div className="space-y-8">
-            <div className="grid md:grid-cols-2 gap-6 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/20 shadow-sm transition-colors duration-300">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-500 font-semibold text-lg">
-                  <AlertTriangle className="w-5 h-5" /> 痛点一：传统摄像设备续航短
+          <div className="space-y-8 print:space-y-4">
+            <div className="grid md:grid-cols-2 gap-6 p-8 print:p-4 print:gap-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/20 shadow-sm transition-colors duration-300">
+              <div className="space-y-4 print:space-y-2">
+                <div className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-500 font-semibold text-lg print:text-sm">
+                  <AlertTriangle className="w-5 h-5 print:w-4 print:h-4" /> 痛点一：传统摄像设备续航短
                 </div>
-                <p className="text-base text-slate-600 dark:text-slate-400">
+                <p className="text-base print:text-xs text-slate-600 dark:text-slate-400">
                   野外无电环境部署传统摄像头，需要拖带沉重的太阳能电池板或频繁更换电池，维护成本极高，极易因断电导致监控中断。
                 </p>
               </div>
-              <div className="space-y-4 md:border-l md:pl-8 border-slate-200 dark:border-slate-800">
-                <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-500 font-semibold text-lg">
-                  <CheckCircle2 className="w-5 h-5" /> 电子哨兵解决方式：毫瓦（mW）级极低功耗
+              <div className="space-y-4 print:space-y-2 md:border-l md:pl-8 print:pl-4 border-slate-200 dark:border-slate-800">
+                <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-500 font-semibold text-lg print:text-sm">
+                  <CheckCircle2 className="w-5 h-5 print:w-4 print:h-4" /> 电子哨兵解决方式：毫瓦（mW）级极低功耗
                 </div>
-                <p className="text-base text-slate-700 dark:text-slate-300">
+                <p className="text-base print:text-xs text-slate-700 dark:text-slate-300">
                   采用事件驱动唤醒机制，无事件时整机处于极低功耗休眠状态。配合小体积电池即可实现长达数月的野外潜伏值守。
                 </p>
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/20 shadow-sm transition-colors duration-300">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-500 font-semibold text-lg">
-                  <AlertTriangle className="w-5 h-5" /> 痛点二：无效视频多，传输与研判成本高
+            <div className="grid md:grid-cols-2 gap-6 p-8 print:p-4 print:gap-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/20 shadow-sm transition-colors duration-300">
+              <div className="space-y-4 print:space-y-2">
+                <div className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-500 font-semibold text-lg print:text-sm">
+                  <AlertTriangle className="w-5 h-5 print:w-4 print:h-4" /> 痛点二：无效视频多，传输与研判成本高
                 </div>
-                <p className="text-base text-slate-600 dark:text-slate-400">
+                <p className="text-base print:text-xs text-slate-600 dark:text-slate-400">
                   传统设备持续录像，回传大量风吹草动、光影变化的无效视频。不仅浪费宝贵的4G流量，也给后台人工研判带来极大的工作量。
                 </p>
               </div>
-              <div className="space-y-4 md:border-l md:pl-8 border-slate-200 dark:border-slate-800">
-                <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-500 font-semibold text-lg">
-                  <CheckCircle2 className="w-5 h-5" /> 电子哨兵解决方式：端侧 AI 过滤与精准推送
+              <div className="space-y-4 print:space-y-2 md:border-l md:pl-8 print:pl-4 border-slate-200 dark:border-slate-800">
+                <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-500 font-semibold text-lg print:text-sm">
+                  <CheckCircle2 className="w-5 h-5 print:w-4 print:h-4" /> 电子哨兵解决方式：端侧 AI 过滤与精准推送
                 </div>
-                <p className="text-base text-slate-700 dark:text-slate-300">
+                <p className="text-base print:text-xs text-slate-700 dark:text-slate-300">
                   本地端侧爽识别，DVS 初筛感知动目标是否是预期目标，唤醒 RGB 拍照 AI 智能识别，只有当检测到人、车、无人机等真实威胁目标时才进行告警，确保回传的每一帧都是关键证据。
                 </p>
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/20 shadow-sm transition-colors duration-300">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-500 font-semibold text-lg">
-                  <AlertTriangle className="w-5 h-5" /> 痛点三：野外和临时场景部署难
+            <div className="grid md:grid-cols-2 gap-6 p-8 print:p-4 print:gap-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/20 shadow-sm transition-colors duration-300">
+              <div className="space-y-4 print:space-y-2">
+                <div className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-500 font-semibold text-lg print:text-sm">
+                  <AlertTriangle className="w-5 h-5 print:w-4 print:h-4" /> 痛点三：野外和临时场景部署难
                 </div>
-                <p className="text-base text-slate-600 dark:text-slate-400">
+                <p className="text-base print:text-xs text-slate-600 dark:text-slate-400">
                   传统监控设备体积大、重量重，安装需要立杆、布线。在边境山林、临时安保等场景下，无法做到快速、隐蔽、灵活的部署。
                 </p>
               </div>
-              <div className="space-y-4 md:border-l md:pl-8 border-slate-200 dark:border-slate-800">
-                <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-500 font-semibold text-lg">
-                  <CheckCircle2 className="w-5 h-5" /> 电子哨兵解决方式：极简隐蔽便携部署
+              <div className="space-y-4 print:space-y-2 md:border-l md:pl-8 print:pl-4 border-slate-200 dark:border-slate-800">
+                <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-500 font-semibold text-lg print:text-sm">
+                  <CheckCircle2 className="w-5 h-5 print:w-4 print:h-4" /> 电子哨兵解决方式：极简隐蔽便携部署
                 </div>
-                <p className="text-base text-slate-700 dark:text-slate-300">
+                <p className="text-base print:text-xs text-slate-700 dark:text-slate-300">
                   哨兵模组体积仅如积木般大小（≤ 80mm * 80mm * 80mm），支持无损快速安装。可轻松融入石头、枯木等自然环境进行生态级伪装，实现真正的“隐形防线”。
                 </p>
               </div>
@@ -684,19 +704,19 @@ export default function ProductLandingPage() {
       </section>
 
       {/* 6. 产品优势对比 (Comparison) */}
-      <section id="comparison" className="w-full py-20 bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
+      <section id="comparison" className="w-full py-20 print:py-6 bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-16 space-y-4">
+          <div className="text-center mb-16 space-y-4 print:hidden">
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">重新定义野外与临时布控标准</h2>
             <p className="text-slate-600 dark:text-slate-400">突破传统监控限制，更智能、更隐蔽、更省心</p>
           </div>
 
-          <div className="relative mx-auto max-w-4xl pt-16 md:pt-24 mt-4">
+          <div className="relative mx-auto max-w-4xl pt-16 md:pt-24 mt-4 print:pt-4 print:mt-0">
             {/* Main Card */}
-            <div className="bg-white dark:bg-slate-900/40 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm relative z-0">
+            <div className="bg-white dark:bg-slate-900/40 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm relative z-0 print:border-none print:shadow-none">
               
               {/* Highlighed Column Box (Absolute) */}
-              <div className="absolute -top-6 md:-top-8 -bottom-4 left-[24%] w-[38%] bg-gradient-to-b from-emerald-500 to-emerald-700 rounded-3xl shadow-2xl shadow-emerald-500/30 z-10 border border-emerald-400/20"></div>
+              <div className="absolute -top-6 md:-top-8 -bottom-4 left-[24%] w-[38%] bg-gradient-to-b from-emerald-500 to-emerald-700 print:bg-emerald-600 rounded-3xl shadow-2xl shadow-emerald-500/30 print:shadow-none z-10 border border-emerald-400/20"></div>
 
               {/* Table Content */}
               <div className="relative z-20">
@@ -839,7 +859,7 @@ export default function ProductLandingPage() {
       </section>
 
       {/* 8. 配套清单 (Packing List) */}
-      <section id="packing-list" className="w-full py-24 bg-white dark:bg-slate-950 transition-colors duration-300">
+      <section id="packing-list" className="w-full py-24 bg-white dark:bg-slate-950 transition-colors duration-300 print:hidden">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">装箱清单</h2>
