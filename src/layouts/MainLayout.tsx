@@ -32,7 +32,7 @@ export default function MainLayout() {
   ];
 
   return (
-    <div className="min-h-screen w-full flex flex-col font-sans bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <div className="min-h-screen w-full flex flex-col font-sans bg-slate-50 print:bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
       {/* Global Header */}
       <header className="print:hidden sticky top-0 z-[100] w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
