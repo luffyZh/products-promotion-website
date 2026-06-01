@@ -11,7 +11,7 @@ export default function Home() {
             赋能行业，<span className="text-emerald-600 dark:text-emerald-500">感知未来</span>
           </h1>
           <p className="text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            TechCorp 致力于打造下一代智能感知与安防解决方案。我们通过前沿的 AI 与低功耗技术，为复杂场景提供极致可靠的产品体验。
+            中国电子科技南湖研究院致力于打造下一代类脑智能方案。我们通过前沿的 AI 与低功耗技术，为复杂场景提供极致可靠的产品体验。
           </p>
           <div className="flex justify-center gap-4 pt-4">
             <a href="#products" className="bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-3 rounded-full font-semibold transition-all shadow-lg flex items-center gap-2">

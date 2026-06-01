@@ -19,7 +19,6 @@ import {
   Database,
   CheckSquare,
   Rocket,
-  Activity,
   Check,
   Book
 } from 'lucide-react';
@@ -758,7 +757,7 @@ export default function ProductLandingPage() {
                     <div className="w-[38%] flex items-center justify-start px-4 md:px-8 border-b border-emerald-400/20">
                       <div className="flex items-center gap-2 md:gap-3">
                         <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-yellow-400 text-white text-sm md:text-xs font-black flex items-center justify-center shrink-0">1</div>
-                        <span className="text-white font-medium text-xs md:text-base leading-tight">事件驱动 (有动才报)</span>
+                        <span className="text-white font-medium text-xs md:text-base leading-tight">事件驱动 / 有动才报</span>
                       </div>
                     </div>
                     <div className="w-[38%] flex items-center justify-center px-2 md:px-6 text-slate-600 dark:text-slate-400 text-xs md:text-sm font-medium text-center border-b border-slate-100 dark:border-slate-800/50">
@@ -779,11 +778,28 @@ export default function ProductLandingPage() {
                       </div>
                     </div>
                     <div className="w-[38%] flex items-center justify-center px-2 md:px-6 text-slate-600 dark:text-slate-400 text-xs md:text-sm font-medium text-center border-b border-slate-100 dark:border-slate-800/50">
-                      耗电大，需配太阳能板
+                      耗电大，需配太阳能板 / ≤ 14天
                     </div>
                   </div>
 
-                  {/* Row 3 */}
+                  {/* Row 3: 探测目标种类 */}
+                  <div className="flex items-stretch min-h-[60px] md:min-h-[72px] group relative z-20">
+                    <div className="w-[24%] shrink-0 flex items-center justify-end md:justify-start gap-2 md:gap-3 px-4 md:px-8 border-b border-slate-100 dark:border-slate-800/50 text-slate-500 dark:text-slate-400">
+                      <Eye className="w-4 h-4 md:w-5 md:h-5 text-emerald-600 dark:text-emerald-500" />
+                      <span className="font-semibold text-xs md:text-sm">探测目标种类</span>
+                    </div>
+                    <div className="w-[38%] flex items-center justify-start px-4 md:px-8 border-b border-emerald-400/20">
+                      <div className="flex items-center gap-2 md:gap-3">
+                        <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-yellow-400 text-white text-sm md:text-xs font-black flex items-center justify-center shrink-0">3</div>
+                        <span className="text-white font-medium text-xs md:text-base leading-tight">人、车、无人机 / 支持自定义</span>
+                      </div>
+                    </div>
+                    <div className="w-[38%] flex items-center justify-center px-2 md:px-6 text-slate-600 dark:text-slate-400 text-xs md:text-sm font-medium text-center border-b border-slate-100 dark:border-slate-800/50">
+                      人、宠物 / 不支持自定义
+                    </div>
+                  </div>
+
+                  {/* Row 4: 无效数据 */}
                   <div className="flex items-stretch min-h-[60px] md:min-h-[72px] group relative z-20">
                     <div className="w-[24%] shrink-0 flex items-center justify-end md:justify-start gap-2 md:gap-3 px-4 md:px-8 border-b border-slate-100 dark:border-slate-800/50 text-slate-500 dark:text-slate-400">
                       <Database className="w-4 h-4 md:w-5 md:h-5 text-emerald-600 dark:text-emerald-500" />
@@ -791,8 +807,8 @@ export default function ProductLandingPage() {
                     </div>
                     <div className="w-[38%] flex items-center justify-start px-4 md:px-8 border-b border-emerald-400/20">
                       <div className="flex items-center gap-2 md:gap-3">
-                        <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-yellow-400 text-white text-sm md:text-xs font-black flex items-center justify-center shrink-0">3</div>
-                        <span className="text-white font-medium text-xs md:text-base leading-tight">端侧 AI 过滤 (近乎无)</span>
+                        <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-yellow-400 text-white text-sm md:text-xs font-black flex items-center justify-center shrink-0">4</div>
+                        <span className="text-white font-medium text-xs md:text-base leading-tight">端侧 AI 过滤 / 误报率 ≤ 90%</span>
                       </div>
                     </div>
                     <div className="w-[38%] flex items-center justify-center px-2 md:px-6 text-slate-600 dark:text-slate-400 text-xs md:text-sm font-medium text-center border-b border-slate-100 dark:border-slate-800/50">
@@ -800,7 +816,7 @@ export default function ProductLandingPage() {
                     </div>
                   </div>
 
-                  {/* Row 4 */}
+                  {/* Row 5：取证能力（高清彩色抓拍，告警即取证） */}
                   <div className="flex items-stretch min-h-[60px] md:min-h-[72px] group relative z-20">
                     <div className="w-[24%] shrink-0 flex items-center justify-end md:justify-start gap-2 md:gap-3 px-4 md:px-8 border-b border-slate-100 dark:border-slate-800/50 text-slate-500 dark:text-slate-400">
                       <CheckSquare className="w-4 h-4 md:w-5 md:h-5 text-emerald-600 dark:text-emerald-500" />
@@ -817,40 +833,22 @@ export default function ProductLandingPage() {
                     </div>
                   </div>
 
-                  {/* Row 5 */}
+                  {/* Row 6: 部署难度 */}
                   <div className="flex items-stretch min-h-[60px] md:min-h-[72px] group relative z-20">
-                    <div className="w-[24%] shrink-0 flex items-center justify-end md:justify-start gap-2 md:gap-3 px-4 md:px-8 border-b border-slate-100 dark:border-slate-800/50 text-slate-500 dark:text-slate-400">
+                    <div className="w-[24%] shrink-0 flex items-center justify-end md:justify-start gap-2 md:gap-3 px-4 md:px-8 text-slate-500 dark:text-slate-400">
                       <Rocket className="w-4 h-4 md:w-5 md:h-5 text-emerald-600 dark:text-emerald-500" />
                       <span className="font-semibold text-xs md:text-sm">部署难度</span>
                     </div>
-                    <div className="w-[38%] flex items-center justify-start px-4 md:px-8 border-b border-emerald-400/20">
+                    <div className="w-[38%] flex items-center justify-start px-4 md:px-8">
                       <div className="flex items-center gap-2 md:gap-3">
                         <div className="w-5 h-5 md:w-6 md:h-6 flex items-center justify-center shrink-0"><Check className="w-4 h-4 md:w-5 md:h-5 text-emerald-300" /></div>
                         <span className="text-white font-medium text-xs md:text-base leading-tight">生态伪装，免布线</span>
                       </div>
                     </div>
-                    <div className="w-[38%] flex items-center justify-center px-2 md:px-6 text-slate-600 dark:text-slate-400 text-xs md:text-sm font-medium text-center border-b border-slate-100 dark:border-slate-800/50">
+                    <div className="w-[38%] flex items-center justify-center px-2 md:px-6 text-slate-600 dark:text-slate-400 text-xs md:text-sm font-medium text-center">
                       需立杆布线，目标明显
                     </div>
                   </div>
-
-                  {/* Row 6 */}
-                  <div className="flex items-stretch min-h-[60px] md:min-h-[72px] group relative z-20">
-                    <div className="w-[24%] shrink-0 flex items-center justify-end md:justify-start gap-2 md:gap-3 px-4 md:px-8 text-slate-500 dark:text-slate-400">
-                      <Activity className="w-4 h-4 md:w-5 md:h-5 text-emerald-600 dark:text-emerald-500" />
-                      <span className="font-semibold text-xs md:text-sm">维护频率</span>
-                    </div>
-                    <div className="w-[38%] flex items-center justify-start px-4 md:px-8">
-                      <div className="flex items-center gap-2 md:gap-3">
-                        <div className="w-5 h-5 md:w-6 md:h-6 flex items-center justify-center shrink-0"><Check className="w-4 h-4 md:w-5 md:h-5 text-emerald-300" /></div>
-                        <span className="text-white font-medium text-xs md:text-base leading-tight">极低 (数月一次)</span>
-                      </div>
-                    </div>
-                    <div className="w-[38%] flex items-center justify-center px-2 md:px-6 text-slate-600 dark:text-slate-400 text-xs md:text-sm font-medium text-center">
-                      高 (频繁换电池)
-                    </div>
-                  </div>
-
                 </div>
               </div>
             </div>
@@ -1006,7 +1004,7 @@ export default function ProductLandingPage() {
               disabled={isDownloading}
             >
               <Book className="w-6 h-6" />
-              {isDownloading ? '正在生成长图...' : '下载产品长图'}
+              {isDownloading ? '正在生成产品手册...' : '下载产品手册'}
             </button>
           </div>
         </div>

@@ -29,6 +29,7 @@ export default function MainLayout() {
   const navLinks = [
     { name: '首页', path: '/' },
     { name: '电子哨兵 (GuardX)', path: '/products/guardx' },
+    { name: '灵眸 (Spiritual Eyes)', path: '/products/spiritual-eyes' },
   ];
 
   return (
@@ -42,17 +43,38 @@ export default function MainLayout() {
 
           {/* Desktop Navigation */}
           <nav className="h-16 hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`h-16 flex items-center justify-center text-sm font-medium transition-colors hover:text-emerald-600 dark:hover:text-emerald-400 ${
-                  location.pathname === link.path ? 'text-emerald-600 dark:text-emerald-400 border-b-4 border-emerald-600 dark:border-emerald-400' : 'text-slate-600 dark:text-slate-400'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.path;
+              // GuardX uses emerald, Spiritual Eyes uses blue, Home uses slate/emerald as default
+              const isGuardX = link.path.includes('guardx');
+              const isSpiritualEyes = link.path.includes('spiritual-eyes');
+              
+              let activeClasses: string;
+              let hoverClasses: string;
+              
+              if (isSpiritualEyes) {
+                activeClasses = 'text-blue-600 dark:text-blue-400 border-b-4 border-blue-600 dark:border-blue-400';
+                hoverClasses = 'hover:text-blue-600 dark:hover:text-blue-400';
+              } else if (isGuardX) {
+                activeClasses = 'text-emerald-600 dark:text-emerald-400 border-b-4 border-emerald-600 dark:border-emerald-400';
+                hoverClasses = 'hover:text-emerald-600 dark:hover:text-emerald-400';
+              } else {
+                activeClasses = 'text-emerald-600 dark:text-emerald-400 border-b-4 border-emerald-600 dark:border-emerald-400';
+                hoverClasses = 'hover:text-emerald-600 dark:hover:text-emerald-400';
+              }
+
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`h-16 flex items-center justify-center text-sm font-medium transition-colors ${hoverClasses} ${
+                    isActive ? activeClasses : 'text-slate-600 dark:text-slate-400'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
@@ -105,18 +127,28 @@ export default function MainLayout() {
         {isMenuOpen && (
           <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
             <nav className="flex flex-col py-4 px-6 gap-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`text-sm font-medium transition-colors ${
-                    location.pathname === link.path ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-600 dark:text-slate-400'
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.path;
+                const isSpiritualEyes = link.path.includes('spiritual-eyes');
+                
+                let activeClasses = 'text-emerald-600 dark:text-emerald-400';
+                if (isSpiritualEyes) {
+                  activeClasses = 'text-blue-600 dark:text-blue-400';
+                }
+
+                return (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className={`text-sm font-medium transition-colors ${
+                      isActive ? activeClasses : 'text-slate-600 dark:text-slate-400'
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
               <hr className="border-slate-100 dark:border-slate-800" />
               <div className="flex flex-col gap-4 py-2">
                 <span className="text-sm font-medium text-slate-900 dark:text-white">联系销售</span>
@@ -160,7 +192,12 @@ export default function MainLayout() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/products/guardx" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-                  GuardX 电子哨兵
+                  电子哨兵 GuardX
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/spiritual-eyes" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  灵眸 Spiritual Eyes
                 </Link>
               </li>
               <li>
