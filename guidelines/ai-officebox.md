@@ -1,4 +1,4 @@
-# Secure AI OfficeBox 安全防护 AI 办公一体机
+# Secure AI OfficeBox 政企安全防护 AI 办公盒子
 【Slogan】：本地部署｜专用介质导入｜脱敏反脱敏｜AI会议纪要
 【口号】：让不能上云的涉密资料，也能安全使用大模型。
 一、产品定义

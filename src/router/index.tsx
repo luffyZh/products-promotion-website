@@ -3,6 +3,7 @@ import MainLayout from '../layouts/MainLayout';
 import Home from '../pages/Home';
 import GuardX from '../pages/guardx';
 import SpiritualEyes from '../pages/SpiritualEyes';
+import AiOfficeBox from '../pages/AiOfficeBox';
 
 export const router = createHashRouter([
   {
@@ -20,6 +21,10 @@ export const router = createHashRouter([
       {
         path: 'products/spiritual-eyes',
         element: <SpiritualEyes />,
+      },
+      {
+        path: 'products/ai-officebox',
+        element: <AiOfficeBox />,
       },
     ],
   },

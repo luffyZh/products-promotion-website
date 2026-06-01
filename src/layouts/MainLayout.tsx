@@ -30,6 +30,7 @@ export default function MainLayout() {
     { name: '首页', path: '/' },
     { name: '电子哨兵 (GuardX)', path: '/products/guardx' },
     { name: '灵眸 (Spiritual Eyes)', path: '/products/spiritual-eyes' },
+    { name: '政企 AI 办公盒子（AI OfficeBox）', path: '/products/ai-officebox' },
   ];
 
   return (
@@ -48,11 +49,15 @@ export default function MainLayout() {
               // GuardX uses emerald, Spiritual Eyes uses blue, Home uses slate/emerald as default
               const isGuardX = link.path.includes('guardx');
               const isSpiritualEyes = link.path.includes('spiritual-eyes');
+              const isAiOfficeBox = link.path.includes('ai-officebox');
               
               let activeClasses: string;
               let hoverClasses: string;
               
-              if (isSpiritualEyes) {
+              if (isAiOfficeBox) {
+                activeClasses = 'text-purple-600 dark:text-purple-400 border-b-4 border-purple-600 dark:border-purple-400';
+                hoverClasses = 'hover:text-purple-600 dark:hover:text-purple-400';
+              } else if (isSpiritualEyes) {
                 activeClasses = 'text-blue-600 dark:text-blue-400 border-b-4 border-blue-600 dark:border-blue-400';
                 hoverClasses = 'hover:text-blue-600 dark:hover:text-blue-400';
               } else if (isGuardX) {
@@ -130,9 +135,12 @@ export default function MainLayout() {
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path;
                 const isSpiritualEyes = link.path.includes('spiritual-eyes');
+                const isAiOfficeBox = link.path.includes('ai-officebox');
                 
                 let activeClasses = 'text-emerald-600 dark:text-emerald-400';
-                if (isSpiritualEyes) {
+                if (isAiOfficeBox) {
+                  activeClasses = 'text-purple-600 dark:text-purple-400';
+                } else if (isSpiritualEyes) {
                   activeClasses = 'text-blue-600 dark:text-blue-400';
                 }
 
@@ -198,6 +206,11 @@ export default function MainLayout() {
               <li>
                 <Link to="/products/spiritual-eyes" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   灵眸 Spiritual Eyes
+                </Link>
+              </li>
+              <li>
+                <Link to="/products/ai-officebox" className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+                  AI 办公一体机 Secure AI OfficeBox
                 </Link>
               </li>
               <li>
