@@ -38,7 +38,7 @@ import woodImg from '../assets/guard-x/tree.png';
 import dashboardImg from '../assets/guard-x/web-screen.png';
 import guardxNightImg from '../assets/guard-x/guardx-night.jpeg';
 import otherNightImg from '../assets/guard-x/other-product-night.jpeg';
-import guardxImg from '../assets/guard-x/guardx.png';
+import guardxImg from '../assets/guard-x/demo.png';
 import traditionalImg from '../assets/guard-x/traditional.png';
 import guardxRealImg from '../assets/guard-x/guardx-real.png';
 import guardBookImg from '../assets/guard-x/guard-book.png';
