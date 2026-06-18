@@ -295,9 +295,9 @@ export default function ProductLandingPage() {
               <div className="w-12 h-12 print:w-12 print:h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-6 print:mb-2">
                 <BatteryCharging className="w-6 h-6 print:w-6 print:h-6 text-emerald-600 dark:text-emerald-500" />
               </div>
-              <h3 className="text-xl print:text-xl font-bold mb-2 print:my-3 text-slate-900 dark:text-white">超低功耗值守</h3>
+              <h3 className="text-xl print:text-xl font-bold mb-2 print:my-3 text-slate-900 dark:text-white">超长航时值守</h3>
               <p className="text-md print:text-md leading-relaxed text-slate-600 dark:text-slate-400">
-                 <span className="bg-gradient-to-r font-bold from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-500 bg-clip-text text-transparent">μW 级待机、mW 级运行</span>。支持长时间无人值守，单次部署续航可达数月，无惧野外断电。
+                 <span className="bg-gradient-to-r font-bold from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-500 bg-clip-text text-transparent">mW 级运行</span>。支持长时间无人值守，单次部署续航可达数月，无惧野外断电。
               </p>
             </div>
 
