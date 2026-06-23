@@ -1,0 +1,390 @@
+{
+  "locale": {
+    "zh-CN": "中文",
+    "en": "English",
+    "ar": "العربية"
+  },
+  "common": {
+    "themeToggle": "Toggle theme",
+    "contactSales": "Contact sales",
+    "scanWeChat": "Scan to add sales on WeChat",
+    "scanWeChatOrCall": "Scan WeChat, or call:",
+    "moreComing": "More products coming soon",
+    "comingSoon": "Coming soon",
+    "allRightsReserved": "© {{year}} CETC NanHu. All rights reserved."
+  },
+  "nav": {
+    "home": "Home",
+    "guardx": "GuardX (Electronic Sentry)",
+    "spiritualEyes": "Spiritual Eyes",
+    "aiOfficeBox": "AI OfficeBox (Gov/Enterprise)"
+  },
+  "footer": {
+    "slogan": "Committed to delivering intelligent, efficient, and reliable cutting-edge products and solutions for every industry.",
+    "products": "Products",
+    "about": "About",
+    "contactSales": "Contact sales",
+    "guardx": "GuardX Electronic Sentry",
+    "spiritualEyes": "Spiritual Eyes",
+    "aiOfficeBox": "Secure AI OfficeBox",
+    "companyIntro": "Company",
+    "news": "News",
+    "careers": "Careers"
+  },
+  "home": {
+    "heroTitlePrefix": "Empower industries,",
+    "heroTitleHighlight": "sense the future",
+    "heroDesc": "CETC Nanhu Institute is dedicated to building next-generation brain-inspired intelligence solutions. With advanced AI and ultra-low-power technologies, we deliver highly reliable product experiences for complex scenarios.",
+    "heroCta": "Explore our products",
+    "productsTitle": "Featured products",
+    "productsSubtitle": "An intelligent device lineup built for extreme environments and demanding requirements",
+    "guardxCardTitleTop": "GUARDX Electronic Sentry",
+    "guardxCardTagline": "Ultra-low-power intelligent reconnaissance terminal",
+    "guardxCardTitle": "GuardX Electronic Sentry",
+    "guardxCardDesc": "Trigger on motion, stay on guard for months. A microwatt standby reconnaissance device designed for off-grid and offline environments, with on-device AI recognition.",
+    "learnMore": "Learn more",
+    "placeholder1TitleTop": "Edge AI Box",
+    "placeholder1Tagline": "Coming soon",
+    "placeholder1Title": "EdgeAI Compute Platform",
+    "placeholder1Desc": "Powerful edge computing to support sensing devices, enabling localized analytics and processing for massive data streams.",
+    "placeholder2TitleTop": "Panoramic Situation Radar",
+    "placeholder2Tagline": "Coming soon",
+    "placeholder2Title": "OmniRadar Monitoring System",
+    "placeholder2Desc": "360° situation awareness with radar-vision fusion, built to operate in harsh weather and complex environments."
+  },
+  "aiOfficeBox": {
+    "heroBadge": "Integrated on-prem LLM solution",
+    "heroTitleHighlight": "Secure AI all-in-one office box",
+    "heroSubtitlePrefix": "Use sensitive data that cannot go to the cloud,",
+    "heroSubtitleSuffix": "safely with large models.",
+    "tags": {
+      "localDeploy": "On-prem deployment",
+      "secureImport": "Secure media import",
+      "desensitize": "Mask & unmask",
+      "meetingMinutes": "AI meeting minutes"
+    },
+    "heroImagePlaceholderTitle": "Product render placeholder (recommended: 1920×1080)",
+    "heroImagePlaceholderDesc": "Place a refined industrial-looking box with a small LED status screen and a physical record button, on a government/enterprise desktop or in a server room. The screen shows “Local LLM running”.",
+    "advantagesTitle": "Core technical advantages",
+    "advantagesSubtitle": "With domestic AI chips and an on-device large model, it addresses the key pain point for high-security organizations: “want AI, but cannot use the cloud”.",
+    "adv1": {
+      "title": "Integrated hardware-software industrial design",
+      "desc": "A premium industrial box design with a small LED status screen and a physical record button. No deployment, no tuning — ready out of the box for desks, teams, or intranet server rooms."
+    },
+    "adv2": {
+      "title": "Text masking & unmasking engine",
+      "desc": "Automatically masks names, locations, and sensitive codes during import. After drafting, authorized users can restore masked terms to the original text with one click, balancing safety and usability."
+    },
+    "adv3": {
+      "title": "Local 8B model + RAG",
+      "desc": "Built-in high-performance on-device model plus retrieval-augmented generation (RAG) for accurate document parsing, semantic search, multi-document comparison, and answer traceability (with citations)."
+    },
+    "adv4": {
+      "title": "Secure import via dedicated media",
+      "desc": "Supports encrypted USB drives and dedicated secure disks. The system performs file verification, malware scanning, and permission control to keep data flows compliant."
+    },
+    "adv5": {
+      "title": "Fine-grained access control & full auditing",
+      "desc": "Role-based management and knowledge-base isolation. All operations — import, Q&A, drafting, masking/unmasking, and export — are fully logged to meet strict audit requirements."
+    },
+    "scenariosTitle": "Four core application scenarios",
+    "scenariosSubtitle": "Turn massive sensitive data into on-prem productivity",
+    "scenarioImagePlaceholder": "Scenario image placeholder (800×600)",
+    "scenarioSmallImagePlaceholder": "Scenario image placeholder (600×400)",
+    "scenario1": {
+      "title": "Materials assistant for HQ/government departments",
+      "desc": "Draft work summaries, leadership reports, policy interpretation, and annual plans.",
+      "b1": "Convert large historical archives into an on-prem knowledge base for quick policy reference.",
+      "b2": "Generate a first draft of briefing materials with one click and cut drafting time significantly."
+    },
+    "scenario2": {
+      "title": "Proposal & technical-solution assistant for institutes",
+      "desc": "Draft project proposals, technical solutions, milestone summaries, and acceptance materials.",
+      "b1": "Process sensitive technical data locally and protect core information with the masking engine.",
+      "b2": "Help researchers quickly extract technical routes and project outlines."
+    },
+    "scenario3": {
+      "title": "Process document management for defense/sensitive project teams",
+      "desc": "Manage meeting minutes, test records, and issue lists produced over long project cycles. Keep materials inside the intranet, strengthen knowledge retention, and support traceability and auditing."
+    },
+    "scenario4": {
+      "title": "Confidential meeting recording & minutes generation",
+      "desc": "For confidential meetings, closed bid evaluations, and key discussions. One-click recording with a physical button, then automatic transcription and structured minutes with action items."
+    },
+    "ctaTitleLine1": "General-purpose LLMs solve “generic efficiency”,",
+    "ctaTitleLine2": "Secure AI OfficeBox solves “compliant efficiency in high-security environments”.",
+    "ctaButton": "Get an on-prem deployment plan"
+  },
+  "spiritualEyes": {
+    "heroBadge": "Privacy protection & anti-leakage monitoring device",
+    "brandZh": "Spiritual",
+    "brandEn": "Eyes",
+    "heroSubtitleLine1": "Detect devices, recognize behaviors",
+    "heroSubtitleLine2": "Dual-mode fusion, precise alerts",
+    "heroImagePlaceholderTitle": "Hero image placeholder (recommended: 1920×1080)",
+    "heroImagePlaceholderDesc": "Use a high-tech, deep-blue-tone product render or scenario composite with IR/DVS sensing effects.",
+    "pillarsTitle": "All-scenario anti-leakage monitoring system",
+    "pillarsDescPrefix": "First-of-its-kind",
+    "pillarsDescHighlight": "“DVS event camera + IR infrared sensing”",
+    "pillarsDescSuffix": "multimodal fusion architecture that replaces signal-based detection. With “device detection + behavior recognition”, it ensures the monitoring device itself has near-zero leakage risk from the physical layer.",
+    "feature1": {
+      "title": "Works offline, resists jamming",
+      "desc": "Breaks the blind spots of signal-based detection and does not rely on Wi‑Fi, Bluetooth, or cellular signals. Even if a hidden device is in airplane mode, has no SIM, or the room uses a jammer, it can still be identified accurately."
+    },
+    "feature2": {
+      "title": "Device + behavior double lock",
+      "desc": "IR sensing captures optical device signatures; the DVS event camera detects actions like raising a phone, aiming, and pressing the shutter at millisecond-level. Fusion algorithms strike fast with extremely low false positives."
+    },
+    "feature3": {
+      "title": "The monitor doesn’t leak",
+      "desc": "Physical-level privacy protection. DVS outputs only dynamic pixel changes (contours and motion) and does not record HD static images or readable text, eliminating secondary leakage at the hardware source."
+    },
+    "formsTitle": "Two product forms, comprehensive protection",
+    "formsSubtitle": "From fixed spaces to mobile work, covering different security levels and scenarios",
+    "pro": {
+      "badge": "PRO",
+      "name": "Spiritual Eyes · Dome",
+      "tagline": "Fixed-space defense",
+      "item1Label": "Deployment:",
+      "item1Value": "Hidden fixed installation on ceiling/wall",
+      "item2Label": "Coverage:",
+      "item2Value": "2m–8m mid-to-long range wide-angle protection",
+      "item3Label": "Features:",
+      "item3Value": "24/7 no-dead-angle monitoring, multi-device networking, and a room-wide anti-recording dome",
+      "imagePlaceholderTitle": "Dome version image placeholder (800×600)",
+      "imagePlaceholderDesc": "Show a fixed device installed on the ceiling or corner, emphasizing wide-angle coverage."
+    },
+    "air": {
+      "badge": "AIR",
+      "name": "Spiritual Eyes · Go",
+      "tagline": "Wearable portable protection",
+      "item1Label": "Deployment:",
+      "item1Value": "Mini clip-on design (clip above screen, on folders, or carry with you)",
+      "item2Label": "Coverage:",
+      "item2Value": "0.5m–2m near-field precise protection",
+      "item3Label": "Features:",
+      "item3Value": "Plug-and-play with long standby, protecting against “behind-the-back recording” and “over-the-shoulder peeking”",
+      "imagePlaceholderTitle": "Go version image placeholder (800×600)",
+      "imagePlaceholderDesc": "Show a compact device clipped to a laptop screen or placed on a desk."
+    },
+    "scenariosTitle": "Four core scenarios",
+    "scenariosSubtitle": "Targeted anti-leakage solutions for high-security spaces and behaviors",
+    "scenarioImagePlaceholder": "Scenario image 600×600",
+    "scenario1": {
+      "title": "Confidential office",
+      "desc": "Prevent insiders from bringing phones and recorders to secretly take photos or audio recordings.",
+      "risk1": "Phones brought into confidential areas",
+      "risk2": "Shooting screens and documents"
+    },
+    "scenario2": {
+      "title": "Confidential meeting room",
+      "desc": "Prevent meeting content, materials, and projection screens from being recorded, including hidden desk-level audio recording.",
+      "risk1": "Attendees raising phones to record slides",
+      "risk2": "Rapid photo copying of documents"
+    },
+    "scenario3": {
+      "title": "Core R&D center",
+      "desc": "Prevent drawings, code, experiment data, and prototype information from being photographed and leaked.",
+      "risk1": "Phones secretly filming R&D screens",
+      "risk2": "Shooting lab equipment or prototypes"
+    },
+    "scenario4": {
+      "title": "Server room & archive room",
+      "desc": "Continuously sense carried devices and suspicious behaviors in high-security rooms.",
+      "risk1": "Shooting servers / network topology",
+      "risk2": "Unauthorized copying of sensitive content"
+    },
+    "comparisonTitle": "Multimodal fusion, a level-up over traditional solutions",
+    "comparisonLeftBadge": "Regular camera output",
+    "comparisonRightBadge": "Spiritual Eyes DVS output",
+    "comparisonImagePlaceholder": "Comparison placeholder (600×400)",
+    "comparisonLeftDesc": "Documents are clearly visible (secondary leakage risk)",
+    "comparisonRightDesc": "Only motion contours, no readable text details",
+    "metric1": { "title": "Fast response", "desc": "Millisecond capture, second-level response" },
+    "metric2": { "title": "Detection range", "desc": "0.5m–8m wide-angle protection" },
+    "metric3": { "title": "Recognition accuracy", "desc": "Works under complex lighting and occlusion" },
+    "metric4": { "title": "Low false alarms", "desc": "Filters daily actions like drinking or scratching" }
+  },
+  "meta": {
+    "defaultTitle": "CETC | Nanhu Institute"
+  },
+  "guardx": {
+    "meta": {
+      "title": "GuardX Electronic Sentry | CETC",
+      "wechatShareAlt": "GuardX Electronic Sentry",
+      "downloadImageName": "GuardX-product-poster.jpg",
+      "downloadFailed": "Download failed. Please try again."
+    },
+    "a11y": {
+      "prevImage": "Previous image",
+      "nextImage": "Next image",
+      "switchToImage": "Switch to image {{index}}",
+      "closeVideo": "Close video",
+      "closePreview": "Close preview",
+      "previewImageAlt": "Image preview"
+    },
+    "hero": {
+      "badge": "AIoT sensing-computing integrated ultra-low-power reconnaissance device",
+      "title": "Motion-triggered alerts <highlight>long-term guard</highlight><br/><highlight>Smart recognition </highlight> situation awareness",
+      "desc": "Designed for borders, perimeters, key-area defense, and temporary deployments. Combining “event-based vision sensing + on-device AI recognition + low-power evidence capture” to enable precise detection, alerts, and high-definition evidence for long-term unattended operation.",
+      "watchVideo": "Watch video",
+      "learnCamouflage": "Learn camouflage deployment",
+      "imageAlt": "GuardX main unit showcase {{index}}",
+      "cardTitle": "GuardX Electronic Sentry",
+      "cardSubtitle": "All-weather smart reconnaissance, an invisible defense line"
+    },
+    "features": {
+      "title": "Core technical highlights",
+      "subtitle": "Built for extreme outdoor and off-grid/offline environments",
+      "items": [
+        {
+          "title": "Event-driven sensing",
+          "desc": "Alert only on motion. Powered by an advanced <highlight>DVS event camera</highlight>, it triggers only when objects move in view, filtering out irrelevant information."
+        },
+        {
+          "title": "Ultra-long standby",
+          "desc": "<highlight>mW-level operation</highlight>. Supports long unattended duty; a single deployment can last for months without fear of power loss in the wild."
+        },
+        {
+          "title": "On-device AI recognition",
+          "desc": "Edge intelligence. Built-in AI chip supports local detection of <highlight>people, vehicles, and drones</highlight>, reducing false alarms from wind and shadows."
+        },
+        {
+          "title": "Dual-mode evidence capture",
+          "desc": "<highlight>Balance endurance and evidence</highlight>. A low-power DVS sensor stays on watch for pre-screening, then instantly wakes the HD RGB camera for evidence capture, ensuring both efficiency and quality."
+        }
+      ]
+    },
+    "camouflage": {
+      "title": "Ecosystem-level camouflage",
+      "subtitle": "Based on a tiny core module, it can expand into diverse camouflage forms for different scenarios",
+      "moduleImageAlt": "Sentry core module",
+      "moduleBadge": "Core brain",
+      "moduleTitle": "Mini intelligent module",
+      "moduleDesc": "A highly integrated micro PCB with ultra-low-power image sensing and an on-device AI compute chip, roughly the size of a standard building block.",
+      "branches": [
+        {
+          "badge": "Form extension 01",
+          "title": "Bionic rock sentry",
+          "desc": "The module is embedded into a highly realistic rock shell with tiny dual-lens apertures. Placed in mountains, deserts, or near border lines, it is hard to notice with the naked eye.",
+          "imageAlt": "Bionic rock sentry"
+        },
+        {
+          "badge": "Form extension 02",
+          "title": "Bionic deadwood sentry",
+          "desc": "Blends perfectly with deadwood and bark textures. Ideal for long-term covert guarding in forests, shrubs, orchards, and other densely vegetated areas.",
+          "imageAlt": "Bionic deadwood sentry"
+        }
+      ]
+    },
+    "dashboard": {
+      "title": "Situational awareness dashboard",
+      "subtitle": "Real-time linkage on the backend screen: deployment positions, status, and alert tracks at a glance",
+      "imageAlt": "GuardX dashboard",
+      "realtime": "Live linked",
+      "items": [
+        { "title": "GIS map fusion", "desc": "Visualize sentry locations and dynamically draw intrusion tracks on the big screen." },
+        { "title": "Left alert panel", "desc": "Returns target snapshots in real time and pushes HD evidence within seconds." },
+        { "title": "Right alert trends", "desc": "Multi-dimensional dashboards for alert trends and target category statistics." },
+        { "title": "Device health monitoring", "desc": "Reports battery, signal strength, and online status; anomalies trigger alerts automatically." }
+      ]
+    },
+    "nightVision": {
+      "title": "Brilliant at night, too",
+      "subtitle": "AI-ISP full-color night vision: accurately boxes targets even under extremely low light (≥ 1Lux)",
+      "leftImageAlt": "Full-color night vision",
+      "leftBadge": "Full-color night vision",
+      "rightImageAlt": "Traditional IR night vision",
+      "rightBadge": "Traditional IR night vision"
+    },
+    "scenarios": {
+      "title": "Typical scenarios",
+      "subtitle": "Flexible, efficient, low-maintenance deployments for different security pain points",
+      "items": [
+        {
+          "title": "Long-term covert guarding at borders and in the wild",
+          "desc": "Deploy along borders, uninhabited areas, mountains/forests, and outdoor corridors. Solves frequent maintenance and extreme power-supply challenges of traditional systems."
+        },
+        {
+          "title": "Perimeter protection for key and sensitive areas",
+          "desc": "For airports, oil & gas pipelines, military restricted zones, and core warehouses. Continuous sensing and second-level alerts for people and vehicles."
+        },
+        {
+          "title": "Temporary deployment for public security and guarding",
+          "desc": "Outdoor events, emergency tasks, and suspect vehicle/person tracking. Ready out of the box with quick magnetic or strap mounting for high mobility."
+        },
+        {
+          "title": "Evidence capture for vehicles and persons",
+          "desc": "When a target enters the zone, it not only alerts but also instantly captures and returns key HD images (color, appearance, behavior) to support enforcement."
+        }
+      ]
+    },
+    "painpoints": {
+      "title": "Why choose GuardX?",
+      "subtitle": "Address three core pain points in outdoor and temporary deployments with a better solution",
+      "items": [
+        {
+          "painTitle": "Pain point 1: Short endurance of traditional cameras",
+          "painDesc": "Deploying traditional cameras off-grid requires heavy solar panels or frequent battery replacement, leading to high maintenance costs and downtime due to power loss.",
+          "solutionTitle": "GuardX solution: ultra-low power at mW level",
+          "solutionDesc": "Event-driven wake-up keeps the device in ultra-low-power sleep when idle. With a compact battery, it can stay on duty for months."
+        },
+        {
+          "painTitle": "Pain point 2: Too much useless video, high transmission and review cost",
+          "painDesc": "Continuous recording produces massive useless footage from wind and lighting changes, wasting 4G data and creating heavy manual review workload.",
+          "solutionTitle": "GuardX solution: on-device AI filtering and precise pushing",
+          "solutionDesc": "On-device AI with DVS pre-screening triggers RGB capture and recognition. Alerts are sent only when real threats (people, vehicles, drones) are detected, ensuring every returned frame is key evidence."
+        },
+        {
+          "painTitle": "Pain point 3: Difficult deployment in the wild and temporary scenes",
+          "painDesc": "Traditional systems are bulky and require poles and wiring, making fast, covert, flexible deployment difficult in border forests and temporary security operations.",
+          "solutionTitle": "GuardX solution: minimal, covert, portable deployment",
+          "solutionDesc": "The core module is as small as a building block (≤ 80mm × 80mm × 80mm) and supports fast non-destructive installation. It can blend into rocks and deadwood for ecosystem-level camouflage and a truly invisible defense line."
+        }
+      ]
+    },
+    "comparison": {
+      "title": "Redefine outdoor and temporary deployment standards",
+      "subtitle": "Smarter, more covert, and easier than traditional monitoring",
+      "guardxBadge": "Electronic Sentry",
+      "traditionalTitle": "Traditional security camera",
+      "rows": [
+        { "label": "Sensing mode", "guardx": "Event-driven / motion-triggered", "traditional": "Continuous recording / frequent wake-up" },
+        { "label": "Power & endurance", "guardx": "mW standby / ≥ 60 days", "traditional": "High power; needs solar / ≤ 14 days" },
+        { "label": "Target types", "guardx": "People, vehicles, drones / customizable", "traditional": "People, pets / not customizable" },
+        { "label": "Invalid data", "guardx": "On-device AI filtering / false alarm ≤ 90%", "traditional": "Massive (records everything)" },
+        { "label": "Evidence capability", "guardx": "HD color snapshots; alert equals evidence", "traditional": "Time-consuming key-frame search" },
+        { "label": "Deployment", "guardx": "Ecosystem camouflage; no wiring", "traditional": "Poles and wiring; obvious target" }
+      ]
+    },
+    "packing": {
+      "title": "Packing list",
+      "subtitle": "Hardware-software integrated, ready-to-use mission kit",
+      "mainDeviceAlt": "GUARDX device",
+      "mainDeviceCount": "Device × 10",
+      "items": [
+        { "alt": "Equipment case", "text": "Equipment case × 1" },
+        { "alt": "Control tablet", "text": "Control tablet × 1" },
+        { "alt": "Power cable", "text": "Power cable × 1" },
+        { "alt": "Screw accessories", "text": "Screw accessories × 1" },
+        { "alt": "User guide", "text": "User guide × 1" }
+      ],
+      "notificationBanner": "Push notifications require enabling system notification permissions on the phone",
+      "mockup": {
+        "notificationsTitle": "Notifications",
+        "appTitle": "GuardX Electronic Sentry",
+        "allowNotifications": "Allow notifications",
+        "reminders": "Reminders",
+        "lockScreen": "Lock screen",
+        "notificationCenter": "Notification Center",
+        "banner": "Banners"
+      }
+    },
+    "cta": {
+      "title": "Start a new era of smart, covert, long-endurance reconnaissance",
+      "desc": "Contact our product experts to get a tailored deployment plan and pricing list.",
+      "generating": "Generating product brochure...",
+      "download": "Download product brochure"
+    }
+  }
+}

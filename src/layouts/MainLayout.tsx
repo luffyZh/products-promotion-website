@@ -2,8 +2,11 @@
 import { useEffect, useState } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Menu, X, Sun, Moon, Phone, QrCode } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { LanguageSwitcher } from '../components/LanguageSwitcher';
 
 export default function MainLayout() {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const [isDark, setIsDark] = useState(false);
@@ -27,10 +30,10 @@ export default function MainLayout() {
   };
 
   const navLinks = [
-    { name: '首页', path: '/' },
-    { name: '电子哨兵 (GuardX)', path: '/products/guardx' },
-    { name: '灵眸 (Spiritual Eyes)', path: '/products/spiritual-eyes' },
-    { name: '政企 AI 办公盒子（AI OfficeBox）', path: '/products/ai-officebox' },
+    { name: t('nav.home'), path: '/' },
+    { name: t('nav.guardx'), path: '/products/guardx' },
+    { name: t('nav.spiritualEyes'), path: '/products/spiritual-eyes' },
+    { name: t('nav.aiOfficeBox'), path: '/products/ai-officebox' },
   ];
 
   return (
@@ -83,24 +86,25 @@ export default function MainLayout() {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
+            <LanguageSwitcher />
             <button 
               onClick={toggleDark} 
               className="p-2 rounded-full border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-700 dark:text-yellow-400 transition-all"
-              title="切换主题"
+              title={t('common.themeToggle')}
             >
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
             <div className="relative group">
               <button className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors py-4">
-                联系销售
+                {t('common.contactSales')}
               </button>
               {/* Dropdown for Contact Sales */}
-              <div className="absolute right-0 top-full mt-0 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+              <div className="absolute end-0 top-full mt-0 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                 <div className="bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 p-6 flex flex-col items-center">
                   <div className="w-32 h-32 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mb-4 border border-slate-200 dark:border-slate-700">
                     <QrCode className="w-12 h-12 text-slate-400" />
                   </div>
-                  <p className="text-sm font-medium text-slate-900 dark:text-white mb-4">扫码添加销售微信</p>
+                  <p className="text-sm font-medium text-slate-900 dark:text-white mb-4">{t('common.scanWeChat')}</p>
                   <div className="w-full h-px bg-slate-100 dark:bg-slate-800 mb-4"></div>
                   <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                     <Phone className="w-4 h-4" />
@@ -113,6 +117,7 @@ export default function MainLayout() {
 
           {/* Mobile Menu Toggle */}
           <div className="flex items-center gap-4 md:hidden">
+            <LanguageSwitcher className="h-9 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-3 text-sm font-medium text-slate-700 dark:text-slate-200" />
             <button 
               onClick={toggleDark} 
               className="p-2 rounded-full border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-yellow-400"
@@ -159,13 +164,13 @@ export default function MainLayout() {
               })}
               <hr className="border-slate-100 dark:border-slate-800" />
               <div className="flex flex-col gap-4 py-2">
-                <span className="text-sm font-medium text-slate-900 dark:text-white">联系销售</span>
+                <span className="text-sm font-medium text-slate-900 dark:text-white">{t('common.contactSales')}</span>
                 <div className="flex items-center gap-4 bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-100 dark:border-slate-800">
                   <div className="w-16 h-16 bg-white dark:bg-slate-800 rounded flex items-center justify-center border border-slate-200 dark:border-slate-700 shrink-0">
                     <QrCode className="w-8 h-8 text-slate-400" />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <span className="text-xs text-slate-500 dark:text-slate-400">扫码添加微信，或致电：</span>
+                    <span className="text-xs text-slate-500 dark:text-slate-400">{t('common.scanWeChatOrCall')}</span>
                     <a href="tel:13051891212" className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold">
                       <Phone className="w-4 h-4" />
                       130 5189 1212
@@ -192,49 +197,49 @@ export default function MainLayout() {
               <img src={`${import.meta.env.BASE_URL}cetc-nanhu.png`} alt="CETC" className="w-32 object-contain" />
             </div>
             <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
-              致力于为各行业提供智能、高效、可靠的前沿科技产品与解决方案。
+              {t('footer.slogan')}
             </p>
           </div>
           <div>
-            <h4 className="text-slate-900 dark:text-slate-100 font-semibold mb-4">产品</h4>
+            <h4 className="text-slate-900 dark:text-slate-100 font-semibold mb-4">{t('footer.products')}</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/products/guardx" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-                  电子哨兵 GuardX
+                  {t('footer.guardx')}
                 </Link>
               </li>
               <li>
                 <Link to="/products/spiritual-eyes" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  灵眸 Spiritual Eyes
+                  {t('footer.spiritualEyes')}
                 </Link>
               </li>
               <li>
                 <Link to="/products/ai-officebox" className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
-                  AI 办公一体机 Secure AI OfficeBox
+                  {t('footer.aiOfficeBox')}
                 </Link>
               </li>
               <li>
-                <span className="text-slate-400 dark:text-slate-600 cursor-not-allowed">更多产品敬请期待</span>
+                <span className="text-slate-400 dark:text-slate-600 cursor-not-allowed">{t('common.moreComing')}</span>
               </li>
             </ul>
           </div>
           <div>
-            <h4 className="text-slate-900 dark:text-slate-100 font-semibold mb-4">关于我们</h4>
+            <h4 className="text-slate-900 dark:text-slate-100 font-semibold mb-4">{t('footer.about')}</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">公司简介</a></li>
-              <li><a href="#" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">新闻动态</a></li>
-              <li><a href="#" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">加入我们</a></li>
+              <li><a href="#" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">{t('footer.companyIntro')}</a></li>
+              <li><a href="#" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">{t('footer.news')}</a></li>
+              <li><a href="#" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">{t('footer.careers')}</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-slate-900 dark:text-slate-100 font-semibold mb-4">联系销售</h4>
+            <h4 className="text-slate-900 dark:text-slate-100 font-semibold mb-4">{t('footer.contactSales')}</h4>
             <div className="flex flex-col gap-4">
               <div className="flex items-start gap-4">
                 <div className="w-24 h-24 bg-white dark:bg-slate-800 rounded-lg p-2 border border-slate-200 dark:border-slate-700 shadow-sm shrink-0">
                   <QrCode className="w-full h-full text-slate-300 dark:text-slate-600" />
                 </div>
                 <div className="space-y-2 py-1">
-                  <p className="text-sm font-medium text-slate-700 dark:text-slate-300">扫码添加销售微信</p>
+                  <p className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('common.scanWeChat')}</p>
                   <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-500">
                     <Phone className="w-4 h-4" />
                     <a href="tel:13051891212" className="text-sm font-bold">130 5189 1212</a>
@@ -245,7 +250,7 @@ export default function MainLayout() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-slate-200 dark:border-slate-900 text-sm text-center text-slate-500">
-          <p>© {new Date().getFullYear()} CETC NanHu. All rights reserved.</p>
+          <p>{t('common.allRightsReserved', { year: new Date().getFullYear() })}</p>
         </div>
       </footer>
     </div>

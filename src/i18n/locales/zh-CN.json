@@ -1,0 +1,402 @@
+{
+  "locale": {
+    "zh-CN": "中文",
+    "en": "English",
+    "ar": "العربية"
+  },
+  "common": {
+    "themeToggle": "切换主题",
+    "contactSales": "联系销售",
+    "scanWeChat": "扫码添加销售微信",
+    "scanWeChatOrCall": "扫码添加微信，或致电：",
+    "moreComing": "更多产品敬请期待",
+    "comingSoon": "敬请期待",
+    "allRightsReserved": "© {{year}} CETC NanHu. All rights reserved."
+  },
+  "nav": {
+    "home": "首页",
+    "guardx": "电子哨兵 (GuardX)",
+    "spiritualEyes": "灵眸 (Spiritual Eyes)",
+    "aiOfficeBox": "政企 AI 办公盒子（AI OfficeBox）"
+  },
+  "footer": {
+    "slogan": "致力于为各行业提供智能、高效、可靠的前沿科技产品与解决方案。",
+    "products": "产品",
+    "about": "关于我们",
+    "contactSales": "联系销售",
+    "guardx": "电子哨兵 GuardX",
+    "spiritualEyes": "灵眸 Spiritual Eyes",
+    "aiOfficeBox": "AI 办公一体机 Secure AI OfficeBox",
+    "companyIntro": "公司简介",
+    "news": "新闻动态",
+    "careers": "加入我们"
+  },
+  "home": {
+    "heroTitlePrefix": "赋能行业，",
+    "heroTitleHighlight": "感知未来",
+    "heroDesc": "中国电子科技南湖研究院致力于打造下一代类脑智能方案。我们通过前沿的 AI 与低功耗技术，为复杂场景提供极致可靠的产品体验。",
+    "heroCta": "探索我们的产品",
+    "productsTitle": "明星产品",
+    "productsSubtitle": "专为极端环境与严苛需求打造的智能设备线",
+    "guardxCardTitleTop": "GUARDX 电子哨兵",
+    "guardxCardTagline": "超低功耗智能侦察终端",
+    "guardxCardTitle": "GuardX 电子哨兵",
+    "guardxCardDesc": "有动才报，长时值守。专为野外无电无网环境设计的微瓦级待机智能侦察设备，支持端侧AI识别。",
+    "learnMore": "了解详情",
+    "placeholder1TitleTop": "AI 边缘盒子",
+    "placeholder1Tagline": "即将推出",
+    "placeholder1Title": "EdgeAI 计算平台",
+    "placeholder1Desc": "强大的边缘计算能力，为前端感知设备提供算力支撑，实现海量数据本地化分析处理。",
+    "placeholder2TitleTop": "全景态势雷达",
+    "placeholder2Tagline": "即将推出",
+    "placeholder2Title": "OmniRadar 监测系统",
+    "placeholder2Desc": "360度无死角态势感知，融合雷达与视觉双重探测技术，适应各种恶劣天气环境。"
+  },
+  "aiOfficeBox": {
+    "heroBadge": "本地化大模型软硬一体产品",
+    "heroTitleHighlight": "安全防护 AI 办公一体机",
+    "heroSubtitlePrefix": "让不能上云的涉密资料，",
+    "heroSubtitleSuffix": "也能安全使用大模型。",
+    "tags": {
+      "localDeploy": "本地部署",
+      "secureImport": "专用介质导入",
+      "desensitize": "脱敏反脱敏",
+      "meetingMinutes": "AI会议纪要"
+    },
+    "heroImagePlaceholderTitle": "产品外观渲染图占位 (建议尺寸: 1920x1080)",
+    "heroImagePlaceholderDesc": "放置一张工业化精美盒子，带有小型LED状态屏和实体录音按钮，放置在政企桌面或机房环境。屏幕显示“本地大模型运行中”。",
+    "advantagesTitle": "核心技术优势",
+    "advantagesSubtitle": "通过国产化AI芯片与本地端侧大模型，彻底解决高安全单位“想用 AI 但不能上云”的核心痛点。",
+    "adv1": {
+      "title": "软硬一体化工业设计",
+      "desc": "精美工业化盒子形态，配备小型LED状态屏与实体录音按钮。免部署、免调试，支持办公室桌面、项目组或内网机房灵活部署，开箱即用。"
+    },
+    "adv2": {
+      "title": "文本脱敏与反脱敏引擎",
+      "desc": "导入时自动对人名、地名、涉密代号进行遮蔽泛化。AI生成初稿后，授权用户可一键将脱敏词汇恢复为原文，兼顾推理安全与材料可用性。"
+    },
+    "adv3": {
+      "title": "本地 8B 大模型与 RAG",
+      "desc": "内置高性能端侧大模型，结合检索增强生成（RAG），实现精准文档解析、语义检索、多文档对比与答案溯源（直接显示引用来源）。"
+    },
+    "adv4": {
+      "title": "专用介质安全导入",
+      "desc": "支持加密U盘、涉密红盘等专用移动存储介质。系统自动执行文件校验、病毒查杀与导入权限控制，确保资料流转合规。"
+    },
+    "adv5": {
+      "title": "细粒度权限管控与全量审计",
+      "desc": "提供完善的用户角色管理与知识库权限隔离。所有导入、问答、材料生成、脱敏/反脱敏、导出操作均记录在案生成完整日志，满足高安全单位最严格的审计要求。"
+    },
+    "scenariosTitle": "四大核心应用场景",
+    "scenariosSubtitle": "将海量涉密数据转化为本地生产力",
+    "scenarioImagePlaceholder": "场景图占位 (800x600)",
+    "scenarioSmallImagePlaceholder": "场景配图 (600x400)",
+    "scenario1": {
+      "title": "央企总部/政府机关职能部门材料助手",
+      "desc": "撰写工作总结、领导汇报、制度解读、年度规划。",
+      "b1": "将海量历史文档转化为本地知识库，快速查阅政策依据。",
+      "b2": "一键生成汇报材料初稿，大幅缩减起草时间。"
+    },
+    "scenario2": {
+      "title": "研究院项目申报与技术方案助手",
+      "desc": "撰写项目申报材料、技术方案、阶段总结、验收材料。",
+      "b1": "敏感技术资料本地化处理，通过脱敏引擎保护核心数据。",
+      "b2": "辅助科研人员快速提炼技术路线与项目大纲。"
+    },
+    "scenario3": {
+      "title": "军工/涉密项目组过程文档管理",
+      "desc": "管理项目长周期内产生的会议纪要、测试记录、问题清单。保障项目资料不出内网，强化知识沉淀，支持过程可追溯和操作审计。"
+    },
+    "scenario4": {
+      "title": "保密会议记录与纪要生成",
+      "desc": "适用于涉密会议、封闭评标、核心讨论会。通过设备实体按键一键录音，会后自动转写文字并生成结构化会议纪要、提取待办事项。"
+    },
+    "ctaTitleLine1": "普通大模型解决“通用提效”问题，",
+    "ctaTitleLine2": "Secure AI OfficeBox 解决“高安全环境下的合规提效”问题。",
+    "ctaButton": "获取本地化部署方案"
+  },
+  "spiritualEyes": {
+    "heroBadge": "隐私防护防泄密监控设备",
+    "brandZh": "灵眸",
+    "brandEn": "Spiritual Eyes",
+    "heroSubtitleLine1": "一探设备，二识行为",
+    "heroSubtitleLine2": "双模融合，精准告警",
+    "heroImagePlaceholderTitle": "主视觉图占位 (建议尺寸: 1920x1080)",
+    "heroImagePlaceholderDesc": "请放置一张体现高科技、深蓝色调、带有红外/DVS感知特效的产品渲染图或应用场景合成图。",
+    "pillarsTitle": "全场景防泄密监控系统",
+    "pillarsDescPrefix": "首创",
+    "pillarsDescHighlight": "“DVS事件相机 + IR红外传感”",
+    "pillarsDescSuffix": "多模态融合架构，彻底颠覆传统依赖无线信号的检测手段。通过“设备探测+行为识别”双重锁定，从物理底层确保监控设备自身“零泄密”风险。",
+    "feature1": {
+      "title": "不怕断网，无惧屏蔽",
+      "desc": "突破传统信号检测盲区，不依赖WiFi、蓝牙或蜂窝网络信号。无论偷拍设备处于“飞行模式”、未插卡，还是在开启信号屏蔽仪的绝密会议室，依然精准识别。"
+    },
+    "feature2": {
+      "title": "设备+行为 双重锁定",
+      "desc": "红外(IR)传感器敏锐捕捉光学设备特征；DVS事件相机毫秒级感知“举机、对准、按下快门”等动态偷拍行为。融合算法极速精准打击，误报率极低。"
+    },
+    "feature3": {
+      "title": "监控者不泄密",
+      "desc": "物理级隐私安全保障。DVS技术仅输出动态像素变化（轮廓与动作），不记录高清静态图像与文字细节，从硬件源头杜绝了“二次泄密”的可能。"
+    },
+    "formsTitle": "两大产品形态，全方位防护",
+    "formsSubtitle": "从“固定空间”到“移动办公”，满足不同涉密等级与场景",
+    "pro": {
+      "badge": "PRO 版",
+      "name": "灵眸·穹顶",
+      "tagline": "固定式空间防卫",
+      "item1Label": "部署形态：",
+      "item1Value": "房间顶部/墙壁隐蔽式固定安装",
+      "item2Label": "防护范围：",
+      "item2Value": "2米 ~ 8米中远距离广角覆盖",
+      "item3Label": "产品特性：",
+      "item3Value": "全天候无死角监控，支持多台组网联动，形成全屋防偷拍穹顶网络",
+      "imagePlaceholderTitle": "穹顶版产品图占位 (建议尺寸: 800x600)",
+      "imagePlaceholderDesc": "展示安装在天花板或墙角的固定式设备，体现广角覆盖感。"
+    },
+    "air": {
+      "badge": "AIR 版",
+      "name": "灵眸·随行",
+      "tagline": "便携夹戴式贴身护卫",
+      "item1Label": "部署形态：",
+      "item1Value": "迷你夹戴式设计（夹于屏幕上方、文件夹或随身放置）",
+      "item2Label": "防护范围：",
+      "item2Value": "0.5米 ~ 2米近场精准防护",
+      "item3Label": "产品特性：",
+      "item3Value": "即插即用超长待机，专防“背后偷拍”与“越肩窥视”，自带安全结界",
+      "imagePlaceholderTitle": "随行版产品图占位 (建议尺寸: 800x600)",
+      "imagePlaceholderDesc": "展示夹在笔记本屏幕上或放置在桌面上的小巧便携设备。"
+    },
+    "scenariosTitle": "四大核心应用场景",
+    "scenariosSubtitle": "针对高密级空间及行为，提供针对性的防泄密解决方案",
+    "scenarioImagePlaceholder": "场景图 600x600",
+    "scenario1": {
+      "title": "涉密办公室",
+      "desc": "防范内部人员违规携带手机、录音笔等设备进入并实施偷拍、录音。",
+      "risk1": "手机带入涉密办公区",
+      "risk2": "拍摄电脑屏幕、文件资料"
+    },
+    "scenario2": {
+      "title": "保密会议室",
+      "desc": "防止会议内容、汇报材料、投影屏幕被违规拍摄或桌面下隐蔽录音。",
+      "risk1": "参会人员举手机拍屏幕",
+      "risk2": "会议资料被快速翻拍"
+    },
+    "scenario3": {
+      "title": "核心研发中心",
+      "desc": "防止技术图纸、算法代码、实验数据、样机信息等敏感资料被拍摄外传。",
+      "risk1": "手机偷拍研发屏幕",
+      "risk2": "拍摄实验设备或样机"
+    },
+    "scenario4": {
+      "title": "机房、档案室",
+      "desc": "对进入高密级空间人员的电子设备携带与可疑操作行为进行持续感知。",
+      "risk1": "拍摄服务器/网络拓扑",
+      "risk2": "私自复制记录涉密内容"
+    },
+    "comparisonTitle": "多模态融合，降维打击传统方案",
+    "comparisonLeftBadge": "普通摄像头画面",
+    "comparisonRightBadge": "灵眸 DVS事件相机画面",
+    "comparisonImagePlaceholder": "对比图占位 (600x400)",
+    "comparisonLeftDesc": "清晰可见桌上文件（二次泄密风险）",
+    "comparisonRightDesc": "仅显示人体动作轮廓，无字迹细节",
+    "metric1": { "title": "极速响应", "desc": "毫秒级抓拍，秒级响应" },
+    "metric2": { "title": "探测纵深", "desc": "0.5m-8m 广角覆盖防护" },
+    "metric3": { "title": "识别精度", "desc": "复杂光线与遮挡环境适用" },
+    "metric4": { "title": "极低误报率", "desc": "精准过滤喝水挠头等日常动作" }
+  },
+  "meta": {
+    "defaultTitle": "CETC | 中国电子科技南湖研究院"
+  },
+  "guardx": {
+    "meta": {
+      "title": "GuardX 电子哨兵 | CETC",
+      "wechatShareAlt": "GuardX 电子哨兵",
+      "downloadImageName": "电子哨兵产品宣传长图.jpg",
+      "downloadFailed": "下载失败，请重试"
+    },
+    "a11y": {
+      "prevImage": "上一张",
+      "nextImage": "下一张",
+      "switchToImage": "切换到第 {{index}} 张图片",
+      "closeVideo": "关闭视频",
+      "closePreview": "关闭预览",
+      "previewImageAlt": "大图预览"
+    },
+    "hero": {
+      "badge": "基于 AIoT 的感算一体化超低功耗侦察装备",
+      "title": "有动才报 <highlight>长时值守</highlight><br/><highlight>智能识别 </highlight> 态势感知",
+      "desc": "面向边境、周界、要地防卫与临时布控场景。通过“事件视觉感知 + 端侧AI识别 + 低功耗取证”三位一体，实现长期无人值守下的精准目标探测、告警与高清证据获取。",
+      "watchVideo": "查看视频",
+      "learnCamouflage": "了解隐蔽部署",
+      "imageAlt": "GuardX 电子哨兵主机展示 {{index}}",
+      "cardTitle": "GuardX 电子哨兵",
+      "cardSubtitle": "全天候智能侦察，防线隐于无形"
+    },
+    "features": {
+      "title": "核心技术亮点",
+      "subtitle": "突破传统监控限制，专为极端野外与无电无网环境设计",
+      "items": [
+        {
+          "title": "事件驱动感知",
+          "desc": "有动才报。采用先进的 <highlight>DVS 事件相机</highlight>技术，仅在视野内有物体移动时触发，有效过滤无效信息。"
+        },
+        {
+          "title": "超长航时值守",
+          "desc": "<highlight>mW 级运行</highlight>。支持长时间无人值守，单次部署续航可达数月，无惧野外断电。"
+        },
+        {
+          "title": "端侧 AI 识别",
+          "desc": "边缘智能。内置 AI 芯片，支持<highlight>人、车、无人机</highlight>等目标的本地探测，过滤风吹草动误报。"
+        },
+        {
+          "title": "双模协同取证",
+          "desc": "<highlight>兼顾续航与证据</highlight>。低功耗 DVS 传感器持续守候，初筛目标，瞬间唤醒高清 RGB 相机抓拍取证，确保监控效率与证据质量。"
+        }
+      ]
+    },
+    "camouflage": {
+      "title": "生态级隐蔽伪装",
+      "subtitle": "基于极其小巧的核心模组，可根据场景需求扩展出千变万化的伪装形态",
+      "moduleImageAlt": "哨兵核心模组",
+      "moduleBadge": "核心大脑",
+      "moduleTitle": "微型智能模组",
+      "moduleDesc": "高度集成的微型电路板，搭载超低功耗图像传感器与端侧AI算力芯片，尺寸仅与普通积木相当。",
+      "branches": [
+        {
+          "badge": "形态扩展 01",
+          "title": "仿生岩石哨兵",
+          "desc": "模组嵌入高仿真岩石外壳，双镜头孔径极小。置于山地、荒漠或边境线一侧，肉眼极难察觉。",
+          "imageAlt": "仿生岩石哨兵"
+        },
+        {
+          "badge": "形态扩展 02",
+          "title": "枯木仿生哨兵",
+          "desc": "完美融入枯木、树干纹理。适合林区、灌木丛、果园等植被茂密区域的长期潜伏与防范。",
+          "imageAlt": "枯木仿生哨兵"
+        }
+      ]
+    },
+    "dashboard": {
+      "title": "智慧大屏态势感知",
+      "subtitle": "后端大屏实时联动，哨兵部署位置、运行状态、告警轨迹一目了然",
+      "imageAlt": "GuardX 智慧大屏",
+      "realtime": "实时联动中",
+      "items": [
+        {
+          "title": "GIS地图态势融合",
+          "desc": "大屏直观展示各哨兵地理位置，动态绘制入侵目标轨迹。"
+        },
+        {
+          "title": "左侧告警面板",
+          "desc": "实时回传目标截图，秒级推送高清抓拍证据。"
+        },
+        {
+          "title": "右侧告警趋势",
+          "desc": "多维数据看板，直观呈现告警趋势与目标分类统计。"
+        },
+        {
+          "title": "设备健康度监控",
+          "desc": "实时回传剩余电量、信号强度、在线状态，异常自动告警。"
+        }
+      ]
+    },
+    "nightVision": {
+      "title": "智能出彩，夜间也出色",
+      "subtitle": "AI-ISP 全彩夜视，≧ 1Lux 极暗光线下依然精准框选目标",
+      "leftImageAlt": "全彩夜视",
+      "leftBadge": "全彩夜视",
+      "rightImageAlt": "普通红外夜视",
+      "rightBadge": "普通红外夜视"
+    },
+    "scenarios": {
+      "title": "典型应用场景",
+      "subtitle": "针对不同行业安防痛点，提供灵活、高效、低维护成本的布防方案",
+      "items": [
+        {
+          "title": "边境与野外长期潜伏值守",
+          "desc": "部署于边境线、无人区、山地林区、野外通道等。解决传统监控设备频繁维护、野外供电极度困难的行业顽疾。"
+        },
+        {
+          "title": "要地周界与敏感区域防护",
+          "desc": "适用于机场、油气管道、军事禁区、核心物资仓库等周界盲区补漏。实现对人员、车辆等异常目标的持续感知与秒级告警。"
+        },
+        {
+          "title": "公安与安保临时布控",
+          "desc": "大型户外活动、临时突发任务、重点嫌疑车辆/人员轨迹布控。设备开箱即用，支持快速磁吸或绑带安装，机动性极强。"
+        },
+        {
+          "title": "车辆与人员目标取证",
+          "desc": "当目标进入防区，系统不仅发出告警，更会瞬间抓拍并回传目标颜色、外观细节、行为特征等关键高清图片，为后续执法提供坚实证据。"
+        }
+      ]
+    },
+    "painpoints": {
+      "title": "为什么选择电子哨兵？",
+      "subtitle": "直面野外、临时布控场景下的三大核心痛点，给出更优解",
+      "items": [
+        {
+          "painTitle": "痛点一：传统摄像设备续航短",
+          "painDesc": "野外无电环境部署传统摄像头，需要拖带沉重的太阳能电池板或频繁更换电池，维护成本极高，极易因断电导致监控中断。",
+          "solutionTitle": "电子哨兵解决方式：毫瓦（mW）级极低功耗",
+          "solutionDesc": "采用事件驱动唤醒机制，无事件时整机处于极低功耗休眠状态。配合小体积电池即可实现长达数月的野外潜伏值守。"
+        },
+        {
+          "painTitle": "痛点二：无效视频多，传输与研判成本高",
+          "painDesc": "传统设备持续录像，回传大量风吹草动、光影变化的无效视频。不仅浪费宝贵的4G流量，也给后台人工研判带来极大的工作量。",
+          "solutionTitle": "电子哨兵解决方式：端侧 AI 过滤与精准推送",
+          "solutionDesc": "本地端侧AI识别，DVS 初筛感知动目标是否是预期目标，唤醒 RGB 拍照 AI 智能识别，只有当检测到人、车、无人机等真实威胁目标时才进行告警，确保回传的每一帧都是关键证据。"
+        },
+        {
+          "painTitle": "痛点三：野外和临时场景部署难",
+          "painDesc": "传统监控设备体积大、重量重，安装需要立杆、布线。在边境山林、临时安保等场景下，无法做到快速、隐蔽、灵活的部署。",
+          "solutionTitle": "电子哨兵解决方式：极简隐蔽便携部署",
+          "solutionDesc": "哨兵模组体积仅如积木般大小（≤ 80mm * 80mm * 80mm），支持无损快速安装。可轻松融入石头、枯木等自然环境进行生态级伪装，实现真正的“隐形防线”。"
+        }
+      ]
+    },
+    "comparison": {
+      "title": "重新定义野外与临时布控标准",
+      "subtitle": "突破传统监控限制，更智能、更隐蔽、更省心",
+      "guardxBadge": "电子哨兵",
+      "traditionalTitle": "传统安防摄像头",
+      "rows": [
+        { "label": "感知方式", "guardx": "事件驱动 / 有动才报", "traditional": "持续录像 / 高频唤醒" },
+        { "label": "功耗与续航", "guardx": "毫瓦级待机 / ≥ 60天", "traditional": "耗电大，需配太阳能板 / ≤ 14天" },
+        { "label": "探测目标种类", "guardx": "人、车、无人机 / 支持自定义", "traditional": "人、宠物 / 不支持自定义" },
+        { "label": "无效数据", "guardx": "端侧 AI 过滤 / 误报率 ≤ 90%", "traditional": "海量（风吹草动皆录）" },
+        { "label": "取证能力", "guardx": "高清彩色抓拍，告警即取证", "traditional": "找关键帧费时费力" },
+        { "label": "部署难度", "guardx": "生态伪装，免布线", "traditional": "需立杆布线，目标明显" }
+      ]
+    },
+    "packing": {
+      "title": "装箱清单",
+      "subtitle": "软硬一体，开箱即用的完整作战包",
+      "mainDeviceAlt": "GUARDX 设备",
+      "mainDeviceCount": "设备 × 10",
+      "items": [
+        { "alt": "装备箱", "text": "装备箱 × 1" },
+        { "alt": "显控平板", "text": "显控平板 × 1" },
+        { "alt": "电源线", "text": "电源线 × 1" },
+        { "alt": "螺丝配件", "text": "螺丝配件 × 1" },
+        { "alt": "用户指南", "text": "用户指南 × 1" }
+      ],
+      "notificationBanner": "消息推送功能需要开启手机系统通知权限",
+      "mockup": {
+        "notificationsTitle": "通知",
+        "appTitle": "GuardX 电子哨兵",
+        "allowNotifications": "允许通知",
+        "reminders": "提醒",
+        "lockScreen": "锁定屏幕",
+        "notificationCenter": "通知中心",
+        "banner": "横幅"
+      }
+    },
+    "cta": {
+      "title": "开启智能、隐蔽、长续航的侦察新时代",
+      "desc": "联系我们的产品专家，获取量身定制的行业部署方案与设备报价清单。",
+      "generating": "正在生成产品手册...",
+      "download": "下载产品手册"
+    }
+  }
+}
