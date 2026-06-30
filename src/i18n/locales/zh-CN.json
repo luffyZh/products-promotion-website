@@ -16,7 +16,7 @@
   "nav": {
     "home": "首页",
     "guardx": "电子哨兵 (GuardX)",
-    "spiritualEyes": "灵眸 (Spiritual Eyes)",
+    "spiritualEyes": "隐卫 (Hidden Guardian)",
     "aiOfficeBox": "政企 AI 办公盒子（AI OfficeBox）"
   },
   "footer": {
@@ -25,7 +25,7 @@
     "about": "关于我们",
     "contactSales": "联系销售",
     "guardx": "电子哨兵 GuardX",
-    "spiritualEyes": "灵眸 Spiritual Eyes",
+    "spiritualEyes": "隐卫 Hidden Guardian",
     "aiOfficeBox": "AI 办公一体机 Secure AI OfficeBox",
     "companyIntro": "公司简介",
     "news": "新闻动态",
@@ -117,8 +117,8 @@
   },
   "spiritualEyes": {
     "heroBadge": "隐私防护防泄密监控设备",
-    "brandZh": "灵眸",
-    "brandEn": "Spiritual Eyes",
+    "brandZh": "隐卫",
+    "brandEn": "Hidden Guardian",
     "heroSubtitleLine1": "一探设备，二识行为",
     "heroSubtitleLine2": "双模融合，精准告警",
     "heroImagePlaceholderTitle": "主视觉图占位 (建议尺寸: 1920x1080)",
@@ -143,7 +143,7 @@
     "formsSubtitle": "从“固定空间”到“移动办公”，满足不同涉密等级与场景",
     "pro": {
       "badge": "PRO 版",
-      "name": "灵眸·穹顶",
+      "name": "隐卫·穹顶",
       "tagline": "固定式空间防卫",
       "item1Label": "部署形态：",
       "item1Value": "房间顶部/墙壁隐蔽式固定安装",
@@ -156,7 +156,7 @@
     },
     "air": {
       "badge": "AIR 版",
-      "name": "灵眸·随行",
+      "name": "隐卫·随行",
       "tagline": "便携夹戴式贴身护卫",
       "item1Label": "部署形态：",
       "item1Value": "迷你夹戴式设计（夹于屏幕上方、文件夹或随身放置）",
@@ -196,7 +196,7 @@
     },
     "comparisonTitle": "多模态融合，降维打击传统方案",
     "comparisonLeftBadge": "普通摄像头画面",
-    "comparisonRightBadge": "灵眸 DVS事件相机画面",
+    "comparisonRightBadge": "隐卫 DVS事件相机画面",
     "comparisonImagePlaceholder": "对比图占位 (600x400)",
     "comparisonLeftDesc": "清晰可见桌上文件（二次泄密风险）",
     "comparisonRightDesc": "仅显示人体动作轮廓，无字迹细节",

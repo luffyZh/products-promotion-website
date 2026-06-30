@@ -16,7 +16,7 @@
   "nav": {
     "home": "Home",
     "guardx": "GuardX (Electronic Sentry)",
-    "spiritualEyes": "Spiritual Eyes",
+    "spiritualEyes": "Hidden Guardian",
     "aiOfficeBox": "AI OfficeBox (Gov/Enterprise)"
   },
   "footer": {
@@ -25,7 +25,7 @@
     "about": "About",
     "contactSales": "Contact sales",
     "guardx": "GuardX Electronic Sentry",
-    "spiritualEyes": "Spiritual Eyes",
+    "spiritualEyes": "Hidden Guardian",
     "aiOfficeBox": "Secure AI OfficeBox",
     "companyIntro": "Company",
     "news": "News",
@@ -143,7 +143,7 @@
     "formsSubtitle": "From fixed spaces to mobile work, covering different security levels and scenarios",
     "pro": {
       "badge": "PRO",
-      "name": "Spiritual Eyes · Dome",
+      "name": "Hidden Guardian · Dome",
       "tagline": "Fixed-space defense",
       "item1Label": "Deployment:",
       "item1Value": "Hidden fixed installation on ceiling/wall",
@@ -156,7 +156,7 @@
     },
     "air": {
       "badge": "AIR",
-      "name": "Spiritual Eyes · Go",
+      "name": "Hidden Guardian · Go",
       "tagline": "Wearable portable protection",
       "item1Label": "Deployment:",
       "item1Value": "Mini clip-on design (clip above screen, on folders, or carry with you)",
@@ -196,7 +196,7 @@
     },
     "comparisonTitle": "Multimodal fusion, a level-up over traditional solutions",
     "comparisonLeftBadge": "Regular camera output",
-    "comparisonRightBadge": "Spiritual Eyes DVS output",
+    "comparisonRightBadge": "Hidden Guardian DVS output",
     "comparisonImagePlaceholder": "Comparison placeholder (600×400)",
     "comparisonLeftDesc": "Documents are clearly visible (secondary leakage risk)",
     "comparisonRightDesc": "Only motion contours, no readable text details",
