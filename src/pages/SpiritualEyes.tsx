@@ -284,7 +284,7 @@ const SpiritualEyes: React.FC = () => {
                 <p className="text-slate-500 text-xs">{t('spiritualEyes.metric1.desc')}</p>
               </div>
               <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 text-center hover:border-blue-400 dark:hover:border-blue-800/50 transition-colors shadow-sm">
-                <div className="text-3xl font-bold text-slate-900 dark:text-white mb-1">8米</div>
+                <div className="text-3xl font-bold text-slate-900 dark:text-white mb-1">6米</div>
                 <div className="text-blue-600 dark:text-blue-400 text-sm mb-2 font-medium">{t('spiritualEyes.metric2.title')}</div>
                 <p className="text-slate-500 text-xs">{t('spiritualEyes.metric2.desc')}</p>
               </div>

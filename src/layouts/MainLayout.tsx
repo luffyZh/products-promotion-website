@@ -49,7 +49,7 @@ export default function MainLayout() {
           <nav className="h-16 hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
-              // GuardX uses emerald, Hidden Guardian uses blue, Home uses slate/emerald as default
+              // GuardX uses emerald, Spiritual Eyes uses blue, Home uses slate/emerald as default
               const isGuardX = link.path.includes('guardx');
               const isSpiritualEyes = link.path.includes('spiritual-eyes');
               const isAiOfficeBox = link.path.includes('ai-officebox');
