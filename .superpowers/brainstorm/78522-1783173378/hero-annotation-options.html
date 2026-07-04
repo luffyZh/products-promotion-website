@@ -1,0 +1,268 @@
+<style>
+  .hero-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .hero-card {
+    border: 1px solid #dbe3f4;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+  }
+
+  .hero-card:hover {
+    transform: translateY(-2px);
+    border-color: #7aa2ff;
+    box-shadow: 0 16px 40px rgba(37, 99, 235, 0.12);
+  }
+
+  .hero-card-header {
+    padding: 16px 18px 10px;
+    border-bottom: 1px solid #e8eefb;
+  }
+
+  .hero-card-header h3 {
+    margin: 0 0 6px;
+    font-size: 18px;
+  }
+
+  .hero-card-header p {
+    margin: 0;
+    color: #5b6783;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .recommend-tag {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(37, 99, 235, 0.1);
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .mock-hero {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    margin: 18px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #f0f4fb;
+    border: 1px solid #d7e1f2;
+  }
+
+  .mock-shell {
+    position: absolute;
+    inset: 12% 9%;
+    border-radius: 18px;
+    background: #f7f7f8;
+    box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);
+  }
+
+  .mock-image {
+    position: absolute;
+    inset: 14% 13%;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(90deg, #0f1b39 0%, #0f1b39 49%, #d9dde6 50%, #0952c9 51%, #0d5cf5 100%);
+  }
+
+  .mock-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 28% 44%, rgba(155, 201, 255, 0.85) 0 2%, transparent 3% 100%),
+      radial-gradient(circle at 65% 48%, rgba(255, 117, 24, 0.85) 0 6%, transparent 7% 100%),
+      radial-gradient(circle at 78% 58%, rgba(255, 223, 98, 0.8) 0 10%, transparent 11% 100%),
+      radial-gradient(circle at 23% 78%, rgba(101, 134, 201, 0.45) 0 9%, transparent 10% 100%);
+    opacity: 0.95;
+  }
+
+  .divider {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 16px;
+    height: 100%;
+    transform: translateX(-50%) skewX(-10deg);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8);
+  }
+
+  .signal-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: #2563eb;
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.35);
+  }
+
+  .signal-dot::after,
+  .signal-dot::before {
+    content: "";
+    position: absolute;
+    inset: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(37, 99, 235, 0.3);
+    transform: translate(-50%, -50%);
+  }
+
+  .signal-dot::before {
+    width: 22px;
+    height: 22px;
+  }
+
+  .signal-dot::after {
+    width: 34px;
+    height: 34px;
+  }
+
+  .line {
+    position: absolute;
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.95), rgba(37, 99, 235, 0.5));
+    transform-origin: left center;
+  }
+
+  .label-box {
+    position: absolute;
+    max-width: 168px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(37, 99, 235, 0.18);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+    text-align: left;
+  }
+
+  .label-box b {
+    display: block;
+    margin-bottom: 4px;
+    color: #0f172a;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+  }
+
+  .label-box span {
+    color: #3d4b6a;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .compact-chip {
+    position: absolute;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(10, 18, 37, 0.82);
+    color: #f8fbff;
+    font-size: 12px;
+    border: 1px solid rgba(122, 162, 255, 0.4);
+    backdrop-filter: blur(8px);
+  }
+
+  .footnote {
+    padding: 0 18px 18px;
+    color: #5b6783;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 1100px) {
+    .hero-options {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<h2>隐卫首屏引线标注方案</h2>
+<p class="subtitle">目标是把首屏“双相机分工”说清楚，同时不压标题、不盖主图主体。建议先选视觉结构，再落到真实页面。</p>
+
+<div class="options">
+  <div class="option hero-card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="hero-card-header">
+      <h3>A. 外扩长引线 <span class="recommend-tag">推荐</span></h3>
+      <p>左上外扩标 DVS，右下外扩标 IR。阅读路径清晰，技术感强，和你描述的落点最一致。</p>
+    </div>
+    <div class="mock-hero">
+      <div class="mock-shell"></div>
+      <div class="mock-image">
+        <div class="divider"></div>
+      </div>
+
+      <div class="signal-dot" style="left: 24%; top: 22%;"></div>
+      <div class="line" style="left: 24.5%; top: 22.8%; width: 84px; height: 2px; transform: rotate(-24deg);"></div>
+      <div class="label-box" style="left: 2%; top: 5%;">
+        <b>DVS 事件相机</b>
+        <span>识别偷拍行为</span>
+      </div>
+
+      <div class="signal-dot" style="right: 21%; bottom: 23%;"></div>
+      <div class="line" style="right: 20.5%; bottom: 23.8%; width: 92px; height: 2px; transform: rotate(154deg);"></div>
+      <div class="label-box" style="right: 2%; bottom: 5%;">
+        <b>IR 相机</b>
+        <span>探查偷拍设备</span>
+      </div>
+    </div>
+    <div class="footnote">特点：信息层级完整，首屏可直接读懂“左识行为，右探设备”。代价是视觉存在感更强。</div>
+  </div>
+
+  <div class="option hero-card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="hero-card-header">
+      <h3>B. 贴边短引线</h3>
+      <p>引线更短，标签贴着图片边缘走。对主图干扰更小，整体更克制。</p>
+    </div>
+    <div class="mock-hero">
+      <div class="mock-shell"></div>
+      <div class="mock-image">
+        <div class="divider"></div>
+      </div>
+
+      <div class="signal-dot" style="left: 26%; top: 24%;"></div>
+      <div class="line" style="left: 26.5%; top: 24.8%; width: 46px; height: 2px; transform: rotate(-6deg);"></div>
+      <div class="label-box" style="left: 4%; top: 18%; max-width: 132px;">
+        <b>DVS</b>
+        <span>识别偷拍行为</span>
+      </div>
+
+      <div class="signal-dot" style="right: 23%; bottom: 25%;"></div>
+      <div class="line" style="right: 22.5%; bottom: 25.7%; width: 46px; height: 2px; transform: rotate(186deg);"></div>
+      <div class="label-box" style="right: 4%; bottom: 18%; max-width: 132px;">
+        <b>IR</b>
+        <span>探查偷拍设备</span>
+      </div>
+    </div>
+    <div class="footnote">特点：画面更干净，但“被点出来”的感觉弱一些，技术展示感不如 A 明显。</div>
+  </div>
+
+  <div class="option hero-card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="hero-card-header">
+      <h3>C. 浮层胶囊标注</h3>
+      <p>不用外扩框，改成半透明胶囊浮在图上。更产品化，但“引出线”特征会弱化。</p>
+    </div>
+    <div class="mock-hero">
+      <div class="mock-shell"></div>
+      <div class="mock-image">
+        <div class="divider"></div>
+      </div>
+
+      <div class="signal-dot" style="left: 24%; top: 24%;"></div>
+      <div class="line" style="left: 24.5%; top: 24.8%; width: 38px; height: 2px; transform: rotate(-10deg);"></div>
+      <div class="compact-chip" style="left: 6%; top: 16%;">DVS 事件相机识别偷拍行为</div>
+
+      <div class="signal-dot" style="right: 22%; bottom: 24%;"></div>
+      <div class="line" style="right: 21.5%; bottom: 24.8%; width: 38px; height: 2px; transform: rotate(190deg);"></div>
+      <div class="compact-chip" style="right: 6%; bottom: 16%;">IR 相机探查偷拍设备</div>
+    </div>
+    <div class="footnote">特点：最像成熟产品官网，但少了“工程标注”味道，和你当前描述不完全一致。</div>
+  </div>
+</div>
