@@ -35,6 +35,7 @@ type PlaceholderCardProps = {
   aspectClassName: string;
   tone?: 'purple' | 'indigo' | 'slate';
   frame?: boolean;
+  className?: string;
 };
 
 const PlaceholderCard: React.FC<PlaceholderCardProps> = ({
@@ -44,7 +45,8 @@ const PlaceholderCard: React.FC<PlaceholderCardProps> = ({
   icon: Icon,
   aspectClassName,
   tone = 'purple',
-  frame = true
+  frame = true,
+  className
 }) => {
   const toneClasses =
     tone === 'indigo'
@@ -67,7 +69,7 @@ const PlaceholderCard: React.FC<PlaceholderCardProps> = ({
 
   return (
     <div
-      className={`relative overflow-hidden ${
+      className={`relative overflow-hidden ${className ?? ''} ${
         frame ? `rounded-3xl border ${toneClasses.ring} bg-white/60 dark:bg-white/5 backdrop-blur shadow-xl` : 'w-full'
       }`}
     >
@@ -455,9 +457,9 @@ const AiOfficeBox: React.FC = () => {
             <p className="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">{t('aiOfficeBox.agentsSubtitle')}</p>
           </div>
 
-          <div className="mt-12 grid lg:grid-cols-12 gap-8 items-start">
+          <div className="mt-12 grid lg:grid-cols-12 gap-8 items-stretch">
             <div className="lg:col-span-5">
-              <div className="rounded-3xl bg-white dark:bg-white/5 border border-slate-200 dark:border-slate-800 p-2">
+              <div className="h-full rounded-3xl bg-white dark:bg-white/5 border border-slate-200 dark:border-slate-800 p-2">
                 {(
                   [
                     {
@@ -520,7 +522,7 @@ const AiOfficeBox: React.FC = () => {
             </div>
 
             <div className="lg:col-span-7">
-              <div className="rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-white/5 shadow-xl">
+              <div className="h-full rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-white/5 shadow-xl">
                 <PlaceholderCard
                   title={
                     activeAgent === 'doc'
@@ -542,9 +544,10 @@ const AiOfficeBox: React.FC = () => {
                   }
                   badge={t('aiOfficeBox.placeholderAgent.badge')}
                   icon={activeAgent === 'meeting' ? Mic : activeAgent === 'kb' ? FileSearch : activeAgent === 'doc' ? FileText : ClipboardCheck}
-                  aspectClassName="aspect-video"
+                  aspectClassName="h-full"
                   tone="slate"
                   frame={false}
+                  className="h-full"
                 />
               </div>
             </div>
