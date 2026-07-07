@@ -1,4 +1,4 @@
-import { createHashRouter } from 'react-router-dom';
+import { Navigate, createHashRouter } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout';
 import Home from '../pages/Home';
 import GuardX from '../pages/guardx';
@@ -19,8 +19,12 @@ export const router = createHashRouter([
         element: <GuardX />,
       },
       {
-        path: 'products/spiritual-eyes',
+        path: 'products/hidden-guardian',
         element: <SpiritualEyes />,
+      },
+      {
+        path: 'products/spiritual-eyes',
+        element: <Navigate to="/products/hidden-guardian" replace />,
       },
       {
         path: 'products/ai-officebox',

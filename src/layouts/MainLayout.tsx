@@ -32,7 +32,7 @@ export default function MainLayout() {
   const navLinks = [
     { name: t('nav.home'), path: '/' },
     { name: t('nav.guardx'), path: '/products/guardx' },
-    { name: t('nav.spiritualEyes'), path: '/products/spiritual-eyes' },
+    { name: t('nav.spiritualEyes'), path: '/products/hidden-guardian' },
     { name: t('nav.aiOfficeBox'), path: '/products/ai-officebox' },
   ];
 
@@ -51,7 +51,7 @@ export default function MainLayout() {
               const isActive = location.pathname === link.path;
               // GuardX uses emerald, Spiritual Eyes uses blue, Home uses slate/emerald as default
               const isGuardX = link.path.includes('guardx');
-              const isSpiritualEyes = link.path.includes('spiritual-eyes');
+              const isSpiritualEyes = link.path.includes('hidden-guardian');
               const isAiOfficeBox = link.path.includes('ai-officebox');
               
               let activeClasses: string;
@@ -139,7 +139,7 @@ export default function MainLayout() {
             <nav className="flex flex-col py-4 px-6 gap-4">
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path;
-                const isSpiritualEyes = link.path.includes('spiritual-eyes');
+                const isSpiritualEyes = link.path.includes('hidden-guardian');
                 const isAiOfficeBox = link.path.includes('ai-officebox');
                 
                 let activeClasses = 'text-emerald-600 dark:text-emerald-400';
@@ -209,7 +209,7 @@ export default function MainLayout() {
                 </Link>
               </li>
               <li>
-                <Link to="/products/spiritual-eyes" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <Link to="/products/hidden-guardian" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   {t('footer.spiritualEyes')}
                 </Link>
               </li>

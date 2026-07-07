@@ -1,16 +1,69 @@
 import React, { useEffect } from 'react';
-import { 
-  Eye, 
-  Lock, 
-  Crosshair, 
-  WifiOff, 
-  AlertTriangle,
-  Building2,
-  Users,
-  Database,
-  Briefcase
-} from 'lucide-react';
+import { Lock, Crosshair, WifiOff, AlertTriangle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import heroImage from '../assets/hidden-guard/double-module.png';
+import domeImage from '../assets/hidden-guard/SE-TOP.jpg';
+import scenario01Image from '../assets/hidden-guard/scene01.png';
+import scenario02Image from '../assets/hidden-guard/scene02.png';
+import scenario03Image from '../assets/hidden-guard/scene03.png';
+import scenario04Image from '../assets/hidden-guard/scene04.png';
+import rgbScreenImage from '../assets/hidden-guard/RGB-screen.jpg';
+import dvsScreenImage from '../assets/hidden-guard/DVS-screen.jpg';
+
+const goImage = new URL('../assets/hidden-guard/SE-Light-01.PNG', import.meta.url).href;
+
+type HeroAnnotationProps = {
+  label: string;
+  pointClassName: string;
+  lineClassName: string;
+  labelClassName: string;
+  dotClassName: string;
+  dotHaloClassName: string;
+  rippleClassName: string;
+  lineFillClassName: string;
+  labelToneClassName: string;
+};
+
+function HeroAnnotation({
+  label,
+  pointClassName,
+  lineClassName,
+  labelClassName,
+  dotClassName,
+  dotHaloClassName,
+  rippleClassName,
+  lineFillClassName,
+  labelToneClassName,
+}: HeroAnnotationProps) {
+  return (
+    <>
+      <div className={`absolute z-20 ${lineClassName}`}>
+        <span className={`block h-[2px] w-full rounded-full md:h-[3px] ${lineFillClassName}`} />
+      </div>
+      <div className={`absolute z-20 ${pointClassName}`}>
+        <span className={`absolute inset-0 rounded-full shadow-[0_0_0_4px_rgba(255,255,255,0.12)] ${dotClassName}`} />
+        <span className={`absolute inset-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full border ${dotHaloClassName}`} />
+        <span className={`absolute inset-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border ${dotHaloClassName}`} />
+        <span className={`absolute inset-0 animate-ping rounded-full border ${rippleClassName}`} />
+      </div>
+      <div className={`absolute z-20 rounded-2xl border bg-white/92 px-3 py-2 text-start shadow-[0_10px_30px_rgba(15,23,42,0.12)] backdrop-blur-sm dark:bg-slate-950/84 ${labelToneClassName} ${labelClassName}`}>
+        <p className="text-[11px] font-semibold leading-4 md:text-sm md:leading-5">{label}</p>
+      </div>
+    </>
+  );
+}
+
+function SubtitleEmphasis({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="relative inline-block text-blue-600 dark:text-blue-400">
+      <span
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-[-0.02em] h-[0.28em] rounded-sm bg-blue-300 dark:bg-blue-500"
+      />
+      <span className="relative">{children}</span>
+    </span>
+  );
+}
 
 const SpiritualEyes: React.FC = () => {
   const { t } = useTranslation();
@@ -23,7 +76,7 @@ const SpiritualEyes: React.FC = () => {
     <div className="bg-slate-50 dark:bg-[#030712] min-h-screen text-slate-900 dark:text-slate-300 font-sans selection:bg-blue-500/30 selection:text-blue-900 dark:selection:text-blue-200 overflow-hidden transition-colors duration-300">
       
       {/* --- HERO SECTION --- */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden border-b border-blue-200 dark:border-blue-900/30">
+      <section className="relative pt-20 pb-20 lg:pt-24 lg:pb-24 overflow-hidden border-b border-blue-200 dark:border-blue-900/30">
         {/* Background Effects */}
         <div className="absolute top-0 start-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-blue-400/20 dark:bg-blue-600/20 blur-[120px] rounded-full pointer-events-none" />
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 dark:opacity-10 mix-blend-overlay pointer-events-none" />
@@ -37,38 +90,65 @@ const SpiritualEyes: React.FC = () => {
             {t('spiritualEyes.heroBadge')}
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">
+          <h1 className="text-4xl md:text-7xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">
             {t('spiritualEyes.brandZh')}{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-500">
               {t('spiritualEyes.brandEn')}
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-12 font-light tracking-wide">
-            {t('spiritualEyes.heroSubtitleLine1')}
-            <br/>
-            <span className="text-blue-600 dark:text-blue-400 font-medium">{t('spiritualEyes.heroSubtitleLine2')}</span>
-          </p>
+          <div className="max-w-3xl mx-auto mb-12">
+            <p className="text-xl md:text-3xl font-medium tracking-wide">
+              {t('spiritualEyes.heroSubtitleLine1Prefix')}
+              <SubtitleEmphasis>{t('spiritualEyes.heroSubtitleLine1Device')}</SubtitleEmphasis>
+              {t('spiritualEyes.heroSubtitleLine1Middle')}
+              <SubtitleEmphasis>{t('spiritualEyes.heroSubtitleLine1Behavior')}</SubtitleEmphasis>
+            </p>
+            <p className="mt-2 text-xl md:text-3xl font-semibold tracking-wide">
+              {t('spiritualEyes.heroSubtitleLine2')}
+            </p>
+          </div>
 
-          <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 shadow-[0_0_40px_rgba(37,99,235,0.1)] dark:shadow-[0_0_40px_rgba(37,99,235,0.15)] relative aspect-video flex items-center justify-center">
-            {/* Image Placeholder */}
-            <div className="text-center p-8">
-              <Eye className="w-16 h-16 text-blue-500 dark:text-blue-700 mx-auto mb-4 opacity-50" />
-              <p className="text-blue-600 font-mono text-sm">{t('spiritualEyes.heroImagePlaceholderTitle')}</p>
-              <p className="text-slate-500 text-xs mt-2 max-w-md mx-auto">{t('spiritualEyes.heroImagePlaceholderDesc')}</p>
-            </div>
+          <div className="w-full max-w-5xl mx-auto rounded-2xl overflow border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 shadow-[0_0_40px_rgba(37,99,235,0.1)] dark:shadow-[0_0_40px_rgba(37,99,235,0.15)] relative aspect-video">
+            <img
+              src={heroImage}
+              alt={`${t('spiritualEyes.brandZh')} ${t('spiritualEyes.brandEn')}`}
+              className="h-full w-full object-contain p-6 md:p-10"
+            />
+            <HeroAnnotation
+              label={t('spiritualEyes.heroDvsCallout')}
+              pointClassName="start-[-12%] top-[33.5%] h-2.5 w-2.5 md:start-[-12%] md:top-[30.5%] md:h-3 md:w-3"
+              lineClassName="start-[-12%] top-[34.1%] w-[15%] md:start-[-12%] md:top-[31.1%] md:w-[20%]"
+              labelClassName="start-[-21%] top-[20.5%] max-w-[140px] md:start-[-21%] md:top-[20.5%] md:max-w-[200px]"
+              dotClassName="bg-red-500"
+              dotHaloClassName="border-red-400/60"
+              rippleClassName="border-red-400/60"
+              lineFillClassName="bg-red-500"
+              labelToneClassName="border-red-200 bg-red-600 text-white dark:bg-red-500/40 dark:border-red-500/40 dark:text-white"
+            />
+            <HeroAnnotation
+              label={t('spiritualEyes.heroIrCallout')}
+              pointClassName="end-[-10%] bottom-[31%] h-2.5 w-2.5 md:end-[-10%] md:bottom-[28%] md:h-3 md:w-3"
+              lineClassName="end-[-10%] bottom-[31.6%] w-[15%] md:end-[-10%] md:bottom-[28.7%] md:w-[20%]"
+              labelClassName="end-[-17%] bottom-[33%] max-w-[140px] md:end-[-17%] md:bottom-[33%] md:max-w-[200px]"
+              dotClassName="bg-orange-500"
+              dotHaloClassName="border-orange-300/65"
+              rippleClassName="border-orange-300/60"
+              lineFillClassName="bg-orange-400"
+              labelToneClassName="border-orange-200 bg-orange-600 text-white dark:bg-orange-500/40 dark:border-orange-500/40 dark:text-white"
+            />
           </div>
         </div>
       </section>
 
       {/* --- CORE PILLARS --- */}
       <section className="py-24 relative bg-white dark:bg-slate-950 transition-colors duration-300">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6">{t('spiritualEyes.pillarsTitle')}</h2>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
               {t('spiritualEyes.pillarsDescPrefix')}{' '}
-              <span className="text-blue-600 dark:text-blue-400">{t('spiritualEyes.pillarsDescHighlight')}</span>{' '}
+              <span className="text-blue-600 font-medium dark:text-blue-400">{t('spiritualEyes.pillarsDescHighlight')}</span>{' '}
               {t('spiritualEyes.pillarsDescSuffix')}
             </p>
           </div>
@@ -113,7 +193,7 @@ const SpiritualEyes: React.FC = () => {
 
       {/* --- PRODUCT FORMS --- */}
       <section className="py-24 relative bg-slate-50 dark:bg-[#050b14] border-y border-slate-200 dark:border-slate-800/50 transition-colors duration-300">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">{t('spiritualEyes.formsTitle')}</h2>
             <p className="text-slate-600 dark:text-slate-400">{t('spiritualEyes.formsSubtitle')}</p>
@@ -123,42 +203,46 @@ const SpiritualEyes: React.FC = () => {
             {/* Pro Version */}
             <div className="bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-950 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col shadow-sm dark:shadow-none">
               <div className="p-10 pb-0 flex-grow">
-                <div className="inline-block px-3 py-1 rounded-md bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-400 text-xs font-bold tracking-wider mb-4 border border-blue-200 dark:border-blue-800/50">{t('spiritualEyes.pro.badge')}</div>
-                <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">{t('spiritualEyes.pro.name')}</h3>
-                <p className="text-blue-600 dark:text-blue-400 font-medium mb-6">{t('spiritualEyes.pro.tagline')}</p>
+                <div className='flex gap-2'>
+                  <div className="inline-block px-3 py-1 rounded-md bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-400 text-xs font-bold tracking-wider mb-4 border border-blue-200 dark:border-blue-800/50">{t('spiritualEyes.pro.badge')}</div>
+                  <div className="inline-block px-3 py-1 rounded-md bg-blue-600 dark:bg-blue-600 text-white dark:text-white text-xs font-bold tracking-wider mb-4">{t('spiritualEyes.pro.tagline')}</div>
+                </div>
+                <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">{t('spiritualEyes.pro.name')}</h3>
                 <ul className="space-y-4 text-slate-700 dark:text-slate-300 text-sm mb-8">
                   <li className="flex items-start gap-3"><span className="text-blue-500 dark:text-blue-500 mt-0.5">✦</span> <span><strong>{t('spiritualEyes.pro.item1Label')}</strong> {t('spiritualEyes.pro.item1Value')}</span></li>
                   <li className="flex items-start gap-3"><span className="text-blue-500 dark:text-blue-500 mt-0.5">✦</span> <span><strong>{t('spiritualEyes.pro.item2Label')}</strong> {t('spiritualEyes.pro.item2Value')}</span></li>
                   <li className="flex items-start gap-3"><span className="text-blue-500 dark:text-blue-500 mt-0.5">✦</span> <span><strong>{t('spiritualEyes.pro.item3Label')}</strong> {t('spiritualEyes.pro.item3Value')}</span></li>
                 </ul>
               </div>
-              <div className="h-64 bg-slate-100 dark:bg-slate-900 relative border-t border-slate-200 dark:border-slate-800 flex items-center justify-center">
-                 {/* Image Placeholder */}
-                <div className="text-center px-4">
-                  <p className="text-blue-600 dark:text-blue-700 font-mono text-sm mb-2">{t('spiritualEyes.pro.imagePlaceholderTitle')}</p>
-                  <p className="text-slate-500 dark:text-slate-600 text-xs">{t('spiritualEyes.pro.imagePlaceholderDesc')}</p>
-                </div>
+              <div className="h-80 bg-slate-100 dark:bg-slate-900 relative border-t border-slate-200 dark:border-slate-800">
+                <img
+                  src={domeImage}
+                  alt={t('spiritualEyes.pro.name')}
+                  className="h-full w-full object-cover"
+                />
               </div>
             </div>
 
             {/* Air Version */}
             <div className="bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-950 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col shadow-sm dark:shadow-none">
               <div className="p-10 pb-0 flex-grow">
-                <div className="inline-block px-3 py-1 rounded-md bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-400 text-xs font-bold tracking-wider mb-4 border border-indigo-200 dark:border-indigo-800/50">{t('spiritualEyes.air.badge')}</div>
-                <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">{t('spiritualEyes.air.name')}</h3>
-                <p className="text-indigo-600 dark:text-indigo-400 font-medium mb-6">{t('spiritualEyes.air.tagline')}</p>
+                <div className="flex gap-2">
+                  <div className="inline-block px-3 py-1 rounded-md bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-400 text-xs font-bold tracking-wider mb-4 border border-indigo-200 dark:border-indigo-800/50">{t('spiritualEyes.air.badge')}</div>
+                  <div className="inline-block px-3 py-1 rounded-md bg-indigo-600 dark:bg-indigo-600 text-white dark:text-white text-xs font-bold tracking-wider mb-4 dark:border-indigo-800/50">{t('spiritualEyes.air.tagline')}</div>
+                </div>
+                <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">{t('spiritualEyes.air.name')}</h3>
                 <ul className="space-y-4 text-slate-700 dark:text-slate-300 text-sm mb-8">
                   <li className="flex items-start gap-3"><span className="text-indigo-500 mt-0.5">✦</span> <span><strong>{t('spiritualEyes.air.item1Label')}</strong> {t('spiritualEyes.air.item1Value')}</span></li>
                   <li className="flex items-start gap-3"><span className="text-indigo-500 mt-0.5">✦</span> <span><strong>{t('spiritualEyes.air.item2Label')}</strong> {t('spiritualEyes.air.item2Value')}</span></li>
                   <li className="flex items-start gap-3"><span className="text-indigo-500 mt-0.5">✦</span> <span><strong>{t('spiritualEyes.air.item3Label')}</strong> {t('spiritualEyes.air.item3Value')}</span></li>
                 </ul>
               </div>
-              <div className="h-64 bg-slate-100 dark:bg-slate-900 relative border-t border-slate-200 dark:border-slate-800 flex items-center justify-center">
-                 {/* Image Placeholder */}
-                 <div className="text-center px-4">
-                  <p className="text-indigo-600 dark:text-indigo-700 font-mono text-sm mb-2">{t('spiritualEyes.air.imagePlaceholderTitle')}</p>
-                  <p className="text-slate-500 dark:text-slate-600 text-xs">{t('spiritualEyes.air.imagePlaceholderDesc')}</p>
-                </div>
+              <div className="h-80 bg-slate-100 dark:bg-slate-900 relative border-t border-slate-200 dark:border-slate-800">
+                <img
+                  src={goImage}
+                  alt={t('spiritualEyes.air.name')}
+                  className="h-full w-full object-cover"
+                />
               </div>
             </div>
           </div>
@@ -167,7 +251,7 @@ const SpiritualEyes: React.FC = () => {
 
       {/* --- SCENARIOS --- */}
       <section className="py-24 relative bg-white dark:bg-slate-950 transition-colors duration-300">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 max-w-7xl">
           <div className="mb-16 md:flex justify-between items-end">
             <div className="max-w-2xl">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">{t('spiritualEyes.scenariosTitle')}</h2>
@@ -178,11 +262,12 @@ const SpiritualEyes: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-6">
             {/* Scenario 1 */}
             <div className="group rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col sm:flex-row shadow-sm hover:shadow-md transition-shadow">
-              <div className="sm:w-2/5 h-48 sm:h-auto bg-slate-200 dark:bg-slate-800 relative flex items-center justify-center border-b sm:border-b-0 sm:border-e border-slate-300 dark:border-slate-700">
-                <div className="text-center p-4">
-                  <Briefcase className="w-8 h-8 text-slate-400 dark:text-slate-600 mx-auto mb-2" />
-                  <p className="text-slate-500 text-xs font-mono">{t('spiritualEyes.scenarioImagePlaceholder')}</p>
-                </div>
+              <div className="sm:w-2/5 h-48 sm:h-auto bg-slate-200 dark:bg-slate-800 relative border-b sm:border-b-0 sm:border-e border-slate-300 dark:border-slate-700">
+                <img
+                  src={scenario01Image}
+                  alt={t('spiritualEyes.scenario1.title')}
+                  className="h-full w-full object-cover"
+                />
               </div>
               <div className="p-6 sm:w-3/5">
                 <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{t('spiritualEyes.scenario1.title')}</h4>
@@ -196,11 +281,12 @@ const SpiritualEyes: React.FC = () => {
 
             {/* Scenario 2 */}
             <div className="group rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col sm:flex-row shadow-sm hover:shadow-md transition-shadow">
-              <div className="sm:w-2/5 h-48 sm:h-auto bg-slate-200 dark:bg-slate-800 relative flex items-center justify-center border-b sm:border-b-0 sm:border-e border-slate-300 dark:border-slate-700">
-                <div className="text-center p-4">
-                  <Users className="w-8 h-8 text-slate-400 dark:text-slate-600 mx-auto mb-2" />
-                  <p className="text-slate-500 text-xs font-mono">{t('spiritualEyes.scenarioImagePlaceholder')}</p>
-                </div>
+              <div className="sm:w-2/5 h-48 sm:h-auto bg-slate-200 dark:bg-slate-800 relative border-b sm:border-b-0 sm:border-e border-slate-300 dark:border-slate-700">
+                <img
+                  src={scenario02Image}
+                  alt={t('spiritualEyes.scenario2.title')}
+                  className="h-full w-full object-cover"
+                />
               </div>
               <div className="p-6 sm:w-3/5">
                 <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{t('spiritualEyes.scenario2.title')}</h4>
@@ -214,11 +300,12 @@ const SpiritualEyes: React.FC = () => {
 
             {/* Scenario 3 */}
             <div className="group rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col sm:flex-row shadow-sm hover:shadow-md transition-shadow">
-              <div className="sm:w-2/5 h-48 sm:h-auto bg-slate-200 dark:bg-slate-800 relative flex items-center justify-center border-b sm:border-b-0 sm:border-e border-slate-300 dark:border-slate-700">
-                <div className="text-center p-4">
-                  <Building2 className="w-8 h-8 text-slate-400 dark:text-slate-600 mx-auto mb-2" />
-                  <p className="text-slate-500 text-xs font-mono">{t('spiritualEyes.scenarioImagePlaceholder')}</p>
-                </div>
+              <div className="sm:w-2/5 h-48 sm:h-auto bg-slate-200 dark:bg-slate-800 relative border-b sm:border-b-0 sm:border-e border-slate-300 dark:border-slate-700">
+                <img
+                  src={scenario03Image}
+                  alt={t('spiritualEyes.scenario3.title')}
+                  className="h-full w-full object-cover"
+                />
               </div>
               <div className="p-6 sm:w-3/5">
                 <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{t('spiritualEyes.scenario3.title')}</h4>
@@ -232,11 +319,12 @@ const SpiritualEyes: React.FC = () => {
 
             {/* Scenario 4 */}
             <div className="group rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col sm:flex-row shadow-sm hover:shadow-md transition-shadow">
-              <div className="sm:w-2/5 h-48 sm:h-auto bg-slate-200 dark:bg-slate-800 relative flex items-center justify-center border-b sm:border-b-0 sm:border-e border-slate-300 dark:border-slate-700">
-                <div className="text-center p-4">
-                  <Database className="w-8 h-8 text-slate-400 dark:text-slate-600 mx-auto mb-2" />
-                  <p className="text-slate-500 text-xs font-mono">{t('spiritualEyes.scenarioImagePlaceholder')}</p>
-                </div>
+              <div className="sm:w-2/5 h-48 sm:h-auto bg-slate-200 dark:bg-slate-800 relative border-b sm:border-b-0 sm:border-e border-slate-300 dark:border-slate-700">
+                <img
+                  src={scenario04Image}
+                  alt={t('spiritualEyes.scenario4.title')}
+                  className="h-full w-full object-cover"
+                />
               </div>
               <div className="p-6 sm:w-3/5">
                 <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{t('spiritualEyes.scenario4.title')}</h4>
@@ -254,25 +342,27 @@ const SpiritualEyes: React.FC = () => {
       {/* --- TECH COMPARISON & SPECS --- */}
       <section className="py-24 relative bg-slate-50 dark:bg-[#030712] border-t border-slate-200 dark:border-slate-800/50 transition-colors duration-300">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-12 text-center">{t('spiritualEyes.comparisonTitle')}</h2>
             
             {/* Image Comparison Placeholder */}
             <div className="mb-16 bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 flex flex-col md:flex-row gap-6 items-center shadow-sm">
-               <div className="flex-1 w-full aspect-video bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg flex items-center justify-center relative">
+               <div className="flex-1 w-full aspect-video bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg relative overflow-hidden">
                   <div className="absolute top-2 start-2 bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs px-2 py-1 rounded">{t('spiritualEyes.comparisonLeftBadge')}</div>
-                  <div className="text-center">
-                    <p className="text-slate-500 font-mono text-sm">{t('spiritualEyes.comparisonImagePlaceholder')}</p>
-                    <p className="text-slate-500 dark:text-slate-600 text-xs mt-1">{t('spiritualEyes.comparisonLeftDesc')}</p>
-                  </div>
+                  <img
+                    src={rgbScreenImage}
+                    alt={t('spiritualEyes.comparisonLeftBadge')}
+                    className="h-full w-full object-cover"
+                  />
                </div>
                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 font-bold border border-slate-200 dark:border-slate-700 shadow-inner">VS</div>
-               <div className="flex-1 w-full aspect-video bg-blue-50 dark:bg-slate-950 border border-blue-300 dark:border-blue-800/50 rounded-lg flex items-center justify-center relative shadow-[0_0_20px_rgba(37,99,235,0.05)] dark:shadow-[0_0_20px_rgba(37,99,235,0.1)]">
+               <div className="flex-1 w-full aspect-video bg-blue-50 dark:bg-slate-950 border border-blue-300 dark:border-blue-800/50 rounded-lg relative overflow-hidden shadow-[0_0_20px_rgba(37,99,235,0.05)] dark:shadow-[0_0_20px_rgba(37,99,235,0.1)]">
                   <div className="absolute top-2 start-2 bg-blue-600 dark:bg-blue-950 text-white dark:text-blue-400 border border-blue-500 dark:border-blue-800/50 text-xs px-2 py-1 rounded shadow-sm">{t('spiritualEyes.comparisonRightBadge')}</div>
-                  <div className="text-center">
-                    <p className="text-blue-600 dark:text-blue-700 font-mono text-sm">{t('spiritualEyes.comparisonImagePlaceholder')}</p>
-                    <p className="text-blue-800 dark:text-blue-900 text-xs mt-1">{t('spiritualEyes.comparisonRightDesc')}</p>
-                  </div>
+                  <img
+                    src={dvsScreenImage}
+                    alt={t('spiritualEyes.comparisonRightBadge')}
+                    className="h-full w-full object-cover"
+                  />
                </div>
             </div>
 
