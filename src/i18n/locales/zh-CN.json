@@ -313,12 +313,12 @@
       "desc": "突破传统信号检测盲区，不依赖WiFi、蓝牙或蜂窝网络信号。无论偷拍设备处于“飞行模式”、未插卡，还是在开启信号屏蔽仪的绝密会议室，依然精准识别。"
     },
     "feature2": {
-      "title": "设备+行为 双重锁定",
+      "title": "目标探测 & 行为识别，双重锁定",
       "desc": "红外(IR)传感器敏锐捕捉光学设备特征；DVS事件相机毫秒级感知“举机、对准、按下快门”等动态偷拍行为。融合算法极速精准打击，误报率极低。"
     },
     "feature3": {
       "title": "监控者不泄密",
-      "desc": "物理级隐私安全保障。DVS技术仅输出动态像素变化（轮廓与动作），不记录高清静态图像与文字细节，从硬件源头杜绝了“二次泄密”的可能。"
+      "desc": "物理级隐私安全保障。DVS 技术与 IR 红外传感器均不记录高清静态图像与文字细节，方案从硬件源头杜绝了“二次泄密”的可能。"
     },
     "formsTitle": "两大产品形态，全方位防护",
     "formsSubtitle": "从“固定空间”到“移动办公”，满足不同涉密等级与场景",
@@ -348,6 +348,15 @@
       "imagePlaceholderTitle": "随行版产品图占位 (建议尺寸: 800x600)",
       "imagePlaceholderDesc": "展示夹在笔记本屏幕上或放置在桌面上的小巧便携设备。"
     },
+    "webscreenBadge": "SYSTEM OVERVIEW",
+    "webscreenTitle": "隐卫实时监控大屏",
+    "webscreenSubtitle": "房间态势、设备在线、实时告警、处置回流，一屏掌握。",
+    "webscreenFeature1Title": "空间态势总览",
+    "webscreenFeature1Desc": "面向房间、区域和设备点位，查看部署状态、空间分布与风险热区。",
+    "webscreenFeature2Title": "实时告警联动",
+    "webscreenFeature2Desc": "告警结果与风险事件同步汇聚上屏，发现即上屏、告警即联动。",
+    "webscreenFeature3Title": "事件闭环追踪",
+    "webscreenFeature3Desc": "支持查看历史告警、处置状态与事件留痕，风险处理可追溯、可复盘。",
     "scenariosTitle": "四大核心应用场景",
     "scenariosSubtitle": "针对高密级空间及行为，提供针对性的防泄密解决方案",
     "scenarioImagePlaceholder": "场景图 600x600",

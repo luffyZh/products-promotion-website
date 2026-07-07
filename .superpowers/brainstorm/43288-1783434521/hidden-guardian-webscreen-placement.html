@@ -1,0 +1,111 @@
+<h2>隐卫 Web 大屏模块放在哪一段更顺？</h2>
+<p class="subtitle">方向已锁定为“态势总览”。请重点比较插入位置、叙事顺序和模块承担的角色。</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="mockup">
+        <div class="mockup-header">A. 放在产品形态之后（推荐）</div>
+        <div class="mockup-body">
+          <div class="label">页面顺序</div>
+          <div class="mock-nav">首屏 → 核心能力 → 两种产品形态 → Web 大屏 → 四大场景 → 技术对比</div>
+          <div style="display:grid;gap:12px;margin-top:14px;">
+            <div style="padding:12px 14px;border-radius:14px;background:#e8f0ff;border:1px solid #bfd4ff;color:#2457d6;font-weight:700;">新增模块：隐卫实时监控大屏</div>
+            <div style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:12px;">
+              <div class="placeholder" style="min-height:180px;background:linear-gradient(135deg,#07152f,#0a234d);color:#d7e8ff;border:1px solid rgba(114,156,255,.35);">左侧放文字与 3 个能力点</div>
+              <div class="placeholder" style="min-height:180px;background:linear-gradient(135deg,#020b1f,#071631);color:#9bc1ff;border:1px solid rgba(114,156,255,.25);">右侧放 Web 大屏预览图</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>总控中枢承上启下</h3>
+      <p>先讲设备形态，再讲“设备之上还有大屏总览系统”，然后自然过渡到四大场景。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="mockup">
+        <div class="mockup-header">B. 放在四大场景之后</div>
+        <div class="mockup-body">
+          <div class="label">页面顺序</div>
+          <div class="mock-nav">首屏 → 核心能力 → 两种产品形态 → 四大场景 → Web 大屏 → 技术对比</div>
+          <div style="display:grid;gap:12px;margin-top:14px;">
+            <div class="placeholder" style="min-height:96px;">先看落地场景，再看这些场景如何回收到统一大屏</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div class="placeholder" style="min-height:160px;">场景说明区</div>
+              <div class="placeholder" style="min-height:160px;background:linear-gradient(135deg,#07152f,#0a234d);color:#d7e8ff;">大屏预览区</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>平台作为收束能力</h3>
+      <p>更强调“多点部署后的统一回收”，但会让大屏出场偏晚，存在感略弱。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="mockup">
+        <div class="mockup-header">C. 并入技术对比模块前半段</div>
+        <div class="mockup-body">
+          <div class="label">页面顺序</div>
+          <div class="mock-nav">首屏 → 核心能力 → 两种产品形态 → 四大场景 → 大屏 + 技术对比合并</div>
+          <div style="display:grid;gap:12px;margin-top:14px;">
+            <div class="placeholder" style="min-height:92px;">上半区：大屏系统介绍</div>
+            <div class="placeholder" style="min-height:92px;">下半区：普通摄像头 VS DVS 对比</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>内容密度最高</h3>
+      <p>适合压缩页面长度，但两种信息类型会相互争抢，叙事不如前两种清晰。</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>推荐内容骨架</h3>
+  <p class="subtitle">无论放哪一段，我都建议这个模块写成“左文右图”的总控平台结构：</p>
+  <div class="split">
+    <div class="mockup">
+      <div class="mockup-header">左侧内容</div>
+      <div class="mockup-body">
+        <div class="label">标题</div>
+        <h3>隐卫实时监控大屏</h3>
+        <p>房间态势、设备在线、实时告警、处置回流，一屏掌握。</p>
+        <div class="pros-cons">
+          <div class="pros">
+            <h4>建议写 3 点</h4>
+            <ul>
+              <li>房间级空间态势可视化</li>
+              <li>实时告警流与多设备联动</li>
+              <li>事件回放与处置闭环留痕</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <h4>避免写法</h4>
+            <ul>
+              <li>纯参数堆砌</li>
+              <li>与下方技术对比重复</li>
+              <li>只说“可视化”不说用途</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mockup">
+      <div class="mockup-header">右侧视觉</div>
+      <div class="mockup-body">
+        <div class="placeholder" style="min-height:280px;background:linear-gradient(135deg,#031124,#081d45);color:#cfe3ff;border:1px solid rgba(114,156,255,.28);">
+          使用你提供的 Web 大屏截图作为主图
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

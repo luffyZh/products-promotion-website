@@ -9,6 +9,7 @@ import scenario03Image from '../assets/hidden-guard/scene03.png';
 import scenario04Image from '../assets/hidden-guard/scene04.png';
 import rgbScreenImage from '../assets/hidden-guard/RGB-screen.jpg';
 import dvsScreenImage from '../assets/hidden-guard/DVS-screen.jpg';
+import webScreenImage from '../assets/hidden-guard/web-screen.png';
 
 const goImage = new URL('../assets/hidden-guard/SE-Light-01.PNG', import.meta.url).href;
 
@@ -67,6 +68,23 @@ function SubtitleEmphasis({ children }: { children: React.ReactNode }) {
 
 const SpiritualEyes: React.FC = () => {
   const { t } = useTranslation();
+  const webscreenFeatures = [
+    {
+      key: 'overview',
+      title: t('spiritualEyes.webscreenFeature1Title'),
+      desc: t('spiritualEyes.webscreenFeature1Desc'),
+    },
+    {
+      key: 'alerts',
+      title: t('spiritualEyes.webscreenFeature2Title'),
+      desc: t('spiritualEyes.webscreenFeature2Desc'),
+    },
+    {
+      key: 'tracking',
+      title: t('spiritualEyes.webscreenFeature3Title'),
+      desc: t('spiritualEyes.webscreenFeature3Desc'),
+    },
+  ];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -243,6 +261,54 @@ const SpiritualEyes: React.FC = () => {
                   alt={t('spiritualEyes.air.name')}
                   className="h-full w-full object-cover"
                 />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- WEBSCREEN --- */}
+      <section className="py-24 relative bg-gradient-to-b from-slate-50 to-white dark:from-[#040b18] dark:to-slate-950 border-y border-slate-200 dark:border-slate-800/50 transition-colors duration-300">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="flex flex-col w-full justify-center items-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
+              {t('spiritualEyes.webscreenTitle')}
+            </h2>
+            <p className="mt-4 text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+              {t('spiritualEyes.webscreenSubtitle')}
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-[0.92fr_1.08fr] gap-10 xl:gap-14 items-stretch">
+            <div className="space-y-4">
+                {webscreenFeatures.map((item, index) => (
+                  <div
+                    key={item.key}
+                    className="rounded-2xl border border-slate-200 bg-white/90 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/60"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-sm font-bold text-white shadow-[0_8px_18px_rgba(37,99,235,0.22)] dark:bg-blue-500">
+                        0{index + 1}
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{item.title}</h3>
+                        <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{item.desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+            </div>
+
+            <div className="relative h-full">
+              <div className="absolute -inset-4 rounded-[36px] bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.26),transparent_46%),radial-gradient(circle_at_bottom_left,rgba(14,165,233,0.18),transparent_42%)] blur-2xl pointer-events-none" />
+              <div className="relative h-full rounded-[28px] border border-slate-200/80 bg-gradient-to-br from-slate-950 to-[#07142b] p-3 shadow-[0_24px_60px_rgba(15,23,42,0.18)] dark:border-blue-900/30">
+                <div className="h-full overflow-hidden rounded-[22px] border border-blue-400/20">
+                  <img
+                    src={webScreenImage}
+                    alt={t('spiritualEyes.webscreenTitle')}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
