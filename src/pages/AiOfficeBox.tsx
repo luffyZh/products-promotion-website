@@ -20,6 +20,10 @@ import { useTranslation } from 'react-i18next';
 import heroProductImage from '../assets/ai-officebox/AIBox-Product-Hero.png';
 import capacityProductImage from '../assets/ai-officebox/AIBox-Product-Capcity.png';
 import interfaceProductImage from '../assets/ai-officebox/AI-Powersource.png';
+import agentDocImage from '../assets/ai-officebox/01-doc.png';
+import agentKnowledgeImage from '../assets/ai-officebox/02-knowledge.png';
+import agentMeetingImage from '../assets/ai-officebox/03-record.png';
+import agentComplianceImage from '../assets/ai-officebox/04-docvalid.png';
 
 const scrollToId = (id: string) => {
   const el = document.getElementById(id);
@@ -27,83 +31,40 @@ const scrollToId = (id: string) => {
   el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
 
-type PlaceholderCardProps = {
-  title: string;
-  desc: string;
-  badge?: string;
-  icon: React.ComponentType<{ className?: string }>;
-  aspectClassName: string;
-  tone?: 'purple' | 'indigo' | 'slate';
-  frame?: boolean;
-  className?: string;
-};
-
-const PlaceholderCard: React.FC<PlaceholderCardProps> = ({
-  title,
-  desc,
-  badge,
-  icon: Icon,
-  aspectClassName,
-  tone = 'purple',
-  frame = true,
-  className
-}) => {
-  const toneClasses =
-    tone === 'indigo'
-      ? {
-          ring: 'border-indigo-200/70 dark:border-indigo-800/50',
-          chip: 'bg-indigo-600/10 dark:bg-indigo-400/10 text-indigo-800 dark:text-indigo-200 border-indigo-200/70 dark:border-indigo-700/30',
-          icon: 'text-indigo-700 dark:text-indigo-200'
-        }
-      : tone === 'slate'
-        ? {
-            ring: 'border-slate-200/70 dark:border-slate-800/60',
-            chip: 'bg-slate-900/5 dark:bg-white/5 text-slate-700 dark:text-slate-200 border-slate-200/70 dark:border-slate-800/60',
-            icon: 'text-slate-700 dark:text-slate-200'
-          }
-        : {
-            ring: 'border-purple-200/70 dark:border-purple-800/50',
-            chip: 'bg-purple-600/10 dark:bg-purple-400/10 text-purple-800 dark:text-purple-200 border-purple-200/70 dark:border-purple-700/30',
-            icon: 'text-purple-700 dark:text-purple-200'
-          };
-
-  return (
-    <div
-      className={`relative overflow-hidden ${className ?? ''} ${
-        frame ? `rounded-3xl border ${toneClasses.ring} bg-white/60 dark:bg-white/5 backdrop-blur shadow-xl` : 'w-full'
-      }`}
-    >
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(120%_80%_at_80%_20%,rgba(147,51,234,0.22),transparent_60%),radial-gradient(70%_50%_at_10%_80%,rgba(99,102,241,0.14),transparent_60%)] opacity-80" />
-      <div className="absolute inset-0 pointer-events-none [background-image:linear-gradient(rgba(2,6,23,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(2,6,23,0.08)_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.12] dark:opacity-[0.18]" />
-
-      <div className={`${aspectClassName} w-full flex items-center justify-center`}>
-        <div className="relative w-full h-full p-6 md:p-8 flex flex-col justify-between">
-          <div className="flex items-start justify-between gap-3">
-            <div className="min-w-0">
-              <div className="text-sm font-bold text-slate-950 dark:text-white truncate">{title}</div>
-              <div className="mt-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">{desc}</div>
-            </div>
-            <div className={`shrink-0 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-bold ${toneClasses.chip}`}>
-              <Icon className={`w-4 h-4 ${toneClasses.icon}`} />
-              {badge ?? 'IMAGE'}
-            </div>
-          </div>
-
-          <div className="mt-6 flex-1 rounded-2xl border border-dashed border-slate-300/70 dark:border-slate-700/70 bg-white/30 dark:bg-black/20 flex items-center justify-center">
-            <div className="text-center px-6">
-              <Icon className={`w-12 h-12 mx-auto opacity-70 ${toneClasses.icon}`} />
-              <div className="mt-3 text-xs font-semibold text-slate-700 dark:text-slate-200 tracking-wide">PLACEHOLDER</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 const AiOfficeBox: React.FC = () => {
   const { t } = useTranslation();
   const [activeAgent, setActiveAgent] = useState<'doc' | 'kb' | 'meeting' | 'compliance'>('doc');
+  const agentItems = [
+    {
+      key: 'doc' as const,
+      icon: FileText,
+      title: t('aiOfficeBox.agent1.title'),
+      desc: t('aiOfficeBox.agent1.desc'),
+      image: agentDocImage
+    },
+    {
+      key: 'kb' as const,
+      icon: FileSearch,
+      title: t('aiOfficeBox.agent2.title'),
+      desc: t('aiOfficeBox.agent2.desc'),
+      image: agentKnowledgeImage
+    },
+    {
+      key: 'meeting' as const,
+      icon: Mic,
+      title: t('aiOfficeBox.agent3.title'),
+      desc: t('aiOfficeBox.agent3.desc'),
+      image: agentMeetingImage
+    },
+    {
+      key: 'compliance' as const,
+      icon: ClipboardCheck,
+      title: t('aiOfficeBox.agent4.title'),
+      desc: t('aiOfficeBox.agent4.desc'),
+      image: agentComplianceImage
+    }
+  ];
+  const currentAgent = agentItems.find((item) => item.key === activeAgent) ?? agentItems[0];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -238,7 +199,7 @@ const AiOfficeBox: React.FC = () => {
                         <AlertTriangle className="w-5 h-5" />
                       </div>
                       <div className="flex items-baseline gap-2 flex-wrap">
-                        <span className="text-sm font-bold text-red-600 dark:text-red-300">
+                        <span className="text-md font-bold text-red-600 dark:text-red-300">
                           {t('aiOfficeBox.painLabel')}：
                         </span>
                         <span className="text-lg md:text-xl font-bold text-slate-950 dark:text-white leading-snug">
@@ -262,7 +223,7 @@ const AiOfficeBox: React.FC = () => {
                         <CheckCircle className="w-5 h-5" />
                       </div>
                        <div className="flex items-baseline gap-2 flex-wrap">
-                        <span className="text-sm font-bold text-emerald-700 dark:text-emerald-300">
+                        <span className="text-md font-bold text-emerald-700 dark:text-emerald-300">
                           {t('aiOfficeBox.solutionLabel')}：
                         </span>
                         <span className="text-lg md:text-xl font-bold text-slate-950 dark:text-white leading-snug">
@@ -352,7 +313,7 @@ const AiOfficeBox: React.FC = () => {
             <div className="lg:col-span-7">
               <div className="relative">
                 <div className="relative w-full flex items-center justify-center">
-                  <div className="absolute -top-8 flex items-center justify-center pointer-events-none select-none">
+                  <div className="absolute -top-10 flex items-center justify-center pointer-events-none select-none">
                     <div className="text-[clamp(56px,9.5vw,160px)] whitespace-nowrap font-bold text-purple-200 tracking-[-0.04em] dark:text-white/5">
                       160 TOPS
                     </div>
@@ -459,60 +420,40 @@ const AiOfficeBox: React.FC = () => {
 
           <div className="mt-12 grid lg:grid-cols-12 gap-8 items-stretch">
             <div className="lg:col-span-5">
-              <div className="h-full rounded-3xl bg-white dark:bg-white/5 border border-slate-200 dark:border-slate-800 p-2">
-                {(
-                  [
-                    {
-                      key: 'doc' as const,
-                      icon: FileText,
-                      title: t('aiOfficeBox.agent1.title'),
-                      desc: t('aiOfficeBox.agent1.desc')
-                    },
-                    {
-                      key: 'kb' as const,
-                      icon: FileSearch,
-                      title: t('aiOfficeBox.agent2.title'),
-                      desc: t('aiOfficeBox.agent2.desc')
-                    },
-                    {
-                      key: 'meeting' as const,
-                      icon: Mic,
-                      title: t('aiOfficeBox.agent3.title'),
-                      desc: t('aiOfficeBox.agent3.desc')
-                    },
-                    {
-                      key: 'compliance' as const,
-                      icon: ClipboardCheck,
-                      title: t('aiOfficeBox.agent4.title'),
-                      desc: t('aiOfficeBox.agent4.desc')
-                    }
-                  ] as const
-                ).map((tab) => {
-                  const active = tab.key === activeAgent;
+              <div className="h-full rounded-[28px] bg-transparent p-1 dark:border-slate-800/70">
+                {agentItems.map((item) => {
+                  const active = item.key === activeAgent;
                   return (
                     <button
-                      key={tab.key}
+                      key={item.key}
                       type="button"
-                      onClick={() => setActiveAgent(tab.key)}
-                      className={`w-full text-left flex items-start gap-6 rounded-2xl p-4 transition-colors ${
+                      onMouseEnter={() => setActiveAgent(item.key)}
+                      onFocus={() => setActiveAgent(item.key)}
+                      onClick={() => setActiveAgent(item.key)}
+                      aria-pressed={active}
+                      className={`group w-full rounded-[24px] p-5 text-left transition-all duration-300 ${
                         active
-                          ? 'bg-purple-600 text-white'
-                          : 'hover:bg-slate-50 dark:hover:bg-white/5 text-slate-900 dark:text-slate-200'
+                          ? 'bg-white shadow-[0_16px_30px_rgba(88,82,156,0.08)] ring-1 ring-slate-200/90 dark:bg-white/8 dark:ring-white/10'
+                          : 'bg-transparent hover:bg-white/70 hover:shadow-[0_10px_24px_rgba(15,23,42,0.04)] dark:hover:bg-white/5'
                       }`}
                     >
-                      <div
-                        className={`w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 ${
-                          active ? 'bg-white/15' : 'bg-purple-600/10 dark:bg-purple-400/10 text-purple-700 dark:text-purple-200'
-                        }`}
-                      >
-                        <tab.icon className={`w-5 h-5 ${active ? 'text-white' : ''}`} />
-                      </div>
-                      <div className="min-w-0">
-                        <div className={`text-sm font-bold ${active ? 'text-white' : 'text-slate-950 dark:text-white'}`}>
-                          {tab.title}
+                      <div className="flex items-start gap-5">
+                        <div
+                          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl transition-colors ${
+                            active
+                              ? 'bg-purple-100 text-purple-700 dark:bg-purple-500/15 dark:text-purple-200'
+                              : 'bg-slate-100 text-slate-500 dark:bg-white/5 dark:text-slate-400'
+                          }`}
+                        >
+                          <item.icon className="h-5 w-5" />
                         </div>
-                        <div className={`mt-1 text-xs leading-relaxed ${active ? 'text-white/85' : 'text-slate-600 dark:text-slate-300'}`}>
-                          {tab.desc}
+                        <div className="min-w-0">
+                          <div className={`text-base font-bold transition-colors ${active ? 'text-purple-600 dark:text-purple-300' : 'text-slate-950 dark:text-white'}`}>
+                            {item.title}
+                          </div>
+                          <div className={`mt-2 text-sm leading-relaxed transition-colors ${active ? 'text-slate-600 dark:text-slate-300' : 'text-slate-500 dark:text-slate-400'}`}>
+                            {item.desc}
+                          </div>
                         </div>
                       </div>
                     </button>
@@ -522,33 +463,15 @@ const AiOfficeBox: React.FC = () => {
             </div>
 
             <div className="lg:col-span-7">
-              <div className="h-full rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-white/5 shadow-xl">
-                <PlaceholderCard
-                  title={
-                    activeAgent === 'doc'
-                      ? t('aiOfficeBox.placeholderAgentDoc.title')
-                      : activeAgent === 'kb'
-                        ? t('aiOfficeBox.placeholderAgentKb.title')
-                        : activeAgent === 'meeting'
-                          ? t('aiOfficeBox.placeholderAgentMeeting.title')
-                          : t('aiOfficeBox.placeholderAgentCompliance.title')
-                  }
-                  desc={
-                    activeAgent === 'doc'
-                      ? t('aiOfficeBox.placeholderAgentDoc.desc')
-                      : activeAgent === 'kb'
-                        ? t('aiOfficeBox.placeholderAgentKb.desc')
-                        : activeAgent === 'meeting'
-                          ? t('aiOfficeBox.placeholderAgentMeeting.desc')
-                          : t('aiOfficeBox.placeholderAgentCompliance.desc')
-                  }
-                  badge={t('aiOfficeBox.placeholderAgent.badge')}
-                  icon={activeAgent === 'meeting' ? Mic : activeAgent === 'kb' ? FileSearch : activeAgent === 'doc' ? FileText : ClipboardCheck}
-                  aspectClassName="h-full"
-                  tone="slate"
-                  frame={false}
-                  className="h-full"
-                />
+              <div className="h-full min-h-[360px] rounded-[28px] bg-gradient-to-br from-slate-100 to-purple-50 p-3 shadow-[0_20px_45px_rgba(15,23,42,0.08)] dark:from-white/5 dark:to-purple-500/5">
+                <div className="relative h-full overflow-hidden rounded-[22px] bg-white shadow-xl dark:bg-[#0f0d15]">
+                  <img
+                    key={currentAgent.key}
+                    src={currentAgent.image}
+                    alt={currentAgent.title}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>

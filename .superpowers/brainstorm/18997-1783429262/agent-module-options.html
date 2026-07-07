@@ -1,0 +1,102 @@
+<h2>Agent 模块交互方向</h2>
+<p class="subtitle">目标：左侧默认无强样式，鼠标 Hover 时出现选中态，右侧同步切换对应图片。已按你的要求默认预置首项图片。</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="mockup">
+        <div class="mockup-header">A. 参考型，最接近钉钉页面</div>
+        <div class="mockup-body" style="display:grid;grid-template-columns: 0.95fr 1.2fr;gap:24px;align-items:stretch;background:linear-gradient(180deg,#fafafb,#f4f4ff);">
+          <div style="padding:8px 2px;">
+            <div style="font-size:24px;font-weight:700;color:#16181d;margin-bottom:22px;">Agent，更强</div>
+            <div style="padding:18px 18px 16px;border-radius:18px;background:#fff;box-shadow:0 10px 28px rgba(80,95,180,.08);border:1px solid #eef2ff;">
+              <div style="color:#7c5cff;font-weight:700;font-size:18px;">智能文档处理</div>
+              <div style="margin-top:8px;color:#7b8194;font-size:13px;line-height:1.7;">默认无重底色，仅 Hover 或当前项出现轻卡片高亮，右图联动切换。</div>
+            </div>
+            <div style="padding:22px 6px 10px;">
+              <div style="color:#20242d;font-weight:700;font-size:18px;">企业专属知识库</div>
+              <div style="margin-top:8px;color:#7b8194;font-size:13px;line-height:1.7;">平时就是文字列表，移入时切换为当前态。</div>
+            </div>
+            <div style="padding:18px 6px 0;">
+              <div style="color:#20242d;font-weight:700;font-size:18px;">会议纪要与任务提取</div>
+              <div style="margin-top:8px;color:#7b8194;font-size:13px;line-height:1.7;">整体最轻，和右侧大图形成明显主次。</div>
+            </div>
+          </div>
+          <div style="border-radius:20px;background:linear-gradient(180deg,#ffffff,#f6f7fb);border:1px solid #eef0f6;padding:20px;display:flex;align-items:center;justify-content:center;">
+            <div style="width:100%;height:260px;border-radius:16px;background:linear-gradient(135deg,#f0f3ff,#dfe6ff 48%,#edf3ff);position:relative;overflow:hidden;">
+              <div style="position:absolute;inset:22px;background:#fff;border-radius:14px;box-shadow:0 18px 40px rgba(49,61,120,.10);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:#6d55ff;">右侧大图随 Hover 切换</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>方案 A</h3>
+      <p>最贴近参考图。左侧当前项只出现很轻的卡片浮层，右侧大图是视觉主角。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="mockup">
+        <div class="mockup-header">B. 极简型，强化信息密度</div>
+        <div class="mockup-body" style="display:grid;grid-template-columns: 0.9fr 1.25fr;gap:24px;align-items:stretch;background:linear-gradient(180deg,#fbfbfc,#f6f7fb);">
+          <div style="padding:8px 2px;">
+            <div style="font-size:24px;font-weight:700;color:#16181d;margin-bottom:22px;">Agent，更强</div>
+            <div style="padding:12px 0 12px 16px;border-left:4px solid #7c5cff;">
+              <div style="color:#20242d;font-weight:700;font-size:18px;">智能文档处理</div>
+              <div style="margin-top:8px;color:#7b8194;font-size:13px;line-height:1.7;">Hover 时只出现左侧主题色竖条和标题染色。</div>
+            </div>
+            <div style="padding:22px 0 12px 16px;border-left:4px solid transparent;">
+              <div style="color:#20242d;font-weight:700;font-size:18px;">企业专属知识库</div>
+              <div style="margin-top:8px;color:#7b8194;font-size:13px;line-height:1.7;">比 A 更克制，但层次感弱一点。</div>
+            </div>
+            <div style="padding:22px 0 0 16px;border-left:4px solid transparent;">
+              <div style="color:#20242d;font-weight:700;font-size:18px;">会议纪要与任务提取</div>
+              <div style="margin-top:8px;color:#7b8194;font-size:13px;line-height:1.7;">适合偏企业工具风格。</div>
+            </div>
+          </div>
+          <div style="border-radius:20px;background:#fff;border:1px solid #eef0f6;padding:20px;display:flex;align-items:center;justify-content:center;">
+            <div style="width:100%;height:260px;border-radius:16px;background:linear-gradient(135deg,#ece8ff,#f7f5ff);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:#6d55ff;">右侧图片淡入切换</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>方案 B</h3>
+      <p>更克制，左侧几乎只是文字目录。优点是干净，缺点是没有参考页那种轻悬浮感。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="mockup">
+        <div class="mockup-header">C. 品牌型，增强紫色识别</div>
+        <div class="mockup-body" style="display:grid;grid-template-columns: 0.95fr 1.2fr;gap:24px;align-items:stretch;background:linear-gradient(180deg,#faf8ff,#f2efff);">
+          <div style="padding:8px 2px;">
+            <div style="font-size:24px;font-weight:700;color:#16181d;margin-bottom:22px;">Agent，更强</div>
+            <div style="padding:18px 18px 16px;border-radius:18px;background:linear-gradient(90deg,rgba(124,92,255,.12),rgba(124,92,255,.04));border:1px solid rgba(124,92,255,.14);">
+              <div style="color:#6b4eff;font-weight:800;font-size:18px;">智能文档处理</div>
+              <div style="margin-top:8px;color:#6f7588;font-size:13px;line-height:1.7;">Hover 时高亮更明显，品牌感更强。</div>
+            </div>
+            <div style="padding:22px 6px 10px;">
+              <div style="color:#20242d;font-weight:700;font-size:18px;">企业专属知识库</div>
+              <div style="margin-top:8px;color:#7b8194;font-size:13px;line-height:1.7;">更适合营销页，但会稍微抢右图风头。</div>
+            </div>
+            <div style="padding:18px 6px 0;">
+              <div style="color:#20242d;font-weight:700;font-size:18px;">会议纪要与任务提取</div>
+              <div style="margin-top:8px;color:#7b8194;font-size:13px;line-height:1.7;">当前态识别最强。</div>
+            </div>
+          </div>
+          <div style="border-radius:20px;background:linear-gradient(180deg,#ffffff,#f8f6ff);border:1px solid rgba(124,92,255,.12);padding:20px;display:flex;align-items:center;justify-content:center;">
+            <div style="width:100%;height:260px;border-radius:16px;background:linear-gradient(135deg,#efe8ff,#ffffff 55%,#f0ebff);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:#6d55ff;">图片切换 + 更强品牌氛围</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>方案 C</h3>
+      <p>延续你站内紫色体系最明显，但比参考页更“设计化”，不如 A 克制。</p>
+    </div>
+  </div>
+</div>
