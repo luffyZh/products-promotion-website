@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import {
   AlertTriangle,
   ArrowRight,
-  Building2,
   CheckCircle,
   ClipboardCheck,
   Cpu,
@@ -14,11 +13,13 @@ import {
   Network,
   ShieldCheck,
   Sparkles,
+  ArrowUp,
   Zap
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import heroProductImage from '../assets/ai-officebox/AIBox-Product-Hero.png';
 import capacityProductImage from '../assets/ai-officebox/AIBox-Product-Capcity.png';
+import interfaceProductImage from '../assets/ai-officebox/AI-Powersource.png';
 
 const scrollToId = (id: string) => {
   const el = document.getElementById(id);
@@ -366,6 +367,86 @@ const AiOfficeBox: React.FC = () => {
           </div>
         </div>
       </section>
+      
+      <section id="interface" className="py-20 lg:py-28 bg-slate-50 dark:bg-[#08070a] border-b border-slate-200 dark:border-slate-900/60">
+        <div className="container max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-950 dark:text-white">{t('aiOfficeBox.interfaceTitle')}</h2>
+            <p className="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">{t('aiOfficeBox.interfaceSubtitle')}</p>
+          </div>
+
+          <div className="mt-12 grid lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-7">
+              <div className="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-white/5 shadow-xl">
+                <img src={interfaceProductImage} alt={t('aiOfficeBox.interfaceImageAlt')} loading="lazy" className="w-full aspect-[16/10] object-cover" />
+              </div>
+            </div>
+
+            <div className="lg:col-span-5">
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {[
+                  {
+                    icon: Network,
+                    count: t('aiOfficeBox.ports.lan.count'),
+                    label: t('aiOfficeBox.ports.lan.label'),
+                    desc: t('aiOfficeBox.ports.lan.desc')
+                  },
+                  {
+                    icon: Zap,
+                    count: t('aiOfficeBox.ports.typec.count'),
+                    label: t('aiOfficeBox.ports.typec.label'),
+                    desc: t('aiOfficeBox.ports.typec.desc')
+                  },
+                  {
+                    icon: Cpu,
+                    count: t('aiOfficeBox.ports.usb32.count'),
+                    label: t('aiOfficeBox.ports.usb32.label'),
+                    desc: t('aiOfficeBox.ports.usb32.desc')
+                  },
+                  {
+                    icon: Layers,
+                    count: t('aiOfficeBox.ports.hdmi.count'),
+                    label: t('aiOfficeBox.ports.hdmi.label'),
+                    desc: t('aiOfficeBox.ports.hdmi.desc')
+                  },
+                  {
+                    icon: Mic,
+                    count: t('aiOfficeBox.ports.audio.count'),
+                    label: t('aiOfficeBox.ports.audio.label'),
+                    desc: t('aiOfficeBox.ports.audio.desc')
+                  },
+                  {
+                    icon: Zap,
+                    count: t('aiOfficeBox.ports.dc.count'),
+                    label: t('aiOfficeBox.ports.dc.label'),
+                    desc: t('aiOfficeBox.ports.dc.desc')
+                  }
+                ].map((p) => (
+                  <div
+                    key={`${p.label}-${p.count}`}
+                    className="flex items-center rounded-2xl bg-slate-50 dark:bg-black/10 border border-slate-200 dark:border-slate-800 px-5 py-4"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-purple-600/10 dark:bg-purple-400/10 text-purple-700 dark:text-purple-200 flex items-center justify-center shrink-0">
+                        <p.icon className="w-5 h-5" />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2">
+                          <div className="text-sm font-bold text-slate-950 dark:text-white truncate">{p.label}</div>
+                          <span className="shrink-0 px-2 py-0.5 rounded-full text-[11px] font-bold bg-purple-600 text-white">
+                            {p.count}
+                          </span>
+                        </div>
+                        <div className="mt-1 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">{p.desc}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section id="agents" className="py-20 lg:py-28 bg-slate-50 dark:bg-[#08070a] border-b border-slate-200 dark:border-slate-900/60">
         <div className="container max-w-7xl mx-auto px-6">
@@ -471,127 +552,6 @@ const AiOfficeBox: React.FC = () => {
         </div>
       </section>
 
-      <section id="architecture" className="py-20 lg:py-28 bg-white dark:bg-[#07060a] border-b border-slate-200 dark:border-slate-900/60">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-12 gap-10 items-start">
-            <div className="lg:col-span-5">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-950 dark:text-white">
-                {t('aiOfficeBox.archTitle')}
-              </h2>
-              <p className="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">{t('aiOfficeBox.archSubtitle')}</p>
-
-              <div className="mt-10 space-y-3">
-                {[
-                  { label: t('aiOfficeBox.archLayer4Label'), value: t('aiOfficeBox.archLayer4Value') },
-                  { label: t('aiOfficeBox.archLayer3Label'), value: t('aiOfficeBox.archLayer3Value') },
-                  { label: t('aiOfficeBox.archLayer2Label'), value: t('aiOfficeBox.archLayer2Value') },
-                  { label: t('aiOfficeBox.archLayer1Label'), value: t('aiOfficeBox.archLayer1Value') }
-                ].map((item) => (
-                  <div
-                    key={item.label}
-                    className="rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-slate-800 p-5"
-                  >
-                    <div className="text-xs font-bold text-purple-700 dark:text-purple-300">{item.label}</div>
-                    <div className="mt-2 text-sm text-slate-700 dark:text-slate-200 leading-relaxed">{item.value}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="lg:col-span-7">
-              <div className="rounded-3xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-slate-800 p-6 md:p-8">
-                <div className="flex items-center gap-3 text-sm font-bold text-slate-950 dark:text-white">
-                  <Layers className="w-5 h-5 text-purple-700 dark:text-purple-300" />
-                  {t('aiOfficeBox.archDiagramTitle')}
-                </div>
-                <div className="mt-6 space-y-3">
-                  {[
-                    { title: t('aiOfficeBox.archDiagramSaaS'), desc: t('aiOfficeBox.archDiagramSaaSDesc') },
-                    { title: t('aiOfficeBox.archDiagramMaaS'), desc: t('aiOfficeBox.archDiagramMaaSDesc') },
-                    { title: t('aiOfficeBox.archDiagramPaaS'), desc: t('aiOfficeBox.archDiagramPaaSDesc') },
-                    { title: t('aiOfficeBox.archDiagramIaaS'), desc: t('aiOfficeBox.archDiagramIaaSDesc') }
-                  ].map((layer, idx) => (
-                    <div
-                      key={layer.title}
-                      className="relative rounded-2xl bg-white dark:bg-black/20 border border-slate-200 dark:border-slate-800 p-5"
-                    >
-                      <div className="flex items-start justify-between gap-3">
-                        <div>
-                          <div className="text-sm font-bold text-slate-950 dark:text-white">{layer.title}</div>
-                          <div className="mt-1 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">{layer.desc}</div>
-                        </div>
-                        <div className="shrink-0 text-xs font-bold text-slate-500 dark:text-slate-400">{String(idx + 1).padStart(2, '0')}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="industry" className="py-20 lg:py-28 bg-slate-50 dark:bg-[#08070a] border-b border-slate-200 dark:border-slate-900/60">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-950 dark:text-white">{t('aiOfficeBox.industryTitle')}</h2>
-            <p className="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">{t('aiOfficeBox.industrySubtitle')}</p>
-          </div>
-
-          <div className="mt-12 grid lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: t('aiOfficeBox.industry1.title'),
-                desc: t('aiOfficeBox.industry1.desc'),
-                icon: Building2
-              },
-              {
-                title: t('aiOfficeBox.industry2.title'),
-                desc: t('aiOfficeBox.industry2.desc'),
-                icon: Cpu
-              },
-              {
-                title: t('aiOfficeBox.industry3.title'),
-                desc: t('aiOfficeBox.industry3.desc'),
-                icon: ShieldCheck
-              }
-            ].map((card) => (
-              <div
-                key={card.title}
-                className="rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-white/5 shadow-lg shadow-black/5"
-              >
-                <div className="relative">
-                  <PlaceholderCard
-                    title={
-                      card.title === t('aiOfficeBox.industry1.title')
-                        ? t('aiOfficeBox.placeholderIndustryGov.title')
-                        : card.title === t('aiOfficeBox.industry2.title')
-                          ? t('aiOfficeBox.placeholderIndustryFactory.title')
-                          : t('aiOfficeBox.placeholderIndustrySecurity.title')
-                    }
-                    desc={
-                      card.title === t('aiOfficeBox.industry1.title')
-                        ? t('aiOfficeBox.placeholderIndustryGov.desc')
-                        : card.title === t('aiOfficeBox.industry2.title')
-                          ? t('aiOfficeBox.placeholderIndustryFactory.desc')
-                          : t('aiOfficeBox.placeholderIndustrySecurity.desc')
-                    }
-                    badge={t('aiOfficeBox.placeholderIndustry.badge')}
-                    icon={card.icon}
-                    aspectClassName="aspect-[16/10]"
-                    tone="slate"
-                    frame={false}
-                  />
-                </div>
-                <div className="p-6">
-                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{card.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="roadmap" className="py-20 lg:py-28 bg-white dark:bg-[#07060a] border-b border-slate-200 dark:border-slate-900/60">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto">
@@ -625,7 +585,7 @@ const AiOfficeBox: React.FC = () => {
         <div className="absolute -top-56 end-0 w-[700px] h-[520px] rounded-full bg-fuchsia-500/25 blur-[140px] pointer-events-none" />
         <div className="absolute -bottom-56 start-0 w-[700px] h-[520px] rounded-full bg-indigo-500/20 blur-[140px] pointer-events-none" />
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container max-w-7xl mx-auto px-6 relative z-10">
           <div className="max-w-5xl mx-auto rounded-3xl border border-white/15 bg-white/5 backdrop-blur p-8 md:p-12 shadow-2xl">
             <div className="flex flex-col lg:flex-row gap-10 items-start">
               <div className="flex-1">
@@ -650,21 +610,9 @@ const AiOfficeBox: React.FC = () => {
                     onClick={() => scrollToId('overview')}
                     className="inline-flex items-center gap-2 rounded-full bg-white/10 text-white px-6 py-3 text-sm md:text-base font-semibold border border-white/15 hover:bg-white/15 transition-colors"
                   >
+                    <ArrowUp className="w-4 h-4" />
                     {t('aiOfficeBox.ctaBackToTop')}
                   </button>
-                </div>
-
-                <div className="mt-8 grid sm:grid-cols-3 gap-3">
-                  {[
-                    { title: t('aiOfficeBox.ctaPoint1Title'), desc: t('aiOfficeBox.ctaPoint1Desc') },
-                    { title: t('aiOfficeBox.ctaPoint2Title'), desc: t('aiOfficeBox.ctaPoint2Desc') },
-                    { title: t('aiOfficeBox.ctaPoint3Title'), desc: t('aiOfficeBox.ctaPoint3Desc') }
-                  ].map((p) => (
-                    <div key={p.title} className="rounded-2xl bg-black/20 border border-white/10 p-4">
-                      <div className="text-sm font-bold">{p.title}</div>
-                      <div className="mt-1 text-xs text-white/70 leading-relaxed">{p.desc}</div>
-                    </div>
-                  ))}
                 </div>
               </div>
 
