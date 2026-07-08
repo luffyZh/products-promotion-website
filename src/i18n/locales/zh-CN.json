@@ -74,7 +74,7 @@
     "heroCtaPrimary": "预约产品演示",
     "heroCtaSecondary": "查看四大智能体",
     "heroMetric1Title": "160 TOPS 端侧算力",
-    "heroMetric1Desc": "7B–13B 本地推理更流畅",
+    "heroMetric1Desc": "7B/13B 本地推理更流畅",
     "heroMetric2Title": "国密级安全链路",
     "heroMetric2Desc": "TCM + 全盘加密 + 审计",
     "heroMetric3Title": "毫秒级响应",
@@ -142,7 +142,7 @@
       "desc": "导入时自动对人名、地名、涉密代号进行遮蔽泛化。AI生成初稿后，授权用户可一键将脱敏词汇恢复为原文，兼顾推理安全与材料可用性。"
     },
     "adv3": {
-      "title": "本地 8B 大模型与 RAG",
+      "title": "本地 7B/13B 大模型与 RAG",
       "desc": "内置高性能端侧大模型，结合检索增强生成（RAG），实现精准文档解析、语义检索、多文档对比与答案溯源（直接显示引用来源）。"
     },
     "adv4": {
